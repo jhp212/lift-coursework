@@ -4,7 +4,7 @@ Lift Coursework
 
 -- TO DO:
 (-) SCAN algorithm      (THOMAS)    
-(-) LOOK algorithm      (------)
+(-) LOOK algorithm      (DORUK)
 (?) GUI                 (OLIVER)
 (-) Gather results      (------)
 (-) Create presentation (------)
