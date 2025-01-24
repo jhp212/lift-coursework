@@ -6,6 +6,7 @@ Lift Coursework
 (-) SCAN algorithm      (THOMAS)    
 (-) LOOK algorithm      (DORUK)
 (?) GUI                 (OLIVER)
-(-) Gather results      (------)
+(?) Real Time Algorithm (OLIVER)
+(-) Gather results      (OLIVER)
 (-) Create presentation (------)
 (-) Record presentation (------)
