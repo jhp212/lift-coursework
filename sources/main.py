@@ -30,6 +30,11 @@ class Lift:
         self.min_floor = 0 # Floor 0 is Ground Floor
         self.id = lift_id
     
+    def open_doors(self, passengers_list: list[Passenger]):
+        for passenger in passengers_list:
+            passenger.get_off()
+
+    
     def scan(self, passengers_list: list[Passenger]):
         pass
     
