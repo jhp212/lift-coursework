@@ -5,6 +5,7 @@ class Passenger:
         self.start_floor, self.end_floor, self.start_time = start_floor, end_floor, 0
         self.boarded, self.lift_id = False, None
         self.passenger_id = passenger_id
+        self.direction = -1 if start_floor - end_floor > 0 else 1
     
     def get_on(self, lift_id: int):
         self.boarded = True
