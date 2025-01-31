@@ -1,4 +1,5 @@
 from tests.loader import Passenger, load_file
+import time
 
 number_of_lifts = 1 # We are allowing only one lift, so as not to struggle with threading.
 test_file = "sources/tests/test1.json"
@@ -18,27 +19,33 @@ if __name__ == "__main__":
 
 class Lift:
     def __init__(self, start_floor: int, lift_id: int, max_floor: int, max_capacity):
-        self.floor = start_floor
-        self.max_floor = max_floor
-        self.min_floor = 1 # Floor 1 is Ground Floor
-        self.id = lift_id # So that (if we run multiple lifts), each passenger is only in one lift at once.
-        self.capacity = max_capacity # Variable capacity
-        self.current_capacity = 0 # Lift starts out as empty.
+        self.floor: int = start_floor
+        self.max_floor: int = max_floor
+        self.min_floor: int = 1 # Floor 1 is Ground Floor
+        self.id: int = lift_id # So that (if we run multiple lifts), each passenger is only in one lift at once.
+        self.capacity: int = max_capacity # Variable capacity
+        self.current_capacity: int = 0 # Lift starts out as empty.
+        self.occupants: list[Passenger] = []
     
     def open_doors(self):
-        global terminated_passengers, lift_list, passenger_list
+        global terminated_passengers, passenger_list, start
         for passenger in passenger_list:
             if passenger.lift_id == self.id and passenger.end_floor == self.floor:
                 passenger.boarded, passenger.lift_id = False, None
                 self.current_capacity -= 1
                 passenger_list.remove(passenger)
                 terminated_passengers.append(passenger)
-        for passenger in sorted(passenger_list, key=map(lambda x: x.passenger_id, passenger_list)):
+                self.occupants.remove(passenger)
+                passenger.end_time = time.time() - start
+        sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=map(lambda x: x.passenger_id, passenger_list))
+        for passenger in sorted_passenger_list:
             if self.current_capacity == self.capacity:
                 break
             if passenger.start_floor == self.floor and passenger.boarded == False:
                 passenger.boarded, passenger.lift_id = True, self.id
                 self.current_capacity += 1
+                self.occupants.append(passenger)
+                passenger.pickup_time = time.time() - start
 
 
     
@@ -47,7 +54,7 @@ class Lift:
         pass
     
     def look(self): # !!!!PLEASE DONT JUDGE YET!!!!
-        global passenger_list
+        global passenger_list # This is *all* the passengers, not just the one in the lift.
         while passenger_list:
             direction = self.findDirection(passenger_list[0].start_floor)
                 
@@ -86,9 +93,10 @@ class Lift:
 
 
 if __name__ == "__main__":
+    start = time.time()
     # Start intitial setup for Lift objects
-    terminated_passengers = []
-    lift_list = []
+    terminated_passengers: list[Passenger] = []
+    lift_list: list[Lift] = []
     for i in range(number_of_lifts):
         lift_list.append(Lift(0, i, max_floor, max_capacity))
     # End initial setup for Lift objects
