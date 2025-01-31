@@ -52,7 +52,7 @@ class Lift:
                         passengers_list.remove(passenger)
                         
                     elif self.floor == passenger.start_floor:
-                        passenger.get_on() #pt 2
+                        passenger.get_on(self.id) #pt 2
             
             direction = self.findDirection(passengers_list[0].end_floor) #repeat the same logic but target floor is the end goal now        
             while passengers_list[0].end_floor != self.floor:
