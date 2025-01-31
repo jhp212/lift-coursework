@@ -6,6 +6,7 @@ class Passenger:
         self.boarded, self.lift_id = False, None
         self.passenger_id = passenger_id
         self.direction = -1 if start_floor - end_floor > 0 else 1
+        self.pickup_time = None
         self.end_time = None
 
 
