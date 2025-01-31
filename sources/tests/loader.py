@@ -1,6 +1,15 @@
 import json
 
-def load_file(path:str):
+class Passenger:
+    def __init__(self, start_floor: int, end_floor: int, passenger_id: int):
+        self.start_floor, self.end_floor, self.start_time = start_floor, end_floor, 0
+        self.boarded, self.lift_id = False, None
+        self.passenger_id = passenger_id
+        self.direction = -1 if start_floor - end_floor > 0 else 1
+        self.end_time = None
+
+
+def load_file(path:str) -> tuple[int, int, list[Passenger]]:
     # load json file as a python dictionary
     with open(path, "r") as file:
         data = json.load(file)
@@ -40,14 +49,6 @@ def load_file(path:str):
 
     return data["floor_count"], data["capacity"], passenger_list
 
-
-class Passenger:
-    def __init__(self, start_floor: int, end_floor: int, passenger_id: int):
-        self.start_floor, self.end_floor, self.start_time = start_floor, end_floor, 0
-        self.boarded, self.lift_id = False, None
-        self.passenger_id = passenger_id
-        self.direction = -1 if start_floor - end_floor > 0 else 1
-        self.end_time = None
     
         
 if __name__ == "__main__":
