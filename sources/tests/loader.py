@@ -1,7 +1,18 @@
 import json
 
 def load_file(path:str):
-    pass
+    with open(path, "r") as file:
+        data = json.load(file)
+    
+    if data["floor_count"] < len(data["floor_requests"]):
+        raise ValueError("Too many floors given!")
+    
+    passenger_list = []
+    for floor in data["floor_requests"]:
+        for end_floor in data["floor_requests"][floor]:
+            passenger_list.append(Passenger(int(floor), end_floor, len(passenger_list)))
+
+    return data["floor_count"], data["capacity"], passenger_list
 
 
 class Passenger:
@@ -25,3 +36,11 @@ class Passenger:
             return True
         else:
             return False
+        
+if __name__ == "__main__":
+    floor_count, capacity, passenger_list = load_file("sources/tests/test3.json")
+    print(floor_count)
+    print(capacity)
+    for passenger in passenger_list:
+        print((passenger.start_floor, passenger.end_floor))
+    
