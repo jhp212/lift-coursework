@@ -1,3 +1,4 @@
+from tests.loader import Passenger, load_file
 
 
 
@@ -13,8 +14,20 @@ class Lift:
         self.current_capacity = 0
     
     def open_doors(self, passengers_list: list[Passenger]):
+        global terminated_passengers, lift_list
         for passenger in passengers_list:
-            passenger.get_off()
+            if passenger.lift_id == self.id and passenger.end_floor == self.floor:
+                passenger.boarded, passenger.lift_id = False, None
+                self.current_capacity -= 1
+                passengers_list.remove(passenger)
+                terminated_passengers.append(passenger)
+        for passenger in sorted(passengers_list, key=map(lambda x: x.passenger_id, passengers_list)):
+            if self.current_capacity == self.capacity:
+                break
+            if passenger.start_floor == self.floor and passenger.boarded == False:
+                passenger.boarded, passenger.lift_id = True, self.id
+                self.current_capacity += 1
+
 
     
     def scan(self, passengers_list: list[Passenger]):
@@ -56,3 +69,7 @@ class Lift:
                 direction = 1
                 
         return direction    
+
+
+if __name__ == "__main__":
+    terminated_passengers = []
