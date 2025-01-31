@@ -4,11 +4,13 @@
 
 
 class Lift:
-    def __init__(self, start_floor: int, lift_id: int, max_floor: int):
+    def __init__(self, start_floor: int, lift_id: int, max_floor: int, max_capacity):
         self.floor = start_floor
         self.max_floor = max_floor
         self.min_floor = 0 # Floor 0 is Ground Floor
         self.id = lift_id
+        self.capacity = max_capacity
+        self.current_capacity = 0
     
     def open_doors(self, passengers_list: list[Passenger]):
         for passenger in passengers_list:
