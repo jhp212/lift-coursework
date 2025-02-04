@@ -48,10 +48,45 @@ class Lift:
                 passenger.pickup_time = time.time() - start
 
 
+def open_doors_scan(self, direction): # separate function for the scan algorithm; see below comments
+        global terminated_passengers, passenger_list, start
+        for passenger in passenger_list:
+            if passenger.lift_id == self.id and passenger.end_floor == self.floor:
+                passenger.boarded, passenger.lift_id = False, None
+                self.current_capacity -= 1
+                passenger_list.remove(passenger)
+                terminated_passengers.append(passenger)
+                self.occupants.remove(passenger)
+                passenger.end_time = time.time() - start
+        sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=map(lambda x: x.passenger_id, passenger_list))
+        for passenger in sorted_passenger_list:
+            if self.current_capacity == self.capacity:
+                break
+            if passenger.start_floor == self.floor and passenger.boarded == False: # passengers should not go up if their destination is down, and vice versa
+                if passenger.direction == direction: # checks that the destination is in the direction the lift is travelling else the passenger will not board
+                    passenger.boarded, passenger.lift_id = True, self.id
+                    self.current_capacity += 1
+                    self.occupants.append(passenger)
+                    passenger.pickup_time = time.time() - start
+
+
     
     def scan(self):
         global passenger_list # DO NOT DELETE! YOU WILL NEED THIS!!!
-        pass
+        direction = self.findDirection(passenger_list[0].start_floor) # initialising; discuss whether to let user define, or generate automatically as here
+        while passenger_list:
+            
+            while self.floor != self.max_floor and self.floor != self.min_floor:
+                self.floor += direction
+                open_doors_scan(self, direction)
+            
+            if self.floor == self.min_floor:
+                self.direction = 1
+            elif self.floor == self.max_floor:
+                self.direction = -1
+
+
+
     
     def look(self): # !!!!PLEASE DONT JUDGE YET!!!!
         global passenger_list # This is *all* the passengers, not just the one in the lift.
