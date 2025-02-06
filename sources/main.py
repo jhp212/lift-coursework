@@ -46,9 +46,7 @@ class Lift:
                 self.current_capacity += 1
                 self.occupants.append(passenger)
                 passenger.pickup_time = time.time() - start
-
-
-def open_doors_scan(self, direction): # separate function for the scan algorithm; see below comments
+    def open_doors_scan(self, direction): # separate function for the scan algorithm; see below comments
         global terminated_passengers, passenger_list, start
         for passenger in passenger_list:
             if passenger.lift_id == self.id and passenger.end_floor == self.floor:
