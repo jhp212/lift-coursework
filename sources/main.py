@@ -76,7 +76,7 @@ class Lift:
             
             while self.floor != self.max_floor and self.floor != self.min_floor:
                 self.floor += direction
-                open_doors_scan(self, direction)
+                self.open_doors_scan(self, direction)
             
             if self.floor == self.min_floor:
                 self.direction = 1
