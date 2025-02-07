@@ -53,7 +53,7 @@ class Lift:
                 self.occupants.append(passenger)
                 passenger.pickup_time = iteration_count- start
         iteration_count += doors_time
-    def open_doors_scan(self, direction): # separate function for the scan algorithm; see below comments
+    def open_doors_directional(self, direction): # separate function for the scan algorithm; see below comments
         global terminated_passengers, passenger_list, start, iteration_count, doors_time
         for passenger in passenger_list:
             if passenger.lift_id == self.id and passenger.end_floor == self.floor:
@@ -76,41 +76,12 @@ class Lift:
                     self.occupants.append(passenger)
                     passenger.pickup_time = iteration_count - start
         iteration_count += doors_time
-    def open_doors_look(self, direction): # separate function for the look algorithm; see below changes
-        global terminated_passengers, passenger_list, start, iteration_count, doors_time
-        for passenger in passenger_list:
-            if passenger.lift_id == self.id and passenger.end_floor == self.floor:
-                print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
-                passenger.boarded, passenger.lift_id = False, None
-                self.current_capacity -= 1
-                passenger_list.remove(passenger)
-                terminated_passengers.append(passenger)
-                self.occupants.remove(passenger)
-                passenger.end_time = iteration_count - start
-        sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=lambda x: x.passenger_id)
-        for passenger in sorted_passenger_list:
-            if self.current_capacity == self.capacity:
-                break
-            if passenger.start_floor == self.floor and passenger.boarded == False: # passengers should not go up if their destination is down, and vice versa
-                if passenger.direction == direction: # checks that the destination is in the direction the lift is travelling else the passenger will not board
-                    print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
-                    passenger.boarded, passenger.lift_id = True, self.id
-                    if passenger.end_floor > self.max_request: #extra clauses to set the highest point the lift should go to before changing direction
-                        self.max_request = passenger.end_floor
-                    elif passenger.end_floor < self.min_request: #lowest floor the lift should go to before turning
-                        self.min_request = passenger.end_floor
-                    self.current_capacity += 1
-                    self.occupants.append(passenger)
-                    passenger.pickup_time = iteration_count - start
-        iteration_count += doors_time
-
-
     
     def scan(self):
         global passenger_list, iteration_count, floor_time # DO NOT DELETE! YOU WILL NEED THIS!!!
         direction = 1
         while passenger_list:
-            self.open_doors_scan(direction)
+            self.open_doors_directional(direction)
             if self.floor == self.min_floor:
                 direction = 1
             elif self.floor == self.max_floor:
@@ -124,16 +95,17 @@ class Lift:
     def look(self):
         global passenger_list, iteration_count, floor_time 
         direction = 1
-        for passenger in passenger_list:
-            if passenger.start_floor > self.max_request:
-                self.max_request = passenger.start_floor
-            elif passenger.start_floor < self.min_request:
-                self.min_request = passenger.start_floor
         while passenger_list:
-            self.open_doors_look(direction)
-            if self.floor == self.min_request:
+            self.open_doors_directional(direction)
+            try:
+                self.min_request = min(map(lambda x: x.end_floor ,self.occupants))
+                self.max_request = max(map(lambda x: x.end_floor ,self.occupants))
+            except ValueError:
+                self.min_request = self.min_floor
+                self.max_request = self.max_floor
+            if self.floor == self.min_request or self.floor == self.min_floor:
                 direction = 1
-            elif self.floor == self.max_request:
+            elif self.floor == self.max_request or self.floor == self.max_floor:
                 direction = -1
             self.floor += direction
             iteration_count += floor_time
@@ -215,8 +187,6 @@ class Lift:
                         
 
 if __name__ == "__main__":
-    start = 0
-    iteration_count = 0
     # Start intitial setup for Lift objects
     terminated_passengers: list[Passenger] = []
     lift_list: list[Lift] = []
@@ -225,7 +195,9 @@ if __name__ == "__main__":
     # End initial setup for Lift objects
 
     # Run specified algorithm
-    target_algorithm = 'my_lift'
+    start = 0
+    iteration_count = 0
+    target_algorithm = 'look'
     start_time = time.time()
     result = eval(f'lift_list[0].{target_algorithm}()')
     end_time = time.time()
