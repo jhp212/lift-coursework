@@ -53,6 +53,7 @@ class Lift:
                 self.occupants.append(passenger)
                 passenger.pickup_time = iteration_count- start
         iteration_count += doors_time
+
     def open_doors_directional(self, direction): # separate function for the scan algorithm; see below comments
         global terminated_passengers, passenger_list, start, iteration_count, doors_time
         for passenger in passenger_list:
@@ -60,10 +61,12 @@ class Lift:
                 print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
                 passenger.boarded, passenger.lift_id = False, None
                 self.current_capacity -= 1
-                passenger_list.remove(passenger)
                 terminated_passengers.append(passenger)
                 self.occupants.remove(passenger)
                 passenger.end_time = iteration_count - start
+        for passenger in terminated_passengers:
+            if passenger in passenger_list:
+                passenger_list.remove(passenger)
         sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=lambda x: x.passenger_id)
         for passenger in sorted_passenger_list:
             if self.current_capacity == self.capacity:
@@ -96,6 +99,10 @@ class Lift:
         global passenger_list, iteration_count, floor_time 
         direction = 1
         while passenger_list:
+            if self.floor == self.min_floor:
+                direction = 1
+            elif self.floor == self.max_floor:
+                direction = -1
             self.open_doors_directional(direction)
             try:
                 self.min_request = min(map(lambda x: x.end_floor ,self.occupants))
