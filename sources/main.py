@@ -86,44 +86,77 @@ class Lift:
 
 
     
-    def look(self): # !!!!PLEASE DONT JUDGE YET!!!!
+    def look(self):
         global passenger_list # This is *all* the passengers, not just the one in the lift.
-        while passenger_list:
-            direction = self.findDirection(passenger_list[0].start_floor)
-                
-            while passenger_list[0].start_floor != self.floor: #go until first priority target is reached
-                self.floor += direction
-                
-                for passenger in passenger_list: #if there are any passengers to be picked up/dropped off while going to target, do that
-                    
-                    if self.floor == passenger.end_floor():
-                        passenger.get_off() #im trusting your functions here
-                        passenger_list.remove(passenger)
-                        
-                    elif self.floor == passenger.start_floor:
-                        passenger.get_on(self.id) #pt 2
             
-            direction = self.findDirection(passenger_list[0].end_floor) #repeat the same logic but target floor is the end goal now        
-            while passenger_list[0].end_floor != self.floor:
+        while passenger_list:
+            queue = self.calculate_priority(passenger_list)  
+            currentPassenger = queue[0][0]
+            while self.floor != currentPassenger.start_floor:
+                direction = self.findDirection(currentPassenger.start_floor)
                 self.floor += direction
-                
-                for passenger in passenger_list:
-                    
-                    if self.floor == passenger.end_floor():
-                        passenger.get_off()
-                        passenger_list.remove(passenger)
-                        
-                    elif self.floor == passenger.start_floor:
-                        passenger.get_on()
-                        
-    def findDirection(self, target_floor): #find appropriate direction based on where the highest priority floor is
+            currentPassenger.get_on()
+                while self.floor != currentPassenger.end_floor:
+                direction = self.findDirection(currentPassenger.end_floor)
+                self.floor += direction
+                currentPassenger.get_off()
+            
+    def findDirection(self, target_floor): #self explanatory really
         if target_floor > self.floor:
                 direction = -1
         elif target_floor < self.floor:
                 direction = 1
                 
-        return direction    
+        return direction
+                                
+    def calculate_priority(self,passenger_list):
+        queue = [[] for passenger in passenger_list] # 2D array [[passenger, cost],...]
+        for i in range(len(passenger_list)):
+            if self.floor > passenger_list[i].start_floor:
+                cost = (passenger_list[i].start_floor - self.floor) + (passenger_list[i].end_floor - passenger_list[i].start_floor) #as we are going down then up, we need to consider the extra distance
+            else:
+                cost = passenger_list[i].end_floor - self.floor # target - current
+            
+            queue[i] = [passenger_list[i],cost]
+        
+        prioritisedQueue = self.heap_sort(queue)
+        
+        return prioritisedQueue
+            
+    def heapify(self,arr, n, i):
+        largest = i  # Initialize the largest as root
+        left = 2 * i + 1  # Left child index
+        right = 2 * i + 2  # Right child index
 
+        # If left child exists and is greater than root
+        if left < n and arr[left][1] > arr[largest][1]:
+            largest = left
+
+        # If right child exists and is greater than largest so far
+        if right < n and arr[right][1] > arr[largest][1]:
+            largest = right
+
+        # If largest is not root, swap and continue heapifying
+        if largest != i:
+            arr[i], arr[largest] = arr[largest], arr[i]  # Swap
+            self.heapify(arr, n, largest)  # Heapify the affected subtree
+
+    def heap_sort(self,arr):
+        n = len(arr)
+
+        # Build a max heap (rearrange the array)
+        for i in range(n // 2 - 1, -1, -1):
+         self.heapify(arr, n, i)
+
+        # Extract elements one by one
+        for i in range(n - 1, 0, -1):
+            arr[i], arr[0] = arr[0], arr[i]  # Swap the root with the last element
+            self.heapify(arr, i, 0)  # Heapify the reduced heap    
+
+        return arr
+
+            
+                        
 
 if __name__ == "__main__":
     start = time.time()
