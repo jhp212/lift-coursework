@@ -28,6 +28,8 @@ class Lift:
         self.capacity: int = max_capacity # Variable capacity
         self.current_capacity: int = 0 # Lift starts out as empty.
         self.occupants: list[Passenger] = []
+        self.max_request: int = 1 # all floors should be higher than this, so it will be overwritten; useful for look algorithm
+        self.min_request: int = max_floor # all floors lower or equal, so this will be overwritten
     
     def open_doors(self):
         global terminated_passengers, passenger_list, start, iteration_count, doors_time
@@ -74,6 +76,33 @@ class Lift:
                     self.occupants.append(passenger)
                     passenger.pickup_time = iteration_count - start
         iteration_count += doors_time
+    def open_doors_look(self, direction): # separate function for the look algorithm; see below changes
+        global terminated_passengers, passenger_list, start, iteration_count, doors_time
+        for passenger in passenger_list:
+            if passenger.lift_id == self.id and passenger.end_floor == self.floor:
+                print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
+                passenger.boarded, passenger.lift_id = False, None
+                self.current_capacity -= 1
+                passenger_list.remove(passenger)
+                terminated_passengers.append(passenger)
+                self.occupants.remove(passenger)
+                passenger.end_time = iteration_count - start
+        sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=lambda x: x.passenger_id)
+        for passenger in sorted_passenger_list:
+            if self.current_capacity == self.capacity:
+                break
+            if passenger.start_floor == self.floor and passenger.boarded == False: # passengers should not go up if their destination is down, and vice versa
+                if passenger.direction == direction: # checks that the destination is in the direction the lift is travelling else the passenger will not board
+                    print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
+                    passenger.boarded, passenger.lift_id = True, self.id
+                    if passenger.end_floor > self.max_request: #extra clauses to set the highest point the lift should go to before changing direction
+                        self.max_request = passenger.end_floor
+                    elif passenger.end_floor < self.min_request: #lowest floor the lift should go to before turning
+                        self.min_request = passenger.end_floor
+                    self.current_capacity += 1
+                    self.occupants.append(passenger)
+                    passenger.pickup_time = iteration_count - start
+        iteration_count += doors_time
 
 
     
@@ -90,6 +119,24 @@ class Lift:
             iteration_count += floor_time
 
 
+
+
+    def look(self):
+        global passenger_list, iteration_count, floor_time 
+        direction = 1
+        for passenger in passenger_list:
+            if passenger.start_floor > self.max_request:
+                self.max_request = passenger.start_floor
+            elif passenger.start_floor < self.min_request:
+                self.min_request = passenger.start_floor
+        while passenger_list:
+            self.open_doors_look(direction)
+            if self.floor == self.min_request:
+                direction = 1
+            elif self.floor == self.max_request:
+                direction = -1
+            self.floor += direction
+            iteration_count += floor_time
 
 
     
