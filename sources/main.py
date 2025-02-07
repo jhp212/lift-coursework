@@ -96,7 +96,7 @@ class Lift:
                 direction = self.findDirection(currentPassenger.start_floor)
                 self.floor += direction
             currentPassenger.get_on()
-                while self.floor != currentPassenger.end_floor:
+            while self.floor != currentPassenger.end_floor:
                 direction = self.findDirection(currentPassenger.end_floor)
                 self.floor += direction
                 currentPassenger.get_off()
