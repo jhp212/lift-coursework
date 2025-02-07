@@ -3,6 +3,8 @@ import time
 
 number_of_lifts = 1 # We are allowing only one lift, so as not to struggle with threading.
 test_file = "sources/tests/test1.json"
+floor_time = 10
+doors_time = 2
 
 
 # Start import code
@@ -28,66 +30,71 @@ class Lift:
         self.occupants: list[Passenger] = []
     
     def open_doors(self):
-        global terminated_passengers, passenger_list, start
+        global terminated_passengers, passenger_list, start, iteration_count, doors_time
         for passenger in passenger_list:
             if passenger.lift_id == self.id and passenger.end_floor == self.floor:
+                print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
                 passenger.boarded, passenger.lift_id = False, None
                 self.current_capacity -= 1
                 passenger_list.remove(passenger)
                 terminated_passengers.append(passenger)
                 self.occupants.remove(passenger)
-                passenger.end_time = time.time() - start
-        sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=map(lambda x: x.passenger_id, passenger_list))
+                passenger.end_time = iteration_count - start
+        sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=lambda x: x.passenger_id)
         for passenger in sorted_passenger_list:
             if self.current_capacity == self.capacity:
                 break
             if passenger.start_floor == self.floor and passenger.boarded == False:
+                print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
                 passenger.boarded, passenger.lift_id = True, self.id
                 self.current_capacity += 1
                 self.occupants.append(passenger)
-                passenger.pickup_time = time.time() - start
+                passenger.pickup_time = iteration_count- start
+        iteration_count += doors_time
     def open_doors_scan(self, direction): # separate function for the scan algorithm; see below comments
-        global terminated_passengers, passenger_list, start
+        global terminated_passengers, passenger_list, start, iteration_count, doors_time
         for passenger in passenger_list:
             if passenger.lift_id == self.id and passenger.end_floor == self.floor:
+                print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
                 passenger.boarded, passenger.lift_id = False, None
                 self.current_capacity -= 1
                 passenger_list.remove(passenger)
                 terminated_passengers.append(passenger)
                 self.occupants.remove(passenger)
-                passenger.end_time = time.time() - start
-        sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=map(lambda x: x.passenger_id, passenger_list))
+                passenger.end_time = iteration_count - start
+        sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=lambda x: x.passenger_id)
         for passenger in sorted_passenger_list:
             if self.current_capacity == self.capacity:
                 break
             if passenger.start_floor == self.floor and passenger.boarded == False: # passengers should not go up if their destination is down, and vice versa
                 if passenger.direction == direction: # checks that the destination is in the direction the lift is travelling else the passenger will not board
+                    print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
                     passenger.boarded, passenger.lift_id = True, self.id
                     self.current_capacity += 1
                     self.occupants.append(passenger)
-                    passenger.pickup_time = time.time() - start
+                    passenger.pickup_time = iteration_count - start
+        iteration_count += doors_time
 
 
     
     def scan(self):
-        global passenger_list # DO NOT DELETE! YOU WILL NEED THIS!!!
-        direction = self.findDirection(passenger_list[0].start_floor) # initialising; discuss whether to let user define, or generate automatically as here
+        global passenger_list, iteration_count, floor_time # DO NOT DELETE! YOU WILL NEED THIS!!!
+        direction = 1
         while passenger_list:
-            
-            while self.floor != self.max_floor and self.floor != self.min_floor:
-                self.floor += direction
-                self.open_doors_scan(self, direction)
-            
+            self.open_doors_scan(direction)
             if self.floor == self.min_floor:
-                self.direction = 1
+                direction = 1
             elif self.floor == self.max_floor:
-                self.direction = -1
+                direction = -1
+            self.floor += direction
+            iteration_count += floor_time
+
 
 
 
     
     def look(self):
-        global passenger_list # This is *all* the passengers, not just the one in the lift.
+        global passenger_list, iteration_count, floor_time # This is *all* the passengers, not just the one in the lift.
             
         while passenger_list:
             queue = self.calculate_priority(passenger_list)  
@@ -95,10 +102,12 @@ class Lift:
             while self.floor != currentPassenger.start_floor:
                 direction = self.findDirection(currentPassenger.start_floor)
                 self.floor += direction
-            currentPassenger.open_doors()
-                while self.floor != currentPassenger.end_floor:
+                iteration_count += floor_time
+            self.open_doors()
+            while self.floor != currentPassenger.end_floor:
                 direction = self.findDirection(currentPassenger.end_floor)
                 self.floor += direction
+                iteration_count += floor_time
                 currentPassenger.open_doors()
             
     def findDirection(self, target_floor): #self explanatory really
@@ -159,15 +168,19 @@ class Lift:
                         
 
 if __name__ == "__main__":
-    start = time.time()
+    start = 0
+    iteration_count = 0
     # Start intitial setup for Lift objects
     terminated_passengers: list[Passenger] = []
     lift_list: list[Lift] = []
     for i in range(number_of_lifts):
-        lift_list.append(Lift(0, i, max_floor, max_capacity))
+        lift_list.append(Lift(1, i, max_floor, max_capacity))
     # End initial setup for Lift objects
 
     # Run specified algorithm
-    target_algorithm = 'scan'
+    target_algorithm = 'look'
+    start_time = time.time()
     result = eval(f'lift_list[0].{target_algorithm}()')
-    
+    end_time = time.time()
+    print(f'{target_algorithm} algorithm took {iteration_count} "seconds" (iterations) to run.')
+    print(f'{target_algorithm} algorithm took {end_time - start_time} real-time seconds to run.')
