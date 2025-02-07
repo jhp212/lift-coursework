@@ -93,7 +93,7 @@ class Lift:
 
 
     
-    def look(self):
+    def my_lift(self):
         global passenger_list, iteration_count, floor_time # This is *all* the passengers, not just the one in the lift.
             
         while passenger_list:
@@ -108,13 +108,13 @@ class Lift:
                 direction = self.findDirection(currentPassenger.end_floor)
                 self.floor += direction
                 iteration_count += floor_time
-                currentPassenger.open_doors()
+            self.open_doors()
             
     def findDirection(self, target_floor): #self explanatory really
         if target_floor > self.floor:
-                direction = -1
-        elif target_floor < self.floor:
                 direction = 1
+        elif target_floor < self.floor:
+                direction = -1
                 
         return direction
                                 
@@ -178,7 +178,7 @@ if __name__ == "__main__":
     # End initial setup for Lift objects
 
     # Run specified algorithm
-    target_algorithm = 'look'
+    target_algorithm = 'my_lift'
     start_time = time.time()
     result = eval(f'lift_list[0].{target_algorithm}()')
     end_time = time.time()
