@@ -95,11 +95,11 @@ class Lift:
             while self.floor != currentPassenger.start_floor:
                 direction = self.findDirection(currentPassenger.start_floor)
                 self.floor += direction
-            currentPassenger.get_on()
-            while self.floor != currentPassenger.end_floor:
+            currentPassenger.open_doors()
+                while self.floor != currentPassenger.end_floor:
                 direction = self.findDirection(currentPassenger.end_floor)
                 self.floor += direction
-                currentPassenger.get_off()
+                currentPassenger.open_doors()
             
     def findDirection(self, target_floor): #self explanatory really
         if target_floor > self.floor:
