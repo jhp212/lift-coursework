@@ -38,10 +38,12 @@ class Lift:
                 print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
                 passenger.boarded, passenger.lift_id = False, None
                 self.current_capacity -= 1
-                passenger_list.remove(passenger)
                 terminated_passengers.append(passenger)
                 self.occupants.remove(passenger)
                 passenger.end_time = iteration_count - start
+        for passenger in terminated_passengers:
+            if passenger in passenger_list:
+                passenger_list.remove(passenger)
         sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=lambda x: x.passenger_id)
         for passenger in sorted_passenger_list:
             if self.current_capacity == self.capacity:
