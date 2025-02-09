@@ -33,6 +33,7 @@ class Lift:
     
     def open_doors(self):
         global terminated_passengers, passenger_list, start, iteration_count, doors_time
+        passenger_moved = False
         for passenger in passenger_list:
             if passenger.lift_id == self.id and passenger.end_floor == self.floor:
                 print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
@@ -40,6 +41,7 @@ class Lift:
                 self.current_capacity -= 1
                 terminated_passengers.append(passenger)
                 self.occupants.remove(passenger)
+                passenger_moved = True
                 passenger.end_time = iteration_count - start
         for passenger in terminated_passengers:
             if passenger in passenger_list:
@@ -53,11 +55,14 @@ class Lift:
                 passenger.boarded, passenger.lift_id = True, self.id
                 self.current_capacity += 1
                 self.occupants.append(passenger)
+                passenger_moved = True
                 passenger.pickup_time = iteration_count- start
-        iteration_count += doors_time
+        if passenger_moved == True:
+            iteration_count += doors_time
 
     def open_doors_directional(self, direction): # separate function for the scan algorithm; see below comments
         global terminated_passengers, passenger_list, start, iteration_count, doors_time
+        passenger_moved = False
         for passenger in passenger_list:
             if passenger.lift_id == self.id and passenger.end_floor == self.floor:
                 print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
@@ -65,6 +70,7 @@ class Lift:
                 self.current_capacity -= 1
                 terminated_passengers.append(passenger)
                 self.occupants.remove(passenger)
+                passenger_moved = True
                 passenger.end_time = iteration_count - start
         for passenger in terminated_passengers:
             if passenger in passenger_list:
@@ -79,8 +85,10 @@ class Lift:
                     passenger.boarded, passenger.lift_id = True, self.id
                     self.current_capacity += 1
                     self.occupants.append(passenger)
+                    passenger_moved = True
                     passenger.pickup_time = iteration_count - start
-        iteration_count += doors_time
+        if passenger_moved == True:
+            iteration_count += doors_time
     
     def scan(self):
         global passenger_list, iteration_count, floor_time # DO NOT DELETE! YOU WILL NEED THIS!!!
