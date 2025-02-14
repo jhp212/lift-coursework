@@ -2,7 +2,7 @@ from tests.loader import Passenger, load_file
 import time
 
 number_of_lifts = 1 # We are allowing only one lift, so as not to struggle with threading.
-test_file = "sources/tests/test1.json"
+test_file = "/workspaces/lift-coursework/sources/tests/random-23-1.json"
 floor_time = 10
 doors_time = 2
 
@@ -95,11 +95,11 @@ class Lift:
         global passenger_list, iteration_count, floor_time 
         direction = 1
         while passenger_list:
-            self.open_doors_directional(direction)
             if self.floor == self.min_floor:
                 direction = 1 # changes direction to up if on bottom floor
             elif self.floor == self.max_floor:
                 direction = -1 # changes direction to down if on top floor
+            self.open_doors_directional(direction)
             self.floor += direction
             iteration_count += floor_time # increments floor in current direction, and adds time to travle to next floor
 
@@ -121,6 +121,10 @@ class Lift:
             except ValueError:
                 self.min_request = self.min_floor
                 self.max_request = self.max_floor
+                direction *= -1
+                self.floor += direction
+                iteration_count += floor_time
+                continue
             if self.floor == self.min_request or self.floor == self.min_floor:
                 direction = 1 # changes direction to up if on bottom floor, or lowest requested floor
             elif self.floor == self.max_request or self.floor == self.max_floor:
