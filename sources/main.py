@@ -92,16 +92,16 @@ class Lift:
             iteration_count += doors_time
     
     def scan(self):
-        global passenger_list, iteration_count, floor_time # DO NOT DELETE! YOU WILL NEED THIS!!!
+        global passenger_list, iteration_count, floor_time 
         direction = 1
         while passenger_list:
             self.open_doors_directional(direction)
             if self.floor == self.min_floor:
-                direction = 1
+                direction = 1 # changes direction to up if on bottom floor
             elif self.floor == self.max_floor:
-                direction = -1
+                direction = -1 # changes direction to down if on top floor
             self.floor += direction
-            iteration_count += floor_time
+            iteration_count += floor_time # increments floor in current direction, and adds time to travle to next floor
 
 
 
@@ -111,22 +111,22 @@ class Lift:
         direction = 1
         while passenger_list:
             if self.floor == self.min_floor:
-                direction = 1
+                direction = 1 # changes direction to up if on bottom floor
             elif self.floor == self.max_floor:
-                direction = -1
+                direction = -1  # changes direction to down if on top floor
             self.open_doors_directional(direction)
             try:
-                self.min_request = min(map(lambda x: x.end_floor ,self.occupants))
-                self.max_request = max(map(lambda x: x.end_floor ,self.occupants))
+                self.min_request = min(map(lambda x: x.end_floor ,self.occupants)) # finds lowest floor to either pick up or drop off passengers
+                self.max_request = max(map(lambda x: x.end_floor ,self.occupants)) # finds highest floor to either pick up or drop off passengers
             except ValueError:
                 self.min_request = self.min_floor
                 self.max_request = self.max_floor
             if self.floor == self.min_request or self.floor == self.min_floor:
-                direction = 1
+                direction = 1 # changes direction to up if on bottom floor, or lowest requested floor
             elif self.floor == self.max_request or self.floor == self.max_floor:
-                direction = -1
+                direction = -1 # changes direction to down if on top floor, or highest requested floor
             self.floor += direction
-            iteration_count += floor_time
+            iteration_count += floor_time # increments floor in current direction, and adds time to travle to next floor
 
 
     
