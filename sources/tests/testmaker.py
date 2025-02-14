@@ -26,6 +26,8 @@ while True:
             filename = input("What file name is this test?\n>>> ")
             if total_epochs > 1:
                 start_numbering = int(input("Where should the prefix number start counting from?\n>>> "))
+            else:
+                start_numbering = ""
             for _ in range(total_epochs):
                 floors: dict[str, list[int]] = {}
                 for passenger in range(total_people):

@@ -1,2 +1,2 @@
 sources/tests/__pycache__/loader.cpython-312.pyc
-sources/tests
+sources/tests/*.json
