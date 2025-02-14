@@ -119,15 +119,20 @@ class Lift:
                 self.min_request = min(map(lambda x: x.end_floor ,self.occupants)) # finds lowest floor to either pick up or drop off passengers
                 self.max_request = max(map(lambda x: x.end_floor ,self.occupants)) # finds highest floor to either pick up or drop off passengers
             except ValueError:
-                self.min_request = self.min_floor
-                self.max_request = self.max_floor
-                direction *= -1
-                self.floor += direction
-                iteration_count += floor_time
-                continue
-            if self.floor == self.min_request or self.floor == self.min_floor:
+                try:
+                    self.min_request = min(map(lambda x: x.start_floor ,passenger_list))
+                    self.max_request = max(map(lambda x: x.start_floor ,passenger_list))
+                except:
+                    break
+            if self.min_request == self.max_request:
+                if self.findDirection(self.min_request) != 0:
+                    direction = self.findDirection(self.min_request)
+                else:
+                    direction = passenger_list[0].direction
+                    self.open_doors_directional(direction)
+            elif self.floor <= self.min_request or self.floor <= self.min_floor:
                 direction = 1 # changes direction to up if on bottom floor, or lowest requested floor
-            elif self.floor == self.max_request or self.floor == self.max_floor:
+            elif self.floor >= self.max_request or self.floor >= self.max_floor:
                 direction = -1 # changes direction to down if on top floor, or highest requested floor
             self.floor += direction
             iteration_count += floor_time # increments floor in current direction, and adds time to travle to next floor
@@ -153,10 +158,11 @@ class Lift:
             
     def findDirection(self, target_floor): #self explanatory really
         if target_floor > self.floor:
-                direction = 1
+            direction = 1
         elif target_floor < self.floor:
-                direction = -1
-                
+            direction = -1
+        else:
+            direction  = 0        
         return direction
                                 
     def calculate_priority(self,passenger_list):
