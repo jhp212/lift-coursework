@@ -11,9 +11,10 @@ doors_time = 2
 if __name__ == "__main__":
     try:
         max_floor, max_capacity, passenger_list = load_file(test_file)
-    except ValueError as Error:
+    except Exception as Error:
         print("Invalid test file: Reason:",Error)
         exit()
+    target_algorithm = 'look'
 # End import code
 
 
@@ -214,7 +215,6 @@ if __name__ == "__main__":
     # Run specified algorithm
     start = 0
     iteration_count = 0
-    target_algorithm = 'look'
     start_time = time.time()
     result = eval(f'lift_list[0].{target_algorithm}()')
     end_time = time.time()

@@ -9,13 +9,16 @@ while True:
     capacity = int(input("How many people will the lift carry?\n>>> "))
     match test_type:
         case "random":
-            floors: dict[str, list[int]] = {}
-            start_floor_strength: list[int] = []
-            end_floor_strength: list[int] = []
-            for floor in range(floor_count):
-                start_floor_strength.append(int(input(f"Relative liklihood of starting on floor {floor+1}: ")))
-            for floor in range(floor_count):
-                end_floor_strength.append(int(input(f"Relative liklihood of ending on floor {floor+1}: ")))
+            if input("Do you want specific waiting (y/n)\n>>> ").lower() == "y":
+                start_floor_strength: list[int] = []
+                end_floor_strength: list[int] = []
+                for floor in range(floor_count):
+                    start_floor_strength.append(int(input(f"Relative liklihood of starting on floor {floor+1}: ")))
+                for floor in range(floor_count):
+                    end_floor_strength.append(int(input(f"Relative liklihood of ending on floor {floor+1}: ")))
+            else:
+                start_floor_strength: list[int] = [1 for i in range(floor_count)]
+                end_floor_strength: list[int] = [1 for i in range(floor_count)]
             total_start = sum(start_floor_strength)
             total_end = sum(end_floor_strength)
             print("Initialised")
@@ -24,6 +27,7 @@ while True:
             if total_epochs > 1:
                 start_numbering = int(input("Where should the prefix number start counting from?\n>>> "))
             for _ in range(total_epochs):
+                floors: dict[str, list[int]] = {}
                 for passenger in range(total_people):
                     current_start_strength = rng(1, total_start)
                     for floor in range(floor_count):
