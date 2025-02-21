@@ -14,7 +14,7 @@ if __name__ == "__main__":
     except Exception as Error:
         print("Invalid test file: Reason:",Error)
         exit()
-    target_algorithm = 'look'
+    target_algorithm = 'my_lift'
 # End import code
 
 
@@ -172,6 +172,8 @@ class Lift:
                 cost = (passenger_list[i].start_floor - self.floor) + (passenger_list[i].end_floor - passenger_list[i].start_floor) #as we are going down then up, we need to consider the extra distance
             else:
                 cost = passenger_list[i].end_floor - self.floor # target - current
+            if passenger_list[i] in self.occupants:
+                cost -= max_floor
             
             queue[i] = [passenger_list[i],cost]
         
