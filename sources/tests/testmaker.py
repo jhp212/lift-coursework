@@ -1,3 +1,47 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 from random import randint as rng
 import json
 import jsbeautifier
@@ -38,7 +82,8 @@ while True:
                             break
                     start_floor = floor
                     possible_end = total_end - end_floor_strength[start_floor]
-                    current_end_strength = rng(1, total_end)
+                    current_end_strength = rng(1, possible_end)
+
                     for floor in range(floor_count):
                         if floor == start_floor:
                             continue
