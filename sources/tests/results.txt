@@ -1,0 +1,40 @@
+random-15-1
+    scan: 1774
+    look: 1734          2.3% quicker
+    my_lift: 4064       129% slower
+random-15-2
+    scan: 1664
+    look: 1624          2.4% quicker
+    my_lift: 4526       172% slower
+random-15-3 - fail
+    scan: 
+    look: 
+    my_lift: 
+random-15-4
+    scan: 1954
+    look: 1844          5.6% quicker
+    my_lift: 4152       112% slower
+random-15-5 - fail
+    scan: 
+    look: 
+    my_lift: 
+random-15-6
+    scan: 2244
+    look: 2534          13% slower
+    my_lift: 4706       110% slower
+random-15-7
+    scan: 1798
+    look: 1706          5.1% quicker
+    my_lift: 4648       158% slower
+random-15-8 - fail
+    scan: 
+    look: 
+    my_lift: 
+random-15-9
+    scan: 2088
+    look: 2126          1.8% slower
+    my_lift: 5378       158% slower
+random-15-10
+    scan: 1678
+    look: 2088          24% slower
+    my_lift: 4732       182% slower
