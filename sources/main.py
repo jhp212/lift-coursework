@@ -21,7 +21,15 @@ if __name__ == "__main__":
 
 
 class Lift:
-    def __init__(self, start_floor: int, lift_id: int, max_floor: int, max_capacity):
+    def __init__(self, start_floor: int, lift_id: int, max_floor: int, max_capacity: int):
+        """The lift class stores 
+
+        Args:
+            start_floor (int): The floor on which the lift starts
+            lift_id (int): The current index of the lift_list for this lift
+            max_floor (int): The maximum floor the lift can reach
+            max_capacity (int): The maximum capacity of the lift
+        """
         self.floor: int = start_floor
         self.max_floor: int = max_floor
         self.min_floor: int = 1 # Floor 1 is Ground Floor
@@ -33,6 +41,8 @@ class Lift:
         self.min_request: int = max_floor # all floors lower or equal, so this will be overwritten
     
     def open_doors(self):
+        """Simulates the lift "opening the doors" and letting the first passengers in the queue on, regardless of direction.
+        """
         global terminated_passengers, passenger_list, start, iteration_count, doors_time
         passenger_moved = False
         for passenger in passenger_list:
@@ -61,7 +71,12 @@ class Lift:
         if passenger_moved == True:
             iteration_count += doors_time
 
-    def open_doors_directional(self, direction): # separate function for the scan algorithm; see below comments
+    def open_doors_directional(self, direction: int): # separate function for the scan algorithm; see below comments
+        """Simulates the lift opening the doors with a display overtop indicating direction of travel, thus filtering for those going up/down
+
+        Args:
+            direction (int): The current direction of the lift
+        """
         global terminated_passengers, passenger_list, start, iteration_count, doors_time
         passenger_moved = False
         for passenger in passenger_list:
@@ -92,6 +107,8 @@ class Lift:
             iteration_count += doors_time
     
     def scan(self):
+        """Runs the "scan" algorithm, which goes up and down to the top floor without changing direction in between
+        """
         global passenger_list, iteration_count, floor_time 
         direction = 1
         while passenger_list:
@@ -107,6 +124,8 @@ class Lift:
 
 
     def look(self):
+        """Runs the "look" algorithm, which can change direction if theres no more direction to move
+        """
         global passenger_list, iteration_count, floor_time 
         direction = 1
         while passenger_list:
