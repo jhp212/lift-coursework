@@ -1,4 +1,4 @@
-from tests.loader import Passenger, load_file
+from loader import Passenger, load_file
 import time
 
 number_of_lifts = 1 # We are allowing only one lift, so as not to struggle with threading.
