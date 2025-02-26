@@ -2,20 +2,19 @@ from loader import Passenger, load_file
 import time
 
 number_of_lifts = 1 # We are allowing only one lift, so as not to struggle with threading.
-test_file = "/workspaces/lift-coursework/sources/tests/random-23-1.json"
 floor_time = 10
 doors_time = 2
 
 
-# Start import code
-if __name__ == "__main__":
-    try:
-        max_floor, max_capacity, passenger_list = load_file(test_file)
-    except Exception as Error:
-        print("Invalid test file: Reason:",Error)
-        exit()
-    target_algorithm = 'my_lift'
-# End import code
+# # Start import code
+# if __name__ == "__main__":
+#     try:
+#         max_floor, max_capacity, passenger_list = load_file(test_file)
+#     except Exception as Error:
+#         print("Invalid test file: Reason:",Error)
+#         exit()
+#     target_algorithm = 'my_lift'
+# # End import code
 
 
 
@@ -63,7 +62,7 @@ class Lift:
                 break
             if passenger.start_floor == self.floor and passenger.boarded == False:
                 print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
-                passenger.boarded, passenger.lift_id = True, self.id
+                passenger.boarded, passenger.lift_id, passenger.start_time = True, self.id, iteration_count
                 self.current_capacity += 1
                 self.occupants.append(passenger)
                 passenger_moved = True
@@ -98,7 +97,7 @@ class Lift:
             if passenger.start_floor == self.floor and passenger.boarded == False: # passengers should not go up if their destination is down, and vice versa
                 if passenger.direction == direction: # checks that the destination is in the direction the lift is travelling else the passenger will not board
                     print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
-                    passenger.boarded, passenger.lift_id = True, self.id
+                    passenger.boarded, passenger.lift_id, passenger.start_time = True, self.id, iteration_count
                     self.current_capacity += 1
                     self.occupants.append(passenger)
                     passenger_moved = True
@@ -210,7 +209,7 @@ class Lift:
             else:
                 cost = passenger_list[i].end_floor - self.floor # target - current
             if passenger_list[i] in self.occupants:
-                cost -= max_floor
+                cost -= self.max_floor
             
             queue[i] = [passenger_list[i],cost]
         
@@ -267,22 +266,33 @@ class Lift:
 
         return arr
 
-            
-                        
+def run_test_file(filename, algo):
+    global passenger_list, terminated_passengers, iteration_count, start
+    try:
+        floor_count, capacity, passenger_list = load_file(f"{filename}")
+    except Exception as Error:
+        print("Invalid test file: Reason:", Error)
+        exit()
 
-if __name__ == "__main__":
-    # Start intitial setup for Lift objects
-    terminated_passengers: list[Passenger] = []
-    lift_list: list[Lift] = []
-    for i in range(number_of_lifts):
-        lift_list.append(Lift(1, i, max_floor, max_capacity))
-    # End initial setup for Lift objects
+    lift = Lift(1, 0, floor_count, capacity)
 
-    # Run specified algorithm
+    terminated_passengers = []
+
     start = 0
     iteration_count = 0
+    average_journey_time = 0
+    longest_journey_time = 0
+
     start_time = time.time()
-    result = eval(f'lift_list[0].{target_algorithm}()')
-    end_time = time.time()
-    print(f'{target_algorithm} algorithm took {iteration_count} "seconds" (iterations) to run.')
-    print(f'{target_algorithm} algorithm took {end_time - start_time} real-time seconds to run.')
+    getattr(lift, algo)()
+    real_time = time.time() - start_time
+
+    for passenger in terminated_passengers:
+        average_journey_time += passenger.end_time - passenger.start_time
+        longest_journey_time = max(longest_journey_time, passenger.end_time - passenger.start_time)
+    average_journey_time /= len(terminated_passengers)
+
+    return iteration_count, average_journey_time, longest_journey_time, real_time
+
+if __name__ == "__main__":
+    print(run_test_file("sources/tests/test3.json", "scan"))
