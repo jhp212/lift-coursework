@@ -5,7 +5,17 @@ import jsbeautifier
 options = jsbeautifier.default_options()
 options.indent_size = 4
 
-def generate_test_dict(floor_count, capacity, passenger_count):
+def generate_test_dict(floor_count: int, capacity: int, passenger_count: int) -> dict:
+    """Generates a dictionary of the random simulation.
+
+    Args:
+        floor_count (int): The number of floors in this specific simulation.
+        capacity (int): The maximum capacity that the lift can transport.
+        passenger_count (int): The total number of passengers in the simulation
+
+    Returns:
+        dict: The dictionary that will be saved in a .json file
+    """
     result_dict = {"floor_count": floor_count, "capacity": capacity, "floor_requests": {}}
     for i in range(1, floor_count + 1):
         result_dict["floor_requests"][str(i)] = []
@@ -19,12 +29,20 @@ def generate_test_dict(floor_count, capacity, passenger_count):
 
     return result_dict
 
-def save_dict_as_json(dict, filename):
+def save_dict_as_json(dictionary: dict, filename: str):
+    """Saves the dictionary as a .json file
+
+    Args:
+        dictionary (dict): The dictionary to be saved
+        filename (str): The location where the file should be saved
+    """
     with open(filename, "w") as jsonfile:
-        result = jsbeautifier.beautify(json.dumps(dict))
+        result = jsbeautifier.beautify(json.dumps(dictionary))
         jsonfile.write(result)
 
 def main():
+    """Runs a "simulation-generation" algorithm to create tests/simulations.
+    """
     # vary floor count
     capacity = 5
     passenger_count = 1000

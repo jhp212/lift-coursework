@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
 class Lift:
     def __init__(self, start_floor: int, lift_id: int, max_floor: int, max_capacity: int):
-        """The lift class stores 
+        """The lift class stores the algorithms and information such as `floor`, which is the floor it is on.
 
         Args:
             start_floor (int): The floor on which the lift starts
@@ -159,6 +159,8 @@ class Lift:
 
     
     def my_lift(self):
+        """Runs the "My lift" algorithm, which is a custom-made algorithm which utilises a sorting algorithm to attempt to do minimum moves in a greedy approach.
+        """
         global passenger_list, iteration_count, floor_time # This is *all* the passengers, not just the one in the lift.
             
         while passenger_list:
@@ -175,7 +177,15 @@ class Lift:
                 iteration_count += floor_time
             self.open_doors()
             
-    def findDirection(self, target_floor): #self explanatory really
+    def findDirection(self, target_floor: int): #self explanatory really
+        """Finds the direction the lift needs to travel to reach a target floor.
+
+        Args:
+            target_floor (int): The floor you want to go to
+
+        Returns:
+            int: either -1 (down), 1 (up) or 0 (same floor)
+        """
         if target_floor > self.floor:
             direction = 1
         elif target_floor < self.floor:
@@ -184,7 +194,15 @@ class Lift:
             direction  = 0        
         return direction
                                 
-    def calculate_priority(self,passenger_list):
+    def calculate_priority(self,passenger_list: list[Passenger]) -> list[Passenger]:
+        """This calculates a "cost" value for the passengers, and then sorts the passengers by this cost from smallest to largest.
+
+        Args:
+            passenger_list (list[Passenger]): The list of all Passengers yet to be transported to their floor
+
+        Returns:
+            list[Passenger]: This is the "sorted" list of all passengers, with the "cheapest" passenger first.
+        """
         queue = [[] for passenger in passenger_list] # 2D array [[passenger, cost],...]
         for i in range(len(passenger_list)):
             if self.floor > passenger_list[i].start_floor:
@@ -200,7 +218,14 @@ class Lift:
         
         return prioritisedQueue
             
-    def heapify(self,arr, n, i):
+    def heapify(self,arr: list, n:int, i:int) -> None:
+        """Converts the un-heaped list into an in-place maximum heap using the classic `heapify` algorithm (see https://en.wikipedia.org/wiki/Heapsort#Pseudocode)
+
+        Args:
+            arr (list): The list to be converted into a heap
+            n (int): The current "root" to be compared
+            i (int): The index of the current value
+        """
         largest = i  # Initialize the largest as root
         left = 2 * i + 1  # Left child index
         right = 2 * i + 2  # Right child index
@@ -218,12 +243,22 @@ class Lift:
             arr[i], arr[largest] = arr[largest], arr[i]  # Swap
             self.heapify(arr, n, largest)  # Heapify the affected subtree
 
-    def heap_sort(self,arr):
+    def heap_sort(self,arr:list) -> list:
+        """Sorts the list using heap-sort, which is an O(nlog|n|) sorting algorithm, 
+        which is the most efficient time-complexity of a comparison based 
+        sorting algorithm.
+
+        Args:
+            arr (list): The array to be sorted
+
+        Returns:
+            list: The sorted array 
+        """
         n = len(arr)
 
         # Build a max heap (rearrange the array)
         for i in range(n // 2 - 1, -1, -1):
-         self.heapify(arr, n, i)
+            self.heapify(arr, n, i)
 
         # Extract elements one by one
         for i in range(n - 1, 0, -1):

@@ -2,6 +2,13 @@ import json
 
 class Passenger:
     def __init__(self, start_floor: int, end_floor: int, passenger_id: int):
+        """Generates a `Passenger` class to store the data
+
+        Args:
+            start_floor (int): The starting floor of this passenger
+            end_floor (int): The target floor of this passenger
+            passenger_id (int): The passenger id, to differentiate different passengers that would otherwise be identical.
+        """
         self.start_floor, self.end_floor, self.start_time = start_floor, end_floor, 0
         self.boarded, self.lift_id = False, None
         self.passenger_id = passenger_id
@@ -11,6 +18,28 @@ class Passenger:
 
 
 def load_file(path:str) -> tuple[int, int, list[Passenger]]:
+    """Loads the current file into the necessary data to run main.py
+
+    Args:
+        path (str): The path for the .json file
+
+    Raises:
+        KeyError: if floor_count does not exist
+        KeyError: if capacity does not exist
+        KeyError: if the floor_requests do not exist
+        TypeError: if the floor_count is not an integer type
+        TypeError: if the capacity is not an integer type
+        ValueError: if floor_count is not a natural number
+        ValueError: if capacity is not a natural number
+        ValueError: if any passengers attempt to go to a higher floor than max_floor
+        ValueError: if any passenger's target floor is not an integer
+
+    Returns:
+        tuple: Returns (floor_count, max_capacity, passenger_list), where:
+            - `floor_count` is the number of floors
+            - `max_capacity` is the maximum capacity the lift can transport at any one time
+            - `passenger_list` is the list of Passenger classes representing the people needing to be transported.
+    """
     # load json file as a python dictionary
     with open(path, "r") as file:
         data = json.load(file)
