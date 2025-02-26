@@ -1,7 +1,10 @@
 from loader import Passenger, load_file
 from bulk_testmaker import generate_test_dict, save_dict_as_json, generate_tests
 import time, jsbeautifier, os
+import matplotlib.pyplot as plt
 
+# check if the user is accessing from a GUI
+# if so, import tkinter
 try:
     import tkinter
     from tkinter import filedialog
@@ -10,6 +13,7 @@ except ImportError:
     gui_available = False
 
 tkinter.Tk().withdraw()
+
 options = jsbeautifier.default_options()
 options.indent_size = 4
 
@@ -301,6 +305,70 @@ def run_test_file(path, algorithm):
 
     return iteration_count, average_journey_time, longest_journey_time, real_time
 
+
+def run_range_of_tests(param_values, file_pattern, xlabel):
+    """Generalized function to run experiments for different parameters."""
+    algorithms = ["scan", "look", "my_lift"]
+    results = {algo: [[], [], [], []] for algo in algorithms}
+
+
+    for algorithm in algorithms:
+        for value in param_values:
+            average_total_time, average_individual_time, average_longest_wait, average_real_time = 0, 0, 0, 0
+            for i in range(10):
+
+                algo_time, average_wait, longest_wait, real_time = run_test_file(file_pattern.format(value, i), algorithm)
+
+                average_total_time += algo_time
+                average_individual_time += average_wait
+                average_longest_wait += longest_wait
+                average_real_time += real_time
+                
+                print(f"Ran file {file_pattern.format(value, i)} with {algorithm}")
+
+            # Compute averages
+            average_total_time /= 10
+            average_individual_time /= 10
+            average_longest_wait /= 10
+            average_real_time /= 10
+
+            # Store in results for plotting
+            values = [average_total_time, average_individual_time, average_longest_wait, average_real_time]
+            for i, data_point in enumerate(values):
+                results[algorithm][i].append(data_point)
+
+    # Plot results
+    fig, axs = plt.subplots(2, 2)
+    markers = ["o","s","^"]
+    for i, algorithm in enumerate(algorithms):
+        for j, ax in enumerate(axs.flat):
+            ax.plot(param_values, results[algorithm][j], label=algorithm, alpha=0.7, marker=markers[i])
+
+    for i, ax in enumerate(axs.flat):
+        ax.legend()
+        ax.set_xlabel(xlabel)
+        if i in [0, 1, 2]:
+            ax.set_ylabel("Time Taken (Hypothetical seconds)")
+        else:
+            ax.set_ylabel("Time Taken (Real seconds)")
+
+    axs[0, 0].set_title("Average Total Time")
+    axs[0, 1].set_title("Average Individual Time")
+    axs[1, 0].set_title("Average Longest Wait")
+    axs[1, 1].set_title("Average Real Time")
+
+    title = f"Time Taken for varying {xlabel}\n"
+    match xlabel:
+        case "Capacity":
+            title += "Floor Count = 20, Passenger Count = 1000"
+        case "Floor Count":
+            title += "Capacity = 5, Passenger Count = 1000"
+        case "Passenger Count":
+            title += "Capacity = 5, Floor Count = 20"
+    fig.suptitle(title)
+
+    plt.show()
+
 def print_results(iteration_count, average_journey_time, longest_journey_time, real_time):
     """Prints out the results of the test in a readable format
 
@@ -371,9 +439,51 @@ if __name__ == "__main__":
 
 
             case "c":
-                print("!!! WARNING !!!\nThis will generate a lot of test files in the sources/tests folder and take a long time.\nIf these files already exist, they will not be overwritten.\nAre you sure you want to continue? (y/n)")
-                if input(">>> ").lower() != "y":
-                    continue
+                choice = input("Would you like to:\na) Test all algorithms over a range of tests\nb) Generate a lot of test files\n>>> ").lower()
 
-                generate_tests()
-                print("Done!")
+                match choice:
+                    case "a":
+                        print("This function will analyse the performance of all algorithms over a range of tests.")
+                        print("This will take a while, so please be patient.")
+                        choice = input("Would you like to:\na) Analyse varying capacity\nb) Analyse varying floor count\nc) Analyse varying passenger count\n>>> ").lower()
+                        match choice:
+                            case "a":
+                                print("The default values are:\nNumber of Floors = 20\nNumber of passengers = 1000")
+                                
+                                begin = input("Would you like to start the tests? (y/n)\n>>> ").lower()
+                        
+                                if begin != "y":
+                                    continue
+
+                                run_range_of_tests(range(1, 50), "sources/tests/capacity_{}_{}.json", "Capacity")
+
+                            case "b":
+                                print("The default values are:\nCapacity = 5\nNumber of passengers = 1000")
+
+                                begin = input("Would you like to start the tests? (y/n)\n>>> ").lower()
+
+                                if begin != "y":
+                                    continue
+
+                                run_range_of_tests(range(2, 100), "sources/tests/floor_count_{}_{}.json", "Floor Count")
+
+                            case "c":
+                                print("The default values are:\nCapacity = 5\nNumber of Floors = 20")
+
+                                begin = input("Would you like to start the tests? (y/n)\n>>> ").lower()
+
+                                if begin != "y":
+                                    continue
+
+                                run_range_of_tests(range(10, 1010, 10), "sources/tests/passenger_count_{}_{}.json", "Passenger Count")
+                            case _:
+                                continue
+
+
+                    case "b":
+                        print("!!! WARNING !!!\nThis will generate a lot of test files (2400+) in the sources/tests folder and take a long time.\nIf these files already exist, they will not be overwritten.\nAre you sure you want to continue? (y/n)")
+                        if input(">>> ").lower() != "y":
+                            continue
+
+                        generate_tests()
+                        print("Done!")

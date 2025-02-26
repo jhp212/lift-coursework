@@ -40,8 +40,7 @@ def save_dict_as_json(dictionary: dict, filename: str):
         jsonfile.write(result)
 
 def generate_tests():
-    """Runs a "simulation-generation" algorithm to create tests/simulations.
-    """
+    """A function to generate all the tests for the random simulation"""
     # vary floor count
     capacity = 5
     passenger_count = 1000
