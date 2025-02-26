@@ -63,7 +63,7 @@ class Lift:
                 break
             if passenger.start_floor == self.floor and passenger.boarded == False:
                 # print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
-                passenger.boarded, passenger.lift_id, passenger.start_time = True, self.id, iteration_count
+                passenger.boarded, passenger.lift_id = True, self.id
                 self.current_capacity += 1
                 self.occupants.append(passenger)
                 passenger_moved = True
@@ -77,41 +77,71 @@ class Lift:
         Args:
             direction (int): The current direction of the lift
         """
+
         global terminated_passengers, passenger_list, start, iteration_count, doors_time
         passenger_moved = False
-        for passenger in passenger_list:
-            if passenger.lift_id == self.id and passenger.end_floor == self.floor:
+
+        # let off passengers
+        for passenger in self.occupants[:]:
+            if passenger.end_floor == self.floor:
                 # print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
-                passenger.boarded, passenger.lift_id = False, None
                 self.current_capacity -= 1
                 terminated_passengers.append(passenger)
                 self.occupants.remove(passenger)
+                passenger.boarded, passenger.lift_id = False, None
                 passenger_moved = True
-                passenger.end_time = iteration_count - start
-        for passenger in terminated_passengers:
-            if passenger in passenger_list:
-                passenger_list.remove(passenger)
-        sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=lambda x: x.passenger_id)
-        for passenger in sorted_passenger_list:
+                passenger.end_time = iteration_count - passenger.pickup_time
+
+        # let on passengers
+        for passenger in passenger_list[:]:
             if self.current_capacity == self.capacity:
                 break
-            if passenger.start_floor == self.floor and passenger.boarded == False: # passengers should not go up if their destination is down, and vice versa
+            if passenger.start_floor == self.floor and passenger.boarded == False:
                 if passenger.direction == direction: # checks that the destination is in the direction the lift is travelling else the passenger will not board
                     # print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
-                    passenger.boarded, passenger.lift_id, passenger.start_time = True, self.id, iteration_count
+                    passenger.boarded, passenger.lift_id = True, self.id
+                    passenger.pickup_time = iteration_count - start
                     self.current_capacity += 1
                     self.occupants.append(passenger)
+                    passenger_list.remove(passenger)
                     passenger_moved = True
-                    passenger.pickup_time = iteration_count - start
+                    
         if passenger_moved == True:
             iteration_count += doors_time
+    
+    def check_requests_in_current_direction(self, direction: int):
+        """Checks if there are any passengers waiting in the current direction
+
+        Args:
+            direction (int): the current direction of the lift
+
+        Returns:
+            bool: Whether there are any passengers waiting in the current direction or not
+        """
+
+        global passenger_list
+        passenger_waiting_in_direction = True
+        if self.floor != self.max_floor and self.floor != 1 and not self.occupants:
+            passenger_waiting_in_direction = False
+            if direction == 1:
+                for passenger in passenger_list:
+                    if passenger.start_floor in range(self.floor + 1, self.max_floor + 1):
+                        passenger_waiting_in_direction = True
+                        break
+            elif direction == -1:
+                for passenger in passenger_list:
+                    if passenger.start_floor in range(1, self.floor):
+                        passenger_waiting_in_direction = True
+                        break
+
+        return passenger_waiting_in_direction
     
     def scan(self):
         """Runs the "scan" algorithm, which goes up and down to the top floor without changing direction in between
         """
         global passenger_list, iteration_count, floor_time 
         direction = 1
-        while passenger_list:
+        while passenger_list or self.occupants:
             if self.floor == self.min_floor:
                 direction = 1 # changes direction to up if on bottom floor
             elif self.floor == self.max_floor:
@@ -128,31 +158,20 @@ class Lift:
         """
         global passenger_list, iteration_count, floor_time 
         direction = 1
-        while passenger_list:
+        while passenger_list or self.occupants:
+            self.open_doors_directional(direction)
             if self.floor == self.min_floor:
                 direction = 1 # changes direction to up if on bottom floor
+                self.open_doors_directional(direction)
             elif self.floor == self.max_floor:
                 direction = -1  # changes direction to down if on top floor
-            self.open_doors_directional(direction)
-            try:
-                self.min_request = min(map(lambda x: x.end_floor ,self.occupants)) # finds lowest floor to either pick up or drop off passengers
-                self.max_request = max(map(lambda x: x.end_floor ,self.occupants)) # finds highest floor to either pick up or drop off passengers
-            except ValueError:
-                try:
-                    self.min_request = min(map(lambda x: x.start_floor ,passenger_list))
-                    self.max_request = max(map(lambda x: x.start_floor ,passenger_list))
-                except:
-                    break
-            if self.min_request == self.max_request:
-                if self.findDirection(self.min_request) != 0:
-                    direction = self.findDirection(self.min_request)
-                else:
-                    direction = passenger_list[0].direction
-                    self.open_doors_directional(direction)
-            elif self.floor <= self.min_request or self.floor <= self.min_floor:
-                direction = 1 # changes direction to up if on bottom floor, or lowest requested floor
-            elif self.floor >= self.max_request or self.floor >= self.max_floor:
-                direction = -1 # changes direction to down if on top floor, or highest requested floor
+                self.open_doors_directional(direction)
+
+            passenger_waiting_in_direction = self.check_requests_in_current_direction(direction)
+            if not passenger_waiting_in_direction:
+                direction *= -1
+                self.open_doors_directional(direction)
+
             self.floor += direction
             iteration_count += floor_time # increments floor in current direction, and adds time to travle to next floor
 
@@ -299,16 +318,23 @@ def run_test_file(path, algorithm):
     real_time = time.time() - start_time
 
     for passenger in terminated_passengers:
-        average_journey_time += passenger.end_time - passenger.start_time
-        longest_journey_time = max(longest_journey_time, passenger.end_time - passenger.start_time)
+        average_journey_time += passenger.end_time - passenger.pickup_time
+        longest_journey_time = max(longest_journey_time, passenger.end_time - passenger.pickup_time)
     average_journey_time /= len(terminated_passengers)
 
     return iteration_count, average_journey_time, longest_journey_time, real_time
 
 
 def run_range_of_tests(param_values, file_pattern, xlabel):
-    """Generalized function to run experiments for different parameters."""
-    algorithms = ["scan", "look", "my_lift"]
+    """A general function to run a range of tests for a given parameter
+
+    Args:
+        param_values (list): The list of values to be tested
+        file_pattern (str): The pattern of the test files
+        xlabel (str): The label for the x-axis on the graph
+    """
+    
+    algorithms = ["look", "scan",]
     results = {algo: [[], [], [], []] for algo in algorithms}
 
 
