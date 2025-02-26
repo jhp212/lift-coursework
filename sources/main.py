@@ -383,14 +383,16 @@ def run_range_of_tests(param_values, file_pattern, xlabel):
     axs[1, 0].set_title("Average Longest Wait")
     axs[1, 1].set_title("Average Real Time")
 
-    title = f"Time Taken for varying {xlabel}\n"
+    title = f"Time Taken for varying {xlabel}"
+    plt.savefig(f"results/{title}.png")
+
     match xlabel:
         case "Capacity":
-            title += "Floor Count = 20, Passenger Count = 1000"
+            title += "\nFloor Count = 20, Passenger Count = 1000"
         case "Floor Count":
-            title += "Capacity = 5, Passenger Count = 1000"
+            title += "\nCapacity = 5, Passenger Count = 1000"
         case "Passenger Count":
-            title += "Capacity = 5, Floor Count = 20"
+            title += "\nCapacity = 5, Floor Count = 20"
     fig.suptitle(title)
 
     plt.show()
@@ -480,8 +482,11 @@ if __name__ == "__main__":
                         
                                 if begin != "y":
                                     continue
-
-                                run_range_of_tests(range(1, 50), "sources/tests/capacity_{}_{}.json", "Capacity")
+                                
+                                try:
+                                    run_range_of_tests(range(2, 50), "sources/tests/capacity_{}_{}.json", "Capacity")
+                                except FileNotFoundError:
+                                    print("You have not generated the test files. Please create them and try again.")
 
                             case "b":
                                 print("The default values are:\nCapacity = 5\nNumber of passengers = 1000")
@@ -490,8 +495,11 @@ if __name__ == "__main__":
 
                                 if begin != "y":
                                     continue
-
-                                run_range_of_tests(range(2, 100), "sources/tests/floor_count_{}_{}.json", "Floor Count")
+                                
+                                try:
+                                    run_range_of_tests(range(2, 100), "sources/tests/floor_count_{}_{}.json", "Floor Count")
+                                except FileNotFoundError:
+                                    print("You have not generated the test files. Please create them and try again.")
 
                             case "c":
                                 print("The default values are:\nCapacity = 5\nNumber of Floors = 20")
@@ -500,14 +508,19 @@ if __name__ == "__main__":
 
                                 if begin != "y":
                                     continue
-
-                                run_range_of_tests(range(10, 1010, 10), "sources/tests/passenger_count_{}_{}.json", "Passenger Count")
+                                
+                                try:
+                                    run_range_of_tests(range(10, 1010, 10), "sources/tests/passenger_count_{}_{}.json", "Passenger Count")
+                                except FileNotFoundError:
+                                    print("You have not generated the test files. Please create them and try again.")
                             case _:
                                 continue
 
 
                     case "b":
-                        print("!!! WARNING !!!\nThis will generate a lot of test files (2400+) in the sources/tests folder and take a long time.\nIf these files already exist, they will not be overwritten.\nAre you sure you want to continue? (y/n)")
+                        current_dir = os.getcwd()
+                        path = os.path.join(current_dir, "sources", "tests")
+                        print(f"!!! WARNING !!!\nThis will generate a lot of test files (2400+) in this folder:\n{path}\nThis may take a long time.\nIf these files already exist, they will not be overwritten.\nAre you sure you want to continue? (y/n)")
                         if input(">>> ").lower() != "y":
                             continue
 
