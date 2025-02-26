@@ -1,2 +1,2 @@
-sources/tests/__pycache__/*
+sources/__pycache__/*
 sources/tests/*.json

@@ -1,23 +1,13 @@
 from loader import Passenger, load_file
-import time
+from bulk_testmaker import generate_test_dict, save_dict_as_json
+import time, tkinter, jsbeautifier, json
+from tkinter import filedialog
 
-number_of_lifts = 1 # We are allowing only one lift, so as not to struggle with threading.
+options = jsbeautifier.default_options()
+options.indent_size = 4
+
 floor_time = 10
 doors_time = 2
-
-
-# # Start import code
-# if __name__ == "__main__":
-#     try:
-#         max_floor, max_capacity, passenger_list = load_file(test_file)
-#     except Exception as Error:
-#         print("Invalid test file: Reason:",Error)
-#         exit()
-#     target_algorithm = 'my_lift'
-# # End import code
-
-
-
 
 class Lift:
     def __init__(self, start_floor: int, lift_id: int, max_floor: int, max_capacity: int):
@@ -46,7 +36,7 @@ class Lift:
         passenger_moved = False
         for passenger in passenger_list:
             if passenger.lift_id == self.id and passenger.end_floor == self.floor:
-                print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
+                # print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
                 passenger.boarded, passenger.lift_id = False, None
                 self.current_capacity -= 1
                 terminated_passengers.append(passenger)
@@ -61,7 +51,7 @@ class Lift:
             if self.current_capacity == self.capacity:
                 break
             if passenger.start_floor == self.floor and passenger.boarded == False:
-                print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
+                # print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
                 passenger.boarded, passenger.lift_id, passenger.start_time = True, self.id, iteration_count
                 self.current_capacity += 1
                 self.occupants.append(passenger)
@@ -80,7 +70,7 @@ class Lift:
         passenger_moved = False
         for passenger in passenger_list:
             if passenger.lift_id == self.id and passenger.end_floor == self.floor:
-                print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
+                # print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
                 passenger.boarded, passenger.lift_id = False, None
                 self.current_capacity -= 1
                 terminated_passengers.append(passenger)
@@ -96,7 +86,7 @@ class Lift:
                 break
             if passenger.start_floor == self.floor and passenger.boarded == False: # passengers should not go up if their destination is down, and vice versa
                 if passenger.direction == direction: # checks that the destination is in the direction the lift is travelling else the passenger will not board
-                    print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
+                    # print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
                     passenger.boarded, passenger.lift_id, passenger.start_time = True, self.id, iteration_count
                     self.current_capacity += 1
                     self.occupants.append(passenger)
@@ -266,10 +256,20 @@ class Lift:
 
         return arr
 
-def run_test_file(filename, algo):
+def run_test_file(path, algo):
+    """Runs a given .json test file
+
+    Args:
+        path (str): The location of the test file
+        algo (str): The algorithm to be used
+
+    Returns:
+        tuple: Returns (iteration_count, average_journey_time, longest_journey_time, real_time)
+    """
+
     global passenger_list, terminated_passengers, iteration_count, start
     try:
-        floor_count, capacity, passenger_list = load_file(f"{filename}")
+        floor_count, capacity, passenger_list = load_file(f"{path}")
     except Exception as Error:
         print("Invalid test file: Reason:", Error)
         exit()
@@ -294,5 +294,61 @@ def run_test_file(filename, algo):
 
     return iteration_count, average_journey_time, longest_journey_time, real_time
 
+def print_results(iteration_count, average_journey_time, longest_journey_time, real_time):
+    print("Results:")
+    print(f"Total time in 'seconds': {iteration_count}")
+    print(f"Average journey time: {average_journey_time}")
+    print(f"Longest journey time: {longest_journey_time}")
+    print(f"Real time: {real_time}")
+
 if __name__ == "__main__":
-    print(run_test_file("sources/tests/test3.json", "scan"))
+    print("Welcome to the Lift Simulator!")
+    while True:
+        choice = input("Would you like to:\na) Run a specific test file\nb) Generate a test file\nc) Test all algorithms over a range of test files\nx) Exit\n>>> ")
+        match choice.lower():
+            case "a":
+                root = tkinter.Tk()
+                root.withdraw()
+                path = filedialog.askopenfilename(defaultextension=".json", filetypes=[("JSON Files", "*.json")], title="Select a test file")
+                root.destroy()
+
+                if not path:
+                    continue
+
+                algo = input("Which algorithm would you like to run?\na) SCAN\nb) LOOK\nc) MYLIFT\n>>> ")
+                algorithms = {"a": "scan", "b": "look", "c": "my_lift"}
+
+                if algo.lower() not in algorithms:
+                    continue
+
+                iteration_count, average_journey_time, longest_journey_time, real_time = run_test_file(path, algorithms[algo.lower()])
+                print_results(iteration_count, average_journey_time, longest_journey_time, real_time)
+            
+            case "b":
+                try:
+                    floor_count = int(input("How many floors are there?\n>>> "))
+                    capacity = int(input("How many people can the lift carry?\n>>> "))
+                    passenger_count = int(input("How many people will there be?\n>>> "))
+                except ValueError:
+                    print("Invalid input")
+                    continue
+
+                root = tkinter.Tk()
+                root.withdraw()
+                path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON Files", "*.json")], title="Select a save location")
+                root.destroy()
+
+                if not path:
+                    continue
+
+                data = generate_test_dict(floor_count, capacity, passenger_count)
+
+                with open(path, "w") as file:
+                    result = jsbeautifier.beautify(json.dumps(data))
+                    file.write(result)
+
+            case "c":
+                root = tkinter.Tk()
+                root.withdraw()
+            case "x":
+                exit()
