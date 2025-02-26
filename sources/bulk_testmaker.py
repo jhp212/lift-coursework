@@ -1,6 +1,5 @@
 from random import randint as rng
-import json
-import jsbeautifier
+import json, jsbeautifier, os
 
 options = jsbeautifier.default_options()
 options.indent_size = 4
@@ -40,7 +39,7 @@ def save_dict_as_json(dictionary: dict, filename: str):
         result = jsbeautifier.beautify(json.dumps(dictionary))
         jsonfile.write(result)
 
-def main():
+def generate_tests():
     """Runs a "simulation-generation" algorithm to create tests/simulations.
     """
     # vary floor count
@@ -48,25 +47,37 @@ def main():
     passenger_count = 1000
 
     for floor_count in range(2, 100):
-        for i in range(5):
+        for i in range(10):
+            file_path = f"sources/tests/floor_count_{floor_count}_{i}.json"
+            if os.path.exists(file_path):
+                continue
             test_dict = generate_test_dict(floor_count, capacity, passenger_count)
-            save_dict_as_json(test_dict, f"sources/tests/floor_count_{floor_count}_{i}.json")
+            save_dict_as_json(test_dict, file_path)
+            print(f"Generated file {file_path}")
     
     # vary capacity
     floor_count = 20
     for capacity in range(1, 50):
-        for i in range(5):
+        for i in range(10):
+            file_path = f"sources/tests/capacity_{capacity}_{i}.json"
+            if os.path.exists(file_path):
+                continue
             test_dict = generate_test_dict(floor_count, capacity, passenger_count)
-            save_dict_as_json(test_dict, f"sources/tests/capacity_{capacity}_{i}.json")
+            save_dict_as_json(test_dict, file_path)
+            print(f"Generated file {file_path}")
     
     # vary passenger count
     floor_count = 20
     capacity = 5
     for passenger_count in range(10, 1010, 10):
-        for i in range(5):
+        for i in range(10):
+            file_path = f"sources/tests/passenger_count_{passenger_count}_{i}.json"
+            if os.path.exists(file_path):
+                continue
             test_dict = generate_test_dict(floor_count, capacity, passenger_count)
-            save_dict_as_json(test_dict, f"sources/tests/passenger_count_{passenger_count}_{i}.json")
+            save_dict_as_json(test_dict, file_path)
+            print(f"Generated file {file_path}")
 
 
 if __name__ == "__main__":
-    main()
+    generate_tests()

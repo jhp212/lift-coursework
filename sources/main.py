@@ -1,8 +1,15 @@
 from loader import Passenger, load_file
-from bulk_testmaker import generate_test_dict, save_dict_as_json
-import time, tkinter, jsbeautifier, json
-from tkinter import filedialog
+from bulk_testmaker import generate_test_dict, save_dict_as_json, generate_tests
+import time, jsbeautifier, os
 
+try:
+    import tkinter
+    from tkinter import filedialog
+    gui_available = True
+except ImportError:
+    gui_available = False
+
+tkinter.Tk().withdraw()
 options = jsbeautifier.default_options()
 options.indent_size = 4
 
@@ -256,7 +263,7 @@ class Lift:
 
         return arr
 
-def run_test_file(path, algo):
+def run_test_file(path, algorithm):
     """Runs a given .json test file
 
     Args:
@@ -284,7 +291,7 @@ def run_test_file(path, algo):
     longest_journey_time = 0
 
     start_time = time.time()
-    getattr(lift, algo)()
+    getattr(lift, algorithm)()
     real_time = time.time() - start_time
 
     for passenger in terminated_passengers:
@@ -295,34 +302,50 @@ def run_test_file(path, algo):
     return iteration_count, average_journey_time, longest_journey_time, real_time
 
 def print_results(iteration_count, average_journey_time, longest_journey_time, real_time):
+    """Prints out the results of the test in a readable format
+
+    Args:
+        iteration_count (int): The total time in "seconds"
+        average_journey_time (float): The average journey time
+        longest_journey_time (float): The longest journey time
+        real_time (float): The real time taken to run the algorithm
+    """
+
     print("Results:")
     print(f"Total time in 'seconds': {iteration_count}")
     print(f"Average journey time: {average_journey_time}")
     print(f"Longest journey time: {longest_journey_time}")
     print(f"Real time: {real_time}")
 
+
+
 if __name__ == "__main__":
     print("Welcome to the Lift Simulator!")
+    
     while True:
-        choice = input("Would you like to:\na) Run a specific test file\nb) Generate a test file\nc) Test all algorithms over a range of test files\nx) Exit\n>>> ")
-        match choice.lower():
+        choice = input("Would you like to:\na) Run a specific test file\nb) Generate a test file\nc) Test all algorithms over a range of tests and view graphs\nx) Exit\n>>> ").lower()
+
+        match choice:
+            case "x": exit()
+
             case "a":
-                root = tkinter.Tk()
-                root.withdraw()
-                path = filedialog.askopenfilename(defaultextension=".json", filetypes=[("JSON Files", "*.json")], title="Select a test file")
-                root.destroy()
+                if gui_available:
+                    path = filedialog.askopenfilename(defaultextension=".json", filetypes=[("JSON Files", "*.json")], title="Select a test file")
+                else:
+                    path = input("Enter the path to the test file\n>>> ")
 
                 if not path:
                     continue
 
-                algo = input("Which algorithm would you like to run?\na) SCAN\nb) LOOK\nc) MYLIFT\n>>> ")
+                algorithm = input("Which algorithm would you like to run?\na) SCAN\nb) LOOK\nc) MYLIFT\n>>> ")
                 algorithms = {"a": "scan", "b": "look", "c": "my_lift"}
 
-                if algo.lower() not in algorithms:
+                if algorithm.lower() not in algorithms:
                     continue
 
-                iteration_count, average_journey_time, longest_journey_time, real_time = run_test_file(path, algorithms[algo.lower()])
+                iteration_count, average_journey_time, longest_journey_time, real_time = run_test_file(path, algorithms[algorithm.lower()])
                 print_results(iteration_count, average_journey_time, longest_journey_time, real_time)
+            
             
             case "b":
                 try:
@@ -333,22 +356,24 @@ if __name__ == "__main__":
                     print("Invalid input")
                     continue
 
-                root = tkinter.Tk()
-                root.withdraw()
-                path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON Files", "*.json")], title="Select a save location")
-                root.destroy()
+                if gui_available:
+                    print("Select a save location...")
+                    path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON Files", "*.json")], title="Select a save location")
+                else:
+                    path = input("Enter the path to save the test file (e.g. folder/test.json)\n>>> ")
+                    path = os.path.abspath(path)
 
                 if not path:
                     continue
 
                 data = generate_test_dict(floor_count, capacity, passenger_count)
+                save_dict_as_json(data, path)
 
-                with open(path, "w") as file:
-                    result = jsbeautifier.beautify(json.dumps(data))
-                    file.write(result)
 
             case "c":
-                root = tkinter.Tk()
-                root.withdraw()
-            case "x":
-                exit()
+                print("!!! WARNING !!!\nThis will generate a lot of test files in the sources/tests folder and take a long time.\nIf these files already exist, they will not be overwritten.\nAre you sure you want to continue? (y/n)")
+                if input(">>> ").lower() != "y":
+                    continue
+
+                generate_tests()
+                print("Done!")
