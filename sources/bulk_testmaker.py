@@ -41,11 +41,11 @@ def save_dict_as_json(dictionary: dict, filename: str):
 
 def generate_tests():
     """A function to generate all the tests for the random simulation"""
-    # vary floor count
+    # vary floor count from 2 to 100
     capacity = 5
     passenger_count = 1000
 
-    for floor_count in range(2, 100):
+    for floor_count in range(2, 101):
         for i in range(10):
             file_path = f"sources/tests/floor_count_{floor_count}_{i}.json"
             if os.path.exists(file_path):
@@ -54,9 +54,9 @@ def generate_tests():
             save_dict_as_json(test_dict, file_path)
             print(f"Generated file {file_path}")
     
-    # vary capacity
+    # vary capacity from 1 to 50
     floor_count = 20
-    for capacity in range(1, 50):
+    for capacity in range(1, 51):
         for i in range(10):
             file_path = f"sources/tests/capacity_{capacity}_{i}.json"
             if os.path.exists(file_path):
@@ -65,7 +65,7 @@ def generate_tests():
             save_dict_as_json(test_dict, file_path)
             print(f"Generated file {file_path}")
     
-    # vary passenger count
+    # vary passenger count from 10 to 1000
     floor_count = 20
     capacity = 5
     for passenger_count in range(10, 1010, 10):

@@ -313,7 +313,7 @@ def run_test_file(path, algorithm):
 
     Args:
         path (str): The location of the test file
-        algo (str): The algorithm to be used
+        algorithm (str): The algorithm to be used
 
     Returns:
         tuple: Returns (iteration_count, average_journey_time, longest_journey_time, real_time)
@@ -536,7 +536,7 @@ if __name__ == "__main__":
                                     continue
                                 
                                 try:
-                                    run_range_of_tests(range(2, 50), "sources/tests/capacity_{}_{}.json", "Capacity")
+                                    run_range_of_tests(range(1, 51), "sources/tests/capacity_{}_{}.json", "Capacity")
                                 except FileNotFoundError:
                                     print("You have not generated the test files. Please create them and try again.")
 
@@ -549,7 +549,7 @@ if __name__ == "__main__":
                                     continue
                                 
                                 try:
-                                    run_range_of_tests(range(2, 100), "sources/tests/floor_count_{}_{}.json", "Floor Count")
+                                    run_range_of_tests(range(2, 101), "sources/tests/floor_count_{}_{}.json", "Floor Count")
                                 except FileNotFoundError:
                                     print("You have not generated the test files. Please create them and try again.")
 
