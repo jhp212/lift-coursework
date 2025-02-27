@@ -8,11 +8,10 @@ import matplotlib.pyplot as plt
 try:
     import tkinter
     from tkinter import filedialog
+    tkinter.Tk().withdraw()
     gui_available = True
-except ImportError:
+except Exception:
     gui_available = False
-
-tkinter.Tk().withdraw()
 
 options = jsbeautifier.default_options()
 options.indent_size = 4
