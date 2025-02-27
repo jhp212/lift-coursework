@@ -348,21 +348,21 @@ def run_test_file(path, algorithm):
     return iteration_count, average_journey_time, longest_journey_time, real_time
 
 
-def run_range_of_tests(param_values, file_pattern, xlabel):
+def run_range_of_tests(param_values, file_pattern, param_name):
     """A general function to run a range of tests for a given parameter
 
     Args:
         param_values (list): The list of values to be tested
         file_pattern (str): The pattern of the test files
-        xlabel (str): The label for the x-axis on the graph
+        param_name (str): The name of the parameter that is changing
     """
     
     algorithms = ["scan", "look"]
     results = {algo: [[], [], [], []] for algo in algorithms}
 
     # Check if data.json exists, and load existing data
-    if os.path.exists(f"results/data/{xlabel}.json"):
-        with open(f"results/data/{xlabel}.json", "r") as f:
+    if os.path.exists(f"results/data/{param_name}.json"):
+        with open(f"results/data/{param_name}.json", "r") as f:
             data = json.load(f)
     else:
         data = {}
@@ -392,6 +392,7 @@ def run_range_of_tests(param_values, file_pattern, xlabel):
             for i, data_point in enumerate(values):
                 results[algorithm][i].append(data_point)
             
+            # Store in data dictionary to be stored in a .json file
             value_str = str(value)
             if value_str not in data:
                 data[value_str] = {}
@@ -403,23 +404,25 @@ def run_range_of_tests(param_values, file_pattern, xlabel):
                 "average_real_time": average_real_time
             }
 
-    # Save data to JSON files
-    with open(f"results/data/{xlabel}.json", "w") as f:
+    # Save data to .json file
+    with open(f"results/data/{param_name}.json", "w") as f:
         json.dump(data, f, indent=4)
 
+    # Plot results using matplotlib
+    plt.rc("font", size=10) # Set font size to 10
+
+    fig, axs = plt.subplots(2, 2, figsize=(12, 9)) # Create a 2x2 grid of subplots
+
     # Plot results
-    plt.rc("font", size=10)
-
-    fig, axs = plt.subplots(2, 2, figsize=(12, 9))
-
-    markers = ["o","s","^"]
+    markers = ["o","^","v"]
     for i, algorithm in enumerate(algorithms):
         for j, ax in enumerate(axs.flat):
-            ax.plot(param_values, results[algorithm][j], label=algorithm, alpha=0.7, marker=markers[i], markersize=3)
+            ax.plot(param_values, results[algorithm][j], label=algorithm, alpha=0.7, marker=markers[i], markersize=4)
 
+    # Set subplot titles and axis labels
     for i, ax in enumerate(axs.flat):
         ax.legend()
-        ax.set_xlabel(xlabel)
+        ax.set_xlabel(param_name)
         if i in [0, 1, 2]:
             ax.set_ylabel("Time Taken (Hypothetical seconds)")
         else:
@@ -430,10 +433,11 @@ def run_range_of_tests(param_values, file_pattern, xlabel):
     axs[1, 0].set_title("Average Longest Journey Time")
     axs[1, 1].set_title("Average Real Time")
 
-    title = f"Time Taken for varying {xlabel}"
-    plt.savefig(f"results/charts/{title}.svg", format="svg", dpi=600)
+    title = f"Time Taken for varying {param_name}"
+    filename = f"results/charts/{title}.svg"
 
-    match xlabel:
+    # Change title based on parameter
+    match param_name:
         case "Capacity":
             title += "\nFloor Count = 20, Passenger Count = 1000"
         case "Floor Count":
@@ -442,6 +446,8 @@ def run_range_of_tests(param_values, file_pattern, xlabel):
             title += "\nCapacity = 5, Floor Count = 20"
     fig.suptitle(title)
 
+    # Save as a .svg file and show the plot
+    plt.savefig(filename, format="svg", dpi=600)
     plt.show()
 
 def print_results(iteration_count, average_journey_time, longest_journey_time, real_time):
@@ -471,7 +477,7 @@ if __name__ == "__main__":
         match choice:
             case "x": exit()
 
-            case "a":
+            case "a": # Run a specific test file
                 if gui_available:
                     path = filedialog.askopenfilename(defaultextension=".json", filetypes=[("JSON Files", "*.json")], title="Select a test file")
                 else:
@@ -490,7 +496,7 @@ if __name__ == "__main__":
                 print_results(iteration_count, average_journey_time, longest_journey_time, real_time)
             
             
-            case "b":
+            case "b": # Generate a test file
                 try:
                     floor_count = int(input("\nHow many floors are there?\n>>> "))
                     capacity = int(input("How many people can the lift carry?\n>>> "))
@@ -513,7 +519,7 @@ if __name__ == "__main__":
                 save_dict_as_json(data, path)
 
 
-            case "c":
+            case "c": # Test all algorithms over a range of tests
                 choice = input("\nWould you like to:\na) Test all algorithms over a range of tests\nb) Generate a lot of test files\n>>> ").lower()
 
                 match choice:
