@@ -75,6 +75,8 @@ def load_file(path:str) -> tuple[int, int, list[Passenger]]:
             raise ValueError("Floor values must be integers inside strings! e.g '2'")
         
         for end_floor in data["floor_requests"][floor]:
+            if int(end_floor) > data["floor_count"]:
+                raise ValueError(f"There is a passenger wanting to go to floor {end_floor} which is greater than the floor count!")
             passenger_list.append(Passenger(int(floor), end_floor, len(passenger_list)))
 
     return data["floor_count"], data["capacity"], passenger_list

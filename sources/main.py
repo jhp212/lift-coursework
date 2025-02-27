@@ -21,19 +21,17 @@ floor_time = 10
 doors_time = 2
 
 class Lift:
-    def __init__(self, start_floor: int, lift_id: int, max_floor: int, max_capacity: int):
+    def __init__(self, start_floor: int, max_floor: int, max_capacity: int):
         """The lift class stores the algorithms and information such as `floor`, which is the floor it is on.
 
         Args:
             start_floor (int): The floor on which the lift starts
-            lift_id (int): The current index of the lift_list for this lift
             max_floor (int): The maximum floor the lift can reach
             max_capacity (int): The maximum capacity of the lift
         """
         self.floor: int = start_floor
         self.max_floor: int = max_floor
         self.min_floor: int = 1 # Floor 1 is Ground Floor
-        self.id: int = lift_id # So that (if we run multiple lifts), each passenger is only in one lift at once.
         self.capacity: int = max_capacity # Variable capacity
         self.current_capacity: int = 0 # Lift starts out as empty.
         self.occupants: list[Passenger] = []
@@ -45,10 +43,12 @@ class Lift:
         """
         global terminated_passengers, passenger_list, start, iteration_count, doors_time
         passenger_moved = False
+
+        # let off passengers
         for passenger in passenger_list:
-            if passenger.lift_id == self.id and passenger.end_floor == self.floor:
+            if passenger.end_floor == self.floor:
                 # print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
-                passenger.boarded, passenger.lift_id = False, None
+                passenger.boarded = False
                 self.current_capacity -= 1
                 terminated_passengers.append(passenger)
                 self.occupants.remove(passenger)
@@ -58,16 +58,20 @@ class Lift:
             if passenger in passenger_list:
                 passenger_list.remove(passenger)
         sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=lambda x: x.passenger_id)
+
+        # let on passengers
         for passenger in sorted_passenger_list:
             if self.current_capacity == self.capacity:
                 break
             if passenger.start_floor == self.floor and passenger.boarded == False:
                 # print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
-                passenger.boarded, passenger.lift_id = True, self.id
+                passenger.boarded = True
                 self.current_capacity += 1
                 self.occupants.append(passenger)
                 passenger_moved = True
                 passenger.pickup_time = iteration_count- start
+
+        # add time if a passenger has moved on or off of the lift
         if passenger_moved == True:
             iteration_count += doors_time
 
@@ -88,7 +92,7 @@ class Lift:
                 self.current_capacity -= 1
                 terminated_passengers.append(passenger)
                 self.occupants.remove(passenger)
-                passenger.boarded, passenger.lift_id = False, None
+                passenger.boarded = False
                 passenger_moved = True
                 passenger.end_time = iteration_count
 
@@ -99,13 +103,14 @@ class Lift:
             if passenger.start_floor == self.floor and passenger.boarded == False:
                 if passenger.direction == direction: # checks that the destination is in the direction the lift is travelling else the passenger will not board
                     # print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
-                    passenger.boarded, passenger.lift_id = True, self.id
+                    passenger.boarded = True
                     passenger.pickup_time = iteration_count - start
                     self.current_capacity += 1
                     self.occupants.append(passenger)
                     passenger_list.remove(passenger)
                     passenger_moved = True
-                    
+        
+        # add time if a passenger has moved on or off of the lift
         if passenger_moved == True:
             iteration_count += doors_time
     
@@ -121,16 +126,18 @@ class Lift:
 
         global passenger_list
         passenger_waiting_in_direction = True
+
+        # if the lift is not at the top or bottom and if there are no passengers on the lift
         if self.floor != self.max_floor and self.floor != 1 and not self.occupants:
             passenger_waiting_in_direction = False
-            if direction == 1:
+            if direction == 1: # going up
                 for passenger in passenger_list:
-                    if passenger.start_floor in range(self.floor + 1, self.max_floor + 1):
+                    if passenger.start_floor in range(self.floor + 1, self.max_floor + 1): # this is every floor above the current floor
                         passenger_waiting_in_direction = True
                         break
-            elif direction == -1:
+            elif direction == -1: # going down
                 for passenger in passenger_list:
-                    if passenger.start_floor in range(1, self.floor):
+                    if passenger.start_floor in range(1, self.floor): # this is every floor below the current floor
                         passenger_waiting_in_direction = True
                         break
 
@@ -141,14 +148,20 @@ class Lift:
         """
         global passenger_list, iteration_count, floor_time 
         direction = 1
-        while passenger_list or self.occupants:
+
+        while passenger_list or self.occupants: # while there are passengers waiting to get on the lift or the lift is not empty
             if self.floor == self.min_floor:
                 direction = 1 # changes direction to up if on bottom floor
             elif self.floor == self.max_floor:
                 direction = -1 # changes direction to down if on top floor
+
             self.open_doors_directional(direction)
-            self.floor += direction
-            iteration_count += floor_time # increments floor in current direction, and adds time to travle to next floor
+
+            # move to next floor
+            self.floor += direction 
+            
+            # add time to travel to next floor
+            iteration_count += floor_time 
 
 
 
@@ -158,7 +171,8 @@ class Lift:
         """
         global passenger_list, iteration_count, floor_time 
         direction = 1
-        while passenger_list or self.occupants:
+
+        while passenger_list or self.occupants: # while there are passengers waiting to get on the lift or the lift is not empty
             self.open_doors_directional(direction)
             if self.floor == self.min_floor:
                 direction = 1 # changes direction to up if on bottom floor
@@ -167,13 +181,18 @@ class Lift:
                 direction = -1  # changes direction to down if on top floor
                 self.open_doors_directional(direction)
 
+            # check if there are any passengers waiting in the current direction
+            # if not, change direction and open doors
             passenger_waiting_in_direction = self.check_requests_in_current_direction(direction)
             if not passenger_waiting_in_direction:
                 direction *= -1
                 self.open_doors_directional(direction)
 
+            # move to next floor
             self.floor += direction
-            iteration_count += floor_time # increments floor in current direction, and adds time to travle to next floor
+
+            # add time to travel to next floor
+            iteration_count += floor_time
 
 
     
@@ -196,7 +215,7 @@ class Lift:
                 iteration_count += floor_time
             self.open_doors()
             
-    def findDirection(self, target_floor: int): #self explanatory really
+    def findDirection(self, target_floor: int):
         """Finds the direction the lift needs to travel to reach a target floor.
 
         Args:
@@ -210,9 +229,10 @@ class Lift:
         elif target_floor < self.floor:
             direction = -1
         else:
-            direction  = 0        
+            direction  = 0
         return direction
                                 
+
     def calculate_priority(self,passenger_list: list[Passenger]) -> list[Passenger]:
         """This calculates a "cost" value for the passengers, and then sorts the passengers by this cost from smallest to largest.
 
@@ -237,6 +257,7 @@ class Lift:
         
         return prioritisedQueue
             
+
     def heapify(self,arr: list, n:int, i:int) -> None:
         """Converts the un-heaped list into an in-place maximum heap using the classic `heapify` algorithm (see https://en.wikipedia.org/wiki/Heapsort#Pseudocode)
 
@@ -262,6 +283,7 @@ class Lift:
             arr[i], arr[largest] = arr[largest], arr[i]  # Swap
             self.heapify(arr, n, largest)  # Heapify the affected subtree
 
+
     def heap_sort(self,arr:list) -> list:
         """Sorts the list using heap-sort, which is an O(nlog|n|) sorting algorithm, 
         which is the most efficient time-complexity of a comparison based 
@@ -286,6 +308,7 @@ class Lift:
 
         return arr
 
+
 def run_test_file(path, algorithm):
     """Runs a given .json test file
 
@@ -304,10 +327,10 @@ def run_test_file(path, algorithm):
         print("Invalid test file: Reason:", Error)
         exit()
 
-    lift = Lift(1, 0, floor_count, capacity)
+    # initialise lift
+    lift = Lift(1, floor_count, capacity)
 
     terminated_passengers = []
-
     start = 0
     iteration_count = 0
     average_journey_time = 0
@@ -334,7 +357,7 @@ def run_range_of_tests(param_values, file_pattern, xlabel):
         xlabel (str): The label for the x-axis on the graph
     """
     
-    algorithms = ["look", "scan",]
+    algorithms = ["scan", "look"]
     results = {algo: [[], [], [], []] for algo in algorithms}
 
     # Check if data.json exists, and load existing data
@@ -344,43 +367,39 @@ def run_range_of_tests(param_values, file_pattern, xlabel):
     else:
         data = {}
 
-    # Ensure top-level key exists
-    if xlabel not in data:
-        data[xlabel] = {}
-
     for algorithm in algorithms:
         for value in param_values:
-            average_total_time, average_individual_time, average_longest_wait, average_real_time = 0, 0, 0, 0
+            average_total_time, average_individual_journey_time, average_longest_journey_time, average_real_time = 0, 0, 0, 0
             for i in range(10):
 
-                algo_time, average_wait, longest_wait, real_time = run_test_file(file_pattern.format(value, i), algorithm)
+                algo_time, average_journey_time, longest_journey_time, real_time = run_test_file(file_pattern.format(value, i), algorithm)
 
                 average_total_time += algo_time
-                average_individual_time += average_wait
-                average_longest_wait += longest_wait
+                average_individual_journey_time += average_journey_time
+                average_longest_journey_time += longest_journey_time
                 average_real_time += real_time
                 
                 print(f"Ran file {file_pattern.format(value, i)} with {algorithm}")
 
             # Compute averages
             average_total_time /= 10
-            average_individual_time /= 10
-            average_longest_wait /= 10
+            average_individual_journey_time /= 10
+            average_longest_journey_time /= 10
             average_real_time /= 10
 
             # Store in results for plotting
-            values = [average_total_time, average_individual_time, average_longest_wait, average_real_time]
+            values = [average_total_time, average_individual_journey_time, average_longest_journey_time, average_real_time]
             for i, data_point in enumerate(values):
                 results[algorithm][i].append(data_point)
             
             value_str = str(value)
-            if value_str not in data[xlabel]:
-                data[xlabel][value_str] = {}
+            if value_str not in data:
+                data[value_str] = {}
             
-            data[xlabel][value_str][algorithm] = {
+            data[value_str][algorithm] = {
                 "average_total_time": average_total_time,
-                "average_individual_time": average_individual_time,
-                "average_longest_wait": average_longest_wait,
+                "average_individual_journey_time": average_individual_journey_time,
+                "average_longest_journey_time": average_longest_journey_time,
                 "average_real_time": average_real_time
             }
 
@@ -407,8 +426,8 @@ def run_range_of_tests(param_values, file_pattern, xlabel):
             ax.set_ylabel("Time Taken (Real seconds)")
 
     axs[0, 0].set_title("Average Total Time")
-    axs[0, 1].set_title("Average Individual Time")
-    axs[1, 0].set_title("Average Longest Wait")
+    axs[0, 1].set_title("Average Individual Journey Time")
+    axs[1, 0].set_title("Average Longest Journey Time")
     axs[1, 1].set_title("Average Real Time")
 
     title = f"Time Taken for varying {xlabel}"
