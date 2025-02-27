@@ -81,12 +81,3 @@ def load_file(path:str) -> tuple[int, int, list[Passenger]]:
 
     return data["floor_count"], data["capacity"], passenger_list
 
-    
-        
-if __name__ == "__main__":
-    floor_count, capacity, passenger_list = load_file("sources/tests/test3.json")
-    print(floor_count)
-    print(capacity)
-    for passenger in passenger_list:
-        print((passenger.start_floor, passenger.end_floor))
-    int("2.3")
