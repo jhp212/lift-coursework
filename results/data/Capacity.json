@@ -1,0 +1,676 @@
+{
+    "Capacity": {
+        "2": {
+            "look": {
+                "average_total_time": 45840.4,
+                "average_individual_time": 73.1514,
+                "average_longest_wait": 198.2,
+                "average_real_time": 0.037095046043395995
+            },
+            "scan": {
+                "average_total_time": 54229.2,
+                "average_individual_time": 73.1514,
+                "average_longest_wait": 198.2,
+                "average_real_time": 0.0324559211730957
+            }
+        },
+        "3": {
+            "look": {
+                "average_total_time": 32535.0,
+                "average_individual_time": 74.5836,
+                "average_longest_wait": 203.6,
+                "average_real_time": 0.02786736488342285
+            },
+            "scan": {
+                "average_total_time": 36911.2,
+                "average_individual_time": 74.5836,
+                "average_longest_wait": 203.6,
+                "average_real_time": 0.02482311725616455
+            }
+        },
+        "4": {
+            "look": {
+                "average_total_time": 25583.4,
+                "average_individual_time": 75.61600000000001,
+                "average_longest_wait": 210.6,
+                "average_real_time": 0.02354886531829834
+            },
+            "scan": {
+                "average_total_time": 28205.8,
+                "average_individual_time": 75.61600000000001,
+                "average_longest_wait": 210.6,
+                "average_real_time": 0.02139706611633301
+            }
+        },
+        "5": {
+            "look": {
+                "average_total_time": 20998.2,
+                "average_individual_time": 76.56920000000001,
+                "average_longest_wait": 210.2,
+                "average_real_time": 0.01979551315307617
+            },
+            "scan": {
+                "average_total_time": 23010.4,
+                "average_individual_time": 76.56920000000001,
+                "average_longest_wait": 210.2,
+                "average_real_time": 0.018032312393188477
+            }
+        },
+        "6": {
+            "look": {
+                "average_total_time": 17954.6,
+                "average_individual_time": 77.3586,
+                "average_longest_wait": 213.0,
+                "average_real_time": 0.017890167236328126
+            },
+            "scan": {
+                "average_total_time": 19469.8,
+                "average_individual_time": 77.3586,
+                "average_longest_wait": 213.0,
+                "average_real_time": 0.016133856773376466
+            }
+        },
+        "7": {
+            "look": {
+                "average_total_time": 15498.0,
+                "average_individual_time": 77.5546,
+                "average_longest_wait": 214.4,
+                "average_real_time": 0.015581703186035157
+            },
+            "scan": {
+                "average_total_time": 16356.2,
+                "average_individual_time": 77.5546,
+                "average_longest_wait": 214.4,
+                "average_real_time": 0.014090728759765626
+            }
+        },
+        "8": {
+            "look": {
+                "average_total_time": 13743.2,
+                "average_individual_time": 77.9442,
+                "average_longest_wait": 216.4,
+                "average_real_time": 0.014344239234924316
+            },
+            "scan": {
+                "average_total_time": 14511.8,
+                "average_individual_time": 77.9442,
+                "average_longest_wait": 216.4,
+                "average_real_time": 0.013067007064819336
+            }
+        },
+        "9": {
+            "look": {
+                "average_total_time": 12473.2,
+                "average_individual_time": 78.5772,
+                "average_longest_wait": 219.0,
+                "average_real_time": 0.013344192504882812
+            },
+            "scan": {
+                "average_total_time": 13028.0,
+                "average_individual_time": 78.5772,
+                "average_longest_wait": 219.0,
+                "average_real_time": 0.012268304824829102
+            }
+        },
+        "10": {
+            "look": {
+                "average_total_time": 11277.6,
+                "average_individual_time": 79.3416,
+                "average_longest_wait": 217.4,
+                "average_real_time": 0.01256096363067627
+            },
+            "scan": {
+                "average_total_time": 11645.2,
+                "average_individual_time": 79.3416,
+                "average_longest_wait": 217.4,
+                "average_real_time": 0.011233186721801758
+            }
+        },
+        "11": {
+            "look": {
+                "average_total_time": 10463.0,
+                "average_individual_time": 80.0558,
+                "average_longest_wait": 220.0,
+                "average_real_time": 0.011707210540771484
+            },
+            "scan": {
+                "average_total_time": 10867.0,
+                "average_individual_time": 80.0558,
+                "average_longest_wait": 220.0,
+                "average_real_time": 0.010790252685546875
+            }
+        },
+        "12": {
+            "look": {
+                "average_total_time": 9476.0,
+                "average_individual_time": 79.358,
+                "average_longest_wait": 220.6,
+                "average_real_time": 0.010980868339538574
+            },
+            "scan": {
+                "average_total_time": 9751.2,
+                "average_individual_time": 79.358,
+                "average_longest_wait": 220.6,
+                "average_real_time": 0.009972691535949707
+            }
+        },
+        "13": {
+            "look": {
+                "average_total_time": 9022.2,
+                "average_individual_time": 80.7562,
+                "average_longest_wait": 221.0,
+                "average_real_time": 0.010644769668579102
+            },
+            "scan": {
+                "average_total_time": 9271.2,
+                "average_individual_time": 80.7562,
+                "average_longest_wait": 221.0,
+                "average_real_time": 0.00975968837738037
+            }
+        },
+        "14": {
+            "look": {
+                "average_total_time": 8424.8,
+                "average_individual_time": 80.31379999999999,
+                "average_longest_wait": 221.2,
+                "average_real_time": 0.009861326217651368
+            },
+            "scan": {
+                "average_total_time": 8716.4,
+                "average_individual_time": 80.31379999999999,
+                "average_longest_wait": 221.2,
+                "average_real_time": 0.009156155586242675
+            }
+        },
+        "15": {
+            "look": {
+                "average_total_time": 7905.0,
+                "average_individual_time": 81.8606,
+                "average_longest_wait": 223.0,
+                "average_real_time": 0.009536433219909667
+            },
+            "scan": {
+                "average_total_time": 8015.2,
+                "average_individual_time": 81.8606,
+                "average_longest_wait": 223.0,
+                "average_real_time": 0.009010028839111329
+            }
+        },
+        "16": {
+            "look": {
+                "average_total_time": 7476.2,
+                "average_individual_time": 81.4142,
+                "average_longest_wait": 224.2,
+                "average_real_time": 0.009896039962768555
+            },
+            "scan": {
+                "average_total_time": 7676.0,
+                "average_individual_time": 81.4142,
+                "average_longest_wait": 224.2,
+                "average_real_time": 0.008451175689697266
+            }
+        },
+        "17": {
+            "look": {
+                "average_total_time": 6960.8,
+                "average_individual_time": 81.3382,
+                "average_longest_wait": 223.8,
+                "average_real_time": 0.00856325626373291
+            },
+            "scan": {
+                "average_total_time": 7135.0,
+                "average_individual_time": 81.3382,
+                "average_longest_wait": 223.8,
+                "average_real_time": 0.007936644554138183
+            }
+        },
+        "18": {
+            "look": {
+                "average_total_time": 6627.6,
+                "average_individual_time": 81.018,
+                "average_longest_wait": 223.6,
+                "average_real_time": 0.008403372764587403
+            },
+            "scan": {
+                "average_total_time": 6715.2,
+                "average_individual_time": 81.018,
+                "average_longest_wait": 223.6,
+                "average_real_time": 0.007804417610168457
+            }
+        },
+        "19": {
+            "look": {
+                "average_total_time": 6349.4,
+                "average_individual_time": 82.23859999999999,
+                "average_longest_wait": 224.4,
+                "average_real_time": 0.008129692077636719
+            },
+            "scan": {
+                "average_total_time": 6449.0,
+                "average_individual_time": 82.23859999999999,
+                "average_longest_wait": 224.4,
+                "average_real_time": 0.007617878913879395
+            }
+        },
+        "20": {
+            "look": {
+                "average_total_time": 5990.2,
+                "average_individual_time": 81.32360000000001,
+                "average_longest_wait": 225.8,
+                "average_real_time": 0.007839369773864745
+            },
+            "scan": {
+                "average_total_time": 6122.6,
+                "average_individual_time": 81.32360000000001,
+                "average_longest_wait": 225.8,
+                "average_real_time": 0.007780647277832032
+            }
+        },
+        "21": {
+            "look": {
+                "average_total_time": 5786.8,
+                "average_individual_time": 82.9232,
+                "average_longest_wait": 226.2,
+                "average_real_time": 0.007713627815246582
+            },
+            "scan": {
+                "average_total_time": 5862.6,
+                "average_individual_time": 82.9232,
+                "average_longest_wait": 226.2,
+                "average_real_time": 0.0071007728576660155
+            }
+        },
+        "22": {
+            "look": {
+                "average_total_time": 5535.6,
+                "average_individual_time": 82.32860000000001,
+                "average_longest_wait": 225.8,
+                "average_real_time": 0.007387351989746094
+            },
+            "scan": {
+                "average_total_time": 5666.6,
+                "average_individual_time": 82.32860000000001,
+                "average_longest_wait": 225.8,
+                "average_real_time": 0.006867814064025879
+            }
+        },
+        "23": {
+            "look": {
+                "average_total_time": 5296.6,
+                "average_individual_time": 82.39599999999999,
+                "average_longest_wait": 225.4,
+                "average_real_time": 0.007336282730102539
+            },
+            "scan": {
+                "average_total_time": 5307.6,
+                "average_individual_time": 82.39599999999999,
+                "average_longest_wait": 225.4,
+                "average_real_time": 0.006754374504089356
+            }
+        },
+        "24": {
+            "look": {
+                "average_total_time": 5062.6,
+                "average_individual_time": 82.2784,
+                "average_longest_wait": 226.2,
+                "average_real_time": 0.006810474395751953
+            },
+            "scan": {
+                "average_total_time": 5157.8,
+                "average_individual_time": 82.2784,
+                "average_longest_wait": 226.2,
+                "average_real_time": 0.006385540962219239
+            }
+        },
+        "25": {
+            "look": {
+                "average_total_time": 4964.2,
+                "average_individual_time": 82.79119999999999,
+                "average_longest_wait": 225.2,
+                "average_real_time": 0.006936192512512207
+            },
+            "scan": {
+                "average_total_time": 5049.0,
+                "average_individual_time": 82.79119999999999,
+                "average_longest_wait": 225.2,
+                "average_real_time": 0.006545901298522949
+            }
+        },
+        "26": {
+            "look": {
+                "average_total_time": 4652.2,
+                "average_individual_time": 82.25959999999999,
+                "average_longest_wait": 226.4,
+                "average_real_time": 0.0066593408584594725
+            },
+            "scan": {
+                "average_total_time": 4720.4,
+                "average_individual_time": 82.25959999999999,
+                "average_longest_wait": 226.4,
+                "average_real_time": 0.006231284141540528
+            }
+        },
+        "27": {
+            "look": {
+                "average_total_time": 4624.4,
+                "average_individual_time": 82.43800000000002,
+                "average_longest_wait": 227.2,
+                "average_real_time": 0.006468415260314941
+            },
+            "scan": {
+                "average_total_time": 4757.4,
+                "average_individual_time": 82.43800000000002,
+                "average_longest_wait": 227.2,
+                "average_real_time": 0.006266665458679199
+            }
+        },
+        "28": {
+            "look": {
+                "average_total_time": 4450.2,
+                "average_individual_time": 82.548,
+                "average_longest_wait": 226.2,
+                "average_real_time": 0.006274819374084473
+            },
+            "scan": {
+                "average_total_time": 4505.8,
+                "average_individual_time": 82.548,
+                "average_longest_wait": 226.2,
+                "average_real_time": 0.0061607837677001955
+            }
+        },
+        "29": {
+            "look": {
+                "average_total_time": 4309.8,
+                "average_individual_time": 82.862,
+                "average_longest_wait": 226.8,
+                "average_real_time": 0.006245136260986328
+            },
+            "scan": {
+                "average_total_time": 4373.0,
+                "average_individual_time": 82.862,
+                "average_longest_wait": 226.8,
+                "average_real_time": 0.00599210262298584
+            }
+        },
+        "30": {
+            "look": {
+                "average_total_time": 4173.4,
+                "average_individual_time": 83.74199999999999,
+                "average_longest_wait": 224.0,
+                "average_real_time": 0.006232166290283203
+            },
+            "scan": {
+                "average_total_time": 4235.4,
+                "average_individual_time": 83.74199999999999,
+                "average_longest_wait": 224.0,
+                "average_real_time": 0.005817055702209473
+            }
+        },
+        "31": {
+            "look": {
+                "average_total_time": 4073.0,
+                "average_individual_time": 83.13040000000001,
+                "average_longest_wait": 227.8,
+                "average_real_time": 0.006005239486694336
+            },
+            "scan": {
+                "average_total_time": 4138.8,
+                "average_individual_time": 83.13040000000001,
+                "average_longest_wait": 227.8,
+                "average_real_time": 0.005711007118225098
+            }
+        },
+        "32": {
+            "look": {
+                "average_total_time": 3921.6,
+                "average_individual_time": 82.90919999999998,
+                "average_longest_wait": 227.4,
+                "average_real_time": 0.0058920860290527345
+            },
+            "scan": {
+                "average_total_time": 3951.6,
+                "average_individual_time": 82.90919999999998,
+                "average_longest_wait": 227.4,
+                "average_real_time": 0.005520844459533691
+            }
+        },
+        "33": {
+            "look": {
+                "average_total_time": 3768.0,
+                "average_individual_time": 82.57419999999999,
+                "average_longest_wait": 226.4,
+                "average_real_time": 0.005644011497497559
+            },
+            "scan": {
+                "average_total_time": 3820.0,
+                "average_individual_time": 82.57419999999999,
+                "average_longest_wait": 226.4,
+                "average_real_time": 0.005544137954711914
+            }
+        },
+        "34": {
+            "look": {
+                "average_total_time": 3659.8,
+                "average_individual_time": 83.2692,
+                "average_longest_wait": 226.4,
+                "average_real_time": 0.005667376518249512
+            },
+            "scan": {
+                "average_total_time": 3691.8,
+                "average_individual_time": 83.2692,
+                "average_longest_wait": 226.4,
+                "average_real_time": 0.005370998382568359
+            }
+        },
+        "35": {
+            "look": {
+                "average_total_time": 3554.0,
+                "average_individual_time": 83.44359999999999,
+                "average_longest_wait": 227.2,
+                "average_real_time": 0.005493783950805664
+            },
+            "scan": {
+                "average_total_time": 3590.0,
+                "average_individual_time": 83.44359999999999,
+                "average_longest_wait": 227.2,
+                "average_real_time": 0.0052542448043823246
+            }
+        },
+        "36": {
+            "look": {
+                "average_total_time": 3521.0,
+                "average_individual_time": 84.06500000000001,
+                "average_longest_wait": 227.4,
+                "average_real_time": 0.005430269241333008
+            },
+            "scan": {
+                "average_total_time": 3561.2,
+                "average_individual_time": 84.06500000000001,
+                "average_longest_wait": 227.4,
+                "average_real_time": 0.005262494087219238
+            }
+        },
+        "37": {
+            "look": {
+                "average_total_time": 3415.4,
+                "average_individual_time": 84.13259999999998,
+                "average_longest_wait": 227.8,
+                "average_real_time": 0.0054241657257080075
+            },
+            "scan": {
+                "average_total_time": 3473.8,
+                "average_individual_time": 84.13259999999998,
+                "average_longest_wait": 227.8,
+                "average_real_time": 0.0052029132843017575
+            }
+        },
+        "38": {
+            "look": {
+                "average_total_time": 3366.0,
+                "average_individual_time": 84.2274,
+                "average_longest_wait": 227.2,
+                "average_real_time": 0.005428433418273926
+            },
+            "scan": {
+                "average_total_time": 3410.2,
+                "average_individual_time": 84.2274,
+                "average_longest_wait": 227.2,
+                "average_real_time": 0.005111026763916016
+            }
+        },
+        "39": {
+            "look": {
+                "average_total_time": 3205.2,
+                "average_individual_time": 82.7784,
+                "average_longest_wait": 227.6,
+                "average_real_time": 0.005292272567749024
+            },
+            "scan": {
+                "average_total_time": 3223.6,
+                "average_individual_time": 82.7784,
+                "average_longest_wait": 227.6,
+                "average_real_time": 0.0049896240234375
+            }
+        },
+        "40": {
+            "look": {
+                "average_total_time": 3183.2,
+                "average_individual_time": 83.68379999999999,
+                "average_longest_wait": 226.6,
+                "average_real_time": 0.00513153076171875
+            },
+            "scan": {
+                "average_total_time": 3201.4,
+                "average_individual_time": 83.68379999999999,
+                "average_longest_wait": 226.6,
+                "average_real_time": 0.005275130271911621
+            }
+        },
+        "41": {
+            "look": {
+                "average_total_time": 3113.0,
+                "average_individual_time": 83.97620000000002,
+                "average_longest_wait": 227.6,
+                "average_real_time": 0.005217051506042481
+            },
+            "scan": {
+                "average_total_time": 3169.0,
+                "average_individual_time": 83.97620000000002,
+                "average_longest_wait": 227.6,
+                "average_real_time": 0.004917001724243164
+            }
+        },
+        "42": {
+            "look": {
+                "average_total_time": 3062.4,
+                "average_individual_time": 83.3448,
+                "average_longest_wait": 227.8,
+                "average_real_time": 0.005044293403625488
+            },
+            "scan": {
+                "average_total_time": 3090.6,
+                "average_individual_time": 83.3448,
+                "average_longest_wait": 227.8,
+                "average_real_time": 0.0047409296035766605
+            }
+        },
+        "43": {
+            "look": {
+                "average_total_time": 3067.0,
+                "average_individual_time": 84.0066,
+                "average_longest_wait": 227.4,
+                "average_real_time": 0.004989409446716308
+            },
+            "scan": {
+                "average_total_time": 3127.8,
+                "average_individual_time": 84.0066,
+                "average_longest_wait": 227.4,
+                "average_real_time": 0.004685831069946289
+            }
+        },
+        "44": {
+            "look": {
+                "average_total_time": 3033.0,
+                "average_individual_time": 84.242,
+                "average_longest_wait": 227.4,
+                "average_real_time": 0.004863643646240234
+            },
+            "scan": {
+                "average_total_time": 3051.2,
+                "average_individual_time": 84.242,
+                "average_longest_wait": 227.4,
+                "average_real_time": 0.004612183570861817
+            }
+        },
+        "45": {
+            "look": {
+                "average_total_time": 2871.2,
+                "average_individual_time": 84.0626,
+                "average_longest_wait": 226.6,
+                "average_real_time": 0.004934430122375488
+            },
+            "scan": {
+                "average_total_time": 2882.8,
+                "average_individual_time": 84.0626,
+                "average_longest_wait": 226.6,
+                "average_real_time": 0.004600310325622558
+            }
+        },
+        "46": {
+            "look": {
+                "average_total_time": 2765.2,
+                "average_individual_time": 84.60300000000001,
+                "average_longest_wait": 227.6,
+                "average_real_time": 0.005459356307983399
+            },
+            "scan": {
+                "average_total_time": 2780.2,
+                "average_individual_time": 84.60300000000001,
+                "average_longest_wait": 227.6,
+                "average_real_time": 0.0046684503555297855
+            }
+        },
+        "47": {
+            "look": {
+                "average_total_time": 2709.4,
+                "average_individual_time": 83.46560000000001,
+                "average_longest_wait": 227.8,
+                "average_real_time": 0.004680323600769043
+            },
+            "scan": {
+                "average_total_time": 2734.8,
+                "average_individual_time": 83.46560000000001,
+                "average_longest_wait": 227.8,
+                "average_real_time": 0.004574775695800781
+            }
+        },
+        "48": {
+            "look": {
+                "average_total_time": 2715.2,
+                "average_individual_time": 83.70779999999999,
+                "average_longest_wait": 227.8,
+                "average_real_time": 0.004704165458679199
+            },
+            "scan": {
+                "average_total_time": 2711.4,
+                "average_individual_time": 83.70779999999999,
+                "average_longest_wait": 227.8,
+                "average_real_time": 0.004691100120544434
+            }
+        },
+        "49": {
+            "look": {
+                "average_total_time": 2681.4,
+                "average_individual_time": 83.68119999999999,
+                "average_longest_wait": 228.0,
+                "average_real_time": 0.004656314849853516
+            },
+            "scan": {
+                "average_total_time": 2683.2,
+                "average_individual_time": 83.68119999999999,
+                "average_longest_wait": 228.0,
+                "average_real_time": 0.004849958419799805
+            }
+        }
+    }
+}

@@ -10,9 +10,7 @@ The module requirements can be found in the ```requirements.txt``` file and are 
 ```
 jsbeautifier
 matplotlib
-tkinter
-json
 ```
 To install these modules, navigate to the project directory in the terminal and run ```pip install -r requirements.txt```
 ## Usage
-Run the ```run.bat``` file or optionally run ```python sources/main.py``` from the terminal.
+Download this project as a .zip file, extract it, then run the ```run.bat``` file or run the ```python sources/main.py``` command from the terminal.

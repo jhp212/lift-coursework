@@ -1,6 +1,6 @@
 from loader import Passenger, load_file
 from bulk_testmaker import generate_test_dict, save_dict_as_json, generate_tests
-import time, jsbeautifier, os
+import time, jsbeautifier, os, json
 import matplotlib.pyplot as plt
 
 # check if the user is accessing from a GUI
@@ -53,7 +53,7 @@ class Lift:
                 terminated_passengers.append(passenger)
                 self.occupants.remove(passenger)
                 passenger_moved = True
-                passenger.end_time = iteration_count - start
+                passenger.end_time = iteration_count
         for passenger in terminated_passengers:
             if passenger in passenger_list:
                 passenger_list.remove(passenger)
@@ -90,7 +90,7 @@ class Lift:
                 self.occupants.remove(passenger)
                 passenger.boarded, passenger.lift_id = False, None
                 passenger_moved = True
-                passenger.end_time = iteration_count - passenger.pickup_time
+                passenger.end_time = iteration_count
 
         # let on passengers
         for passenger in passenger_list[:]:
@@ -337,6 +337,16 @@ def run_range_of_tests(param_values, file_pattern, xlabel):
     algorithms = ["look", "scan",]
     results = {algo: [[], [], [], []] for algo in algorithms}
 
+    # Check if data.json exists, and load existing data
+    if os.path.exists(f"results/data/{xlabel}.json"):
+        with open(f"results/data/{xlabel}.json", "r") as f:
+            data = json.load(f)
+    else:
+        data = {}
+
+    # Ensure top-level key exists
+    if xlabel not in data:
+        data[xlabel] = {}
 
     for algorithm in algorithms:
         for value in param_values:
@@ -362,13 +372,31 @@ def run_range_of_tests(param_values, file_pattern, xlabel):
             values = [average_total_time, average_individual_time, average_longest_wait, average_real_time]
             for i, data_point in enumerate(values):
                 results[algorithm][i].append(data_point)
+            
+            value_str = str(value)
+            if value_str not in data[xlabel]:
+                data[xlabel][value_str] = {}
+            
+            data[xlabel][value_str][algorithm] = {
+                "average_total_time": average_total_time,
+                "average_individual_time": average_individual_time,
+                "average_longest_wait": average_longest_wait,
+                "average_real_time": average_real_time
+            }
+
+    # Save data to JSON files
+    with open(f"results/data/{xlabel}.json", "w") as f:
+        json.dump(data, f, indent=4)
 
     # Plot results
-    fig, axs = plt.subplots(2, 2)
+    plt.rc("font", size=10)
+
+    fig, axs = plt.subplots(2, 2, figsize=(12, 9))
+
     markers = ["o","s","^"]
     for i, algorithm in enumerate(algorithms):
         for j, ax in enumerate(axs.flat):
-            ax.plot(param_values, results[algorithm][j], label=algorithm, alpha=0.7, marker=markers[i])
+            ax.plot(param_values, results[algorithm][j], label=algorithm, alpha=0.7, marker=markers[i], markersize=3)
 
     for i, ax in enumerate(axs.flat):
         ax.legend()
@@ -384,7 +412,7 @@ def run_range_of_tests(param_values, file_pattern, xlabel):
     axs[1, 1].set_title("Average Real Time")
 
     title = f"Time Taken for varying {xlabel}"
-    plt.savefig(f"results/{title}.png")
+    plt.savefig(f"results/charts/{title}.svg", format="svg", dpi=600)
 
     match xlabel:
         case "Capacity":
@@ -428,12 +456,12 @@ if __name__ == "__main__":
                 if gui_available:
                     path = filedialog.askopenfilename(defaultextension=".json", filetypes=[("JSON Files", "*.json")], title="Select a test file")
                 else:
-                    path = input("Enter the path to the test file\n>>> ")
+                    path = input("\nEnter the path to the test file\n>>> ")
 
                 if not path:
                     continue
 
-                algorithm = input("Which algorithm would you like to run?\na) SCAN\nb) LOOK\nc) MYLIFT\n>>> ")
+                algorithm = input("\nWhich algorithm would you like to run?\na) SCAN\nb) LOOK\nc) MYLIFT\n>>> ")
                 algorithms = {"a": "scan", "b": "look", "c": "my_lift"}
 
                 if algorithm.lower() not in algorithms:
@@ -445,7 +473,7 @@ if __name__ == "__main__":
             
             case "b":
                 try:
-                    floor_count = int(input("How many floors are there?\n>>> "))
+                    floor_count = int(input("\nHow many floors are there?\n>>> "))
                     capacity = int(input("How many people can the lift carry?\n>>> "))
                     passenger_count = int(input("How many people will there be?\n>>> "))
                 except ValueError:
@@ -456,7 +484,7 @@ if __name__ == "__main__":
                     print("Select a save location...")
                     path = filedialog.asksaveasfilename(defaultextension=".json", filetypes=[("JSON Files", "*.json")], title="Select a save location")
                 else:
-                    path = input("Enter the path to save the test file (e.g. folder/test.json)\n>>> ")
+                    path = input("\nEnter the path to save the test file (e.g. folder/test.json)\n>>> ")
                     path = os.path.abspath(path)
 
                 if not path:
@@ -467,16 +495,16 @@ if __name__ == "__main__":
 
 
             case "c":
-                choice = input("Would you like to:\na) Test all algorithms over a range of tests\nb) Generate a lot of test files\n>>> ").lower()
+                choice = input("\nWould you like to:\na) Test all algorithms over a range of tests\nb) Generate a lot of test files\n>>> ").lower()
 
                 match choice:
                     case "a":
-                        print("This function will analyse the performance of all algorithms over a range of tests.")
+                        print("\nThis function will analyse the performance of all algorithms over a range of tests.")
                         print("This will take a while, so please be patient.")
-                        choice = input("Would you like to:\na) Analyse varying capacity\nb) Analyse varying floor count\nc) Analyse varying passenger count\n>>> ").lower()
+                        choice = input("\nWould you like to:\na) Analyse varying capacity\nb) Analyse varying floor count\nc) Analyse varying passenger count\n>>> ").lower()
                         match choice:
                             case "a":
-                                print("The default values are:\nNumber of Floors = 20\nNumber of passengers = 1000")
+                                print("\nThe default values are:\nNumber of Floors = 20\nNumber of passengers = 1000")
                                 
                                 begin = input("Would you like to start the tests? (y/n)\n>>> ").lower()
                         
