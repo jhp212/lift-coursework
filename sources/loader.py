@@ -9,8 +9,8 @@ class Passenger:
             end_floor (int): The target floor of this passenger
             passenger_id (int): The passenger id, to differentiate different passengers that would otherwise be identical.
         """
-        self.start_floor, self.end_floor, self.start_time = start_floor, end_floor, 0
-        self.boarded, self.lift_id = False, None
+        self.start_floor, self.end_floor = start_floor, end_floor
+        self.boarded = False
         self.passenger_id = passenger_id
         self.direction = -1 if start_floor - end_floor > 0 else 1
         self.pickup_time = None
