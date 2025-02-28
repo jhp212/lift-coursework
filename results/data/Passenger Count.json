@@ -4,13 +4,19 @@
             "average_total_time": 501.8,
             "average_individual_journey_time": 80.22,
             "average_longest_journey_time": 170.2,
-            "average_real_time": 3.173351287841797e-05
+            "average_real_time": 3.330707550048828e-05
         },
         "look": {
             "average_total_time": 449.8,
             "average_individual_journey_time": 80.22,
             "average_longest_journey_time": 170.2,
-            "average_real_time": 4.925727844238281e-05
+            "average_real_time": 4.200935363769531e-05
+        },
+        "my_lift": {
+            "average_total_time": 1120.4,
+            "average_individual_journey_time": 161.06,
+            "average_longest_journey_time": 569.6,
+            "average_real_time": 0.00010111331939697266
         }
     },
     "20": {
@@ -18,13 +24,19 @@
             "average_total_time": 751.8,
             "average_individual_journey_time": 77.05000000000001,
             "average_longest_journey_time": 178.8,
-            "average_real_time": 5.741119384765625e-05
+            "average_real_time": 5.3429603576660155e-05
         },
         "look": {
             "average_total_time": 661.4,
             "average_individual_journey_time": 77.05000000000001,
             "average_longest_journey_time": 178.8,
-            "average_real_time": 6.461143493652344e-05
+            "average_real_time": 6.361007690429688e-05
+        },
+        "my_lift": {
+            "average_total_time": 1516.8,
+            "average_individual_journey_time": 210.20999999999998,
+            "average_longest_journey_time": 950.8,
+            "average_real_time": 0.0002223491668701172
         }
     },
     "30": {
@@ -32,13 +44,19 @@
             "average_total_time": 1020.4,
             "average_individual_journey_time": 74.54666666666665,
             "average_longest_journey_time": 185.6,
-            "average_real_time": 8.33749771118164e-05
+            "average_real_time": 8.409023284912109e-05
         },
         "look": {
             "average_total_time": 857.6,
             "average_individual_journey_time": 74.54666666666665,
             "average_longest_journey_time": 185.6,
-            "average_real_time": 9.484291076660157e-05
+            "average_real_time": 8.950233459472656e-05
+        },
+        "my_lift": {
+            "average_total_time": 2429.6,
+            "average_individual_journey_time": 262.9066666666667,
+            "average_longest_journey_time": 1403.8,
+            "average_real_time": 0.0004108190536499023
         }
     },
     "40": {
@@ -46,13 +64,19 @@
             "average_total_time": 1277.8,
             "average_individual_journey_time": 78.20500000000001,
             "average_longest_journey_time": 197.6,
-            "average_real_time": 0.00010783672332763672
+            "average_real_time": 0.00011026859283447266
         },
         "look": {
             "average_total_time": 1143.2,
             "average_individual_journey_time": 78.20500000000001,
             "average_longest_journey_time": 197.6,
-            "average_real_time": 0.00013802051544189453
+            "average_real_time": 0.00012788772583007812
+        },
+        "my_lift": {
+            "average_total_time": 2992.0,
+            "average_individual_journey_time": 270.39000000000004,
+            "average_longest_journey_time": 1572.8,
+            "average_real_time": 0.000543975830078125
         }
     },
     "50": {
@@ -60,13 +84,19 @@
             "average_total_time": 1441.4,
             "average_individual_journey_time": 77.98799999999999,
             "average_longest_journey_time": 192.4,
-            "average_real_time": 0.00015130043029785157
+            "average_real_time": 0.00014083385467529298
         },
         "look": {
             "average_total_time": 1319.0,
             "average_individual_journey_time": 77.98799999999999,
             "average_longest_journey_time": 192.4,
-            "average_real_time": 0.00016422271728515624
+            "average_real_time": 0.00015196800231933593
+        },
+        "my_lift": {
+            "average_total_time": 3333.0,
+            "average_individual_journey_time": 253.112,
+            "average_longest_journey_time": 1498.8,
+            "average_real_time": 0.0006957054138183594
         }
     },
     "60": {
@@ -74,13 +104,19 @@
             "average_total_time": 1767.6,
             "average_individual_journey_time": 78.03666666666666,
             "average_longest_journey_time": 196.4,
-            "average_real_time": 0.00018687248229980468
+            "average_real_time": 0.00017895698547363282
         },
         "look": {
             "average_total_time": 1547.2,
             "average_individual_journey_time": 78.03666666666666,
             "average_longest_journey_time": 196.4,
-            "average_real_time": 0.00021114349365234376
+            "average_real_time": 0.00020275115966796874
+        },
+        "my_lift": {
+            "average_total_time": 4013.6,
+            "average_individual_journey_time": 260.41,
+            "average_longest_journey_time": 1581.8,
+            "average_real_time": 0.0007965564727783203
         }
     },
     "70": {
@@ -88,13 +124,19 @@
             "average_total_time": 2020.8,
             "average_individual_journey_time": 80.90571428571428,
             "average_longest_journey_time": 195.0,
-            "average_real_time": 0.000220489501953125
+            "average_real_time": 0.00021719932556152344
         },
         "look": {
             "average_total_time": 1827.2,
             "average_individual_journey_time": 80.90571428571428,
             "average_longest_journey_time": 195.0,
-            "average_real_time": 0.00024569034576416016
+            "average_real_time": 0.00024037361145019532
+        },
+        "my_lift": {
+            "average_total_time": 4463.8,
+            "average_individual_journey_time": 247.7428571428571,
+            "average_longest_journey_time": 1704.8,
+            "average_real_time": 0.0010089874267578125
         }
     },
     "80": {
@@ -102,13 +144,19 @@
             "average_total_time": 2161.2,
             "average_individual_journey_time": 78.455,
             "average_longest_journey_time": 201.8,
-            "average_real_time": 0.0002510547637939453
+            "average_real_time": 0.00025289058685302735
         },
         "look": {
             "average_total_time": 1952.0,
             "average_individual_journey_time": 78.455,
             "average_longest_journey_time": 201.8,
-            "average_real_time": 0.00029125213623046873
+            "average_real_time": 0.00029292106628417967
+        },
+        "my_lift": {
+            "average_total_time": 4780.6,
+            "average_individual_journey_time": 241.81749999999997,
+            "average_longest_journey_time": 1494.0,
+            "average_real_time": 0.0011715888977050781
         }
     },
     "90": {
@@ -116,13 +164,19 @@
             "average_total_time": 2538.0,
             "average_individual_journey_time": 77.06888888888888,
             "average_longest_journey_time": 199.8,
-            "average_real_time": 0.00031528472900390627
+            "average_real_time": 0.00031595230102539064
         },
         "look": {
             "average_total_time": 2244.8,
             "average_individual_journey_time": 77.06888888888888,
             "average_longest_journey_time": 199.8,
-            "average_real_time": 0.00035204887390136717
+            "average_real_time": 0.00033500194549560545
+        },
+        "my_lift": {
+            "average_total_time": 4959.4,
+            "average_individual_journey_time": 233.29555555555558,
+            "average_longest_journey_time": 1839.8,
+            "average_real_time": 0.0013393163681030273
         }
     },
     "100": {
@@ -130,13 +184,19 @@
             "average_total_time": 2589.8,
             "average_individual_journey_time": 76.04800000000002,
             "average_longest_journey_time": 199.8,
-            "average_real_time": 0.0003434896469116211
+            "average_real_time": 0.0003481388092041016
         },
         "look": {
             "average_total_time": 2323.4,
             "average_individual_journey_time": 76.04800000000002,
             "average_longest_journey_time": 199.8,
-            "average_real_time": 0.00040166378021240235
+            "average_real_time": 0.0004108428955078125
+        },
+        "my_lift": {
+            "average_total_time": 5795.0,
+            "average_individual_journey_time": 242.92800000000003,
+            "average_longest_journey_time": 1892.0,
+            "average_real_time": 0.0015117406845092773
         }
     },
     "110": {
@@ -144,13 +204,19 @@
             "average_total_time": 2906.8,
             "average_individual_journey_time": 74.95272727272727,
             "average_longest_journey_time": 196.8,
-            "average_real_time": 0.0004276275634765625
+            "average_real_time": 0.00041201114654541013
         },
         "look": {
             "average_total_time": 2547.4,
             "average_individual_journey_time": 74.95272727272727,
             "average_longest_journey_time": 196.8,
-            "average_real_time": 0.0004482746124267578
+            "average_real_time": 0.000453948974609375
+        },
+        "my_lift": {
+            "average_total_time": 6159.8,
+            "average_individual_journey_time": 233.79272727272723,
+            "average_longest_journey_time": 1939.4,
+            "average_real_time": 0.001697540283203125
         }
     },
     "120": {
@@ -158,13 +224,19 @@
             "average_total_time": 3293.0,
             "average_individual_journey_time": 78.60833333333332,
             "average_longest_journey_time": 199.8,
-            "average_real_time": 0.000490880012512207
+            "average_real_time": 0.0004705190658569336
         },
         "look": {
             "average_total_time": 2904.6,
             "average_individual_journey_time": 78.60833333333332,
             "average_longest_journey_time": 199.8,
-            "average_real_time": 0.0005323648452758789
+            "average_real_time": 0.0005063295364379882
+        },
+        "my_lift": {
+            "average_total_time": 6467.0,
+            "average_individual_journey_time": 228.63333333333335,
+            "average_longest_journey_time": 2651.2,
+            "average_real_time": 0.0017362117767333984
         }
     },
     "130": {
@@ -172,13 +244,19 @@
             "average_total_time": 3288.2,
             "average_individual_journey_time": 77.10615384615386,
             "average_longest_journey_time": 202.8,
-            "average_real_time": 0.000536346435546875
+            "average_real_time": 0.000580906867980957
         },
         "look": {
             "average_total_time": 2959.6,
             "average_individual_journey_time": 77.10615384615386,
             "average_longest_journey_time": 202.8,
-            "average_real_time": 0.0006065130233764649
+            "average_real_time": 0.0005898714065551758
+        },
+        "my_lift": {
+            "average_total_time": 6511.6,
+            "average_individual_journey_time": 216.04923076923077,
+            "average_longest_journey_time": 1673.4,
+            "average_real_time": 0.0019053936004638672
         }
     },
     "140": {
@@ -186,13 +264,19 @@
             "average_total_time": 3460.2,
             "average_individual_journey_time": 75.49285714285713,
             "average_longest_journey_time": 200.2,
-            "average_real_time": 0.0006014108657836914
+            "average_real_time": 0.0005540847778320312
         },
         "look": {
             "average_total_time": 3161.0,
             "average_individual_journey_time": 75.49285714285713,
             "average_longest_journey_time": 200.2,
-            "average_real_time": 0.0006135225296020508
+            "average_real_time": 0.0006172657012939453
+        },
+        "my_lift": {
+            "average_total_time": 6787.0,
+            "average_individual_journey_time": 210.40571428571428,
+            "average_longest_journey_time": 1806.6,
+            "average_real_time": 0.0019928932189941405
         }
     },
     "150": {
@@ -200,13 +284,19 @@
             "average_total_time": 3781.2,
             "average_individual_journey_time": 78.08266666666667,
             "average_longest_journey_time": 197.8,
-            "average_real_time": 0.0006448030471801758
+            "average_real_time": 0.0006128549575805664
         },
         "look": {
             "average_total_time": 3467.2,
             "average_individual_journey_time": 78.08266666666667,
             "average_longest_journey_time": 197.8,
-            "average_real_time": 0.0006811141967773438
+            "average_real_time": 0.000745701789855957
+        },
+        "my_lift": {
+            "average_total_time": 7192.2,
+            "average_individual_journey_time": 211.244,
+            "average_longest_journey_time": 1924.4,
+            "average_real_time": 0.0023252487182617186
         }
     },
     "160": {
@@ -214,13 +304,19 @@
             "average_total_time": 4016.2,
             "average_individual_journey_time": 77.21375,
             "average_longest_journey_time": 205.2,
-            "average_real_time": 0.0007109403610229492
+            "average_real_time": 0.00071868896484375
         },
         "look": {
             "average_total_time": 3628.6,
             "average_individual_journey_time": 77.21375,
             "average_longest_journey_time": 205.2,
-            "average_real_time": 0.0008086919784545899
+            "average_real_time": 0.0007473230361938477
+        },
+        "my_lift": {
+            "average_total_time": 8252.8,
+            "average_individual_journey_time": 225.20374999999999,
+            "average_longest_journey_time": 2265.2,
+            "average_real_time": 0.0025226593017578123
         }
     },
     "170": {
@@ -228,13 +324,19 @@
             "average_total_time": 4174.0,
             "average_individual_journey_time": 77.01882352941178,
             "average_longest_journey_time": 205.6,
-            "average_real_time": 0.0007992029190063476
+            "average_real_time": 0.0007448911666870118
         },
         "look": {
             "average_total_time": 3811.2,
             "average_individual_journey_time": 77.01882352941178,
             "average_longest_journey_time": 205.6,
-            "average_real_time": 0.0009120464324951172
+            "average_real_time": 0.00087432861328125
+        },
+        "my_lift": {
+            "average_total_time": 8447.0,
+            "average_individual_journey_time": 216.9541176470588,
+            "average_longest_journey_time": 2073.6,
+            "average_real_time": 0.0025283336639404298
         }
     },
     "180": {
@@ -242,13 +344,19 @@
             "average_total_time": 4604.6,
             "average_individual_journey_time": 77.14222222222223,
             "average_longest_journey_time": 201.0,
-            "average_real_time": 0.0009077787399291992
+            "average_real_time": 0.0008864641189575195
         },
         "look": {
             "average_total_time": 4146.0,
             "average_individual_journey_time": 77.14222222222223,
             "average_longest_journey_time": 201.0,
-            "average_real_time": 0.0009932518005371094
+            "average_real_time": 0.0009500503540039063
+        },
+        "my_lift": {
+            "average_total_time": 8436.2,
+            "average_individual_journey_time": 203.77777777777777,
+            "average_longest_journey_time": 1818.0,
+            "average_real_time": 0.0027849674224853516
         }
     },
     "190": {
@@ -256,13 +364,19 @@
             "average_total_time": 4808.6,
             "average_individual_journey_time": 77.99684210526317,
             "average_longest_journey_time": 201.2,
-            "average_real_time": 0.0010036468505859376
+            "average_real_time": 0.0009125709533691406
         },
         "look": {
             "average_total_time": 4327.4,
             "average_individual_journey_time": 77.99684210526317,
             "average_longest_journey_time": 201.2,
-            "average_real_time": 0.0010263442993164063
+            "average_real_time": 0.00100252628326416
+        },
+        "my_lift": {
+            "average_total_time": 9300.2,
+            "average_individual_journey_time": 214.8326315789474,
+            "average_longest_journey_time": 2302.2,
+            "average_real_time": 0.003281903266906738
         }
     },
     "200": {
@@ -270,13 +384,19 @@
             "average_total_time": 4856.0,
             "average_individual_journey_time": 75.55799999999999,
             "average_longest_journey_time": 206.6,
-            "average_real_time": 0.000987696647644043
+            "average_real_time": 0.000999784469604492
         },
         "look": {
             "average_total_time": 4424.6,
             "average_individual_journey_time": 75.55799999999999,
             "average_longest_journey_time": 206.6,
-            "average_real_time": 0.0011493682861328125
+            "average_real_time": 0.001061868667602539
+        },
+        "my_lift": {
+            "average_total_time": 9459.0,
+            "average_individual_journey_time": 207.227,
+            "average_longest_journey_time": 2194.0,
+            "average_real_time": 0.0036183834075927735
         }
     },
     "210": {
@@ -284,13 +404,19 @@
             "average_total_time": 5217.0,
             "average_individual_journey_time": 77.44761904761904,
             "average_longest_journey_time": 201.0,
-            "average_real_time": 0.0011278867721557617
+            "average_real_time": 0.0010957717895507812
         },
         "look": {
             "average_total_time": 4771.2,
             "average_individual_journey_time": 77.44761904761904,
             "average_longest_journey_time": 201.0,
-            "average_real_time": 0.0012362241744995118
+            "average_real_time": 0.001219320297241211
+        },
+        "my_lift": {
+            "average_total_time": 9851.6,
+            "average_individual_journey_time": 208.66095238095235,
+            "average_longest_journey_time": 2044.4,
+            "average_real_time": 0.003676104545593262
         }
     },
     "220": {
@@ -298,13 +424,19 @@
             "average_total_time": 5387.4,
             "average_individual_journey_time": 76.94545454545455,
             "average_longest_journey_time": 203.2,
-            "average_real_time": 0.001181340217590332
+            "average_real_time": 0.001226496696472168
         },
         "look": {
             "average_total_time": 4848.6,
             "average_individual_journey_time": 76.94545454545455,
             "average_longest_journey_time": 203.2,
-            "average_real_time": 0.0013643741607666016
+            "average_real_time": 0.0012669801712036134
+        },
+        "my_lift": {
+            "average_total_time": 9715.0,
+            "average_individual_journey_time": 197.1890909090909,
+            "average_longest_journey_time": 2116.2,
+            "average_real_time": 0.0033310413360595702
         }
     },
     "230": {
@@ -312,13 +444,19 @@
             "average_total_time": 5591.6,
             "average_individual_journey_time": 76.19739130434783,
             "average_longest_journey_time": 204.8,
-            "average_real_time": 0.001272273063659668
+            "average_real_time": 0.0012639284133911133
         },
         "look": {
             "average_total_time": 5081.4,
             "average_individual_journey_time": 76.19739130434783,
             "average_longest_journey_time": 204.8,
-            "average_real_time": 0.0014347553253173829
+            "average_real_time": 0.001431441307067871
+        },
+        "my_lift": {
+            "average_total_time": 10516.2,
+            "average_individual_journey_time": 205.39304347826086,
+            "average_longest_journey_time": 2076.6,
+            "average_real_time": 0.0038117170333862305
         }
     },
     "240": {
@@ -326,13 +464,19 @@
             "average_total_time": 5628.8,
             "average_individual_journey_time": 75.11166666666666,
             "average_longest_journey_time": 205.8,
-            "average_real_time": 0.001407480239868164
+            "average_real_time": 0.0013788461685180664
         },
         "look": {
             "average_total_time": 5128.4,
             "average_individual_journey_time": 75.11166666666666,
             "average_longest_journey_time": 205.8,
-            "average_real_time": 0.001465177536010742
+            "average_real_time": 0.0014690637588500976
+        },
+        "my_lift": {
+            "average_total_time": 10758.8,
+            "average_individual_journey_time": 204.1275,
+            "average_longest_journey_time": 2235.0,
+            "average_real_time": 0.003812551498413086
         }
     },
     "250": {
@@ -340,13 +484,19 @@
             "average_total_time": 6191.2,
             "average_individual_journey_time": 76.7496,
             "average_longest_journey_time": 204.6,
-            "average_real_time": 0.0014190673828125
+            "average_real_time": 0.0015875577926635742
         },
         "look": {
             "average_total_time": 5528.8,
             "average_individual_journey_time": 76.7496,
             "average_longest_journey_time": 204.6,
-            "average_real_time": 0.0016051054000854493
+            "average_real_time": 0.0015641212463378905
+        },
+        "my_lift": {
+            "average_total_time": 11436.0,
+            "average_individual_journey_time": 203.6856,
+            "average_longest_journey_time": 2493.2,
+            "average_real_time": 0.004343509674072266
         }
     },
     "260": {
@@ -354,13 +504,19 @@
             "average_total_time": 6348.0,
             "average_individual_journey_time": 76.83615384615385,
             "average_longest_journey_time": 205.0,
-            "average_real_time": 0.0016327381134033203
+            "average_real_time": 0.0016181230545043944
         },
         "look": {
             "average_total_time": 5730.6,
             "average_individual_journey_time": 76.83615384615385,
             "average_longest_journey_time": 205.0,
-            "average_real_time": 0.0017679929733276367
+            "average_real_time": 0.001727151870727539
+        },
+        "my_lift": {
+            "average_total_time": 12120.6,
+            "average_individual_journey_time": 208.57230769230767,
+            "average_longest_journey_time": 2226.8,
+            "average_real_time": 0.005028176307678223
         }
     },
     "270": {
@@ -368,13 +524,19 @@
             "average_total_time": 6532.8,
             "average_individual_journey_time": 77.01333333333334,
             "average_longest_journey_time": 202.8,
-            "average_real_time": 0.0017437696456909179
+            "average_real_time": 0.001593303680419922
         },
         "look": {
             "average_total_time": 5919.8,
             "average_individual_journey_time": 77.01333333333334,
             "average_longest_journey_time": 202.8,
-            "average_real_time": 0.0018889427185058594
+            "average_real_time": 0.00182797908782959
+        },
+        "my_lift": {
+            "average_total_time": 12468.8,
+            "average_individual_journey_time": 208.1125925925926,
+            "average_longest_journey_time": 2460.2,
+            "average_real_time": 0.005119895935058594
         }
     },
     "280": {
@@ -382,13 +544,19 @@
             "average_total_time": 6643.0,
             "average_individual_journey_time": 76.43,
             "average_longest_journey_time": 203.6,
-            "average_real_time": 0.0017066240310668946
+            "average_real_time": 0.0017215251922607423
         },
         "look": {
             "average_total_time": 6089.0,
             "average_individual_journey_time": 76.43,
             "average_longest_journey_time": 203.6,
-            "average_real_time": 0.0020212888717651366
+            "average_real_time": 0.0019023418426513672
+        },
+        "my_lift": {
+            "average_total_time": 12191.6,
+            "average_individual_journey_time": 197.67428571428567,
+            "average_longest_journey_time": 1757.4,
+            "average_real_time": 0.00543663501739502
         }
     },
     "290": {
@@ -396,13 +564,19 @@
             "average_total_time": 6812.6,
             "average_individual_journey_time": 74.8993103448276,
             "average_longest_journey_time": 205.6,
-            "average_real_time": 0.0018708229064941407
+            "average_real_time": 0.0018229007720947266
         },
         "look": {
             "average_total_time": 6146.0,
             "average_individual_journey_time": 74.8993103448276,
             "average_longest_journey_time": 205.6,
-            "average_real_time": 0.002058553695678711
+            "average_real_time": 0.0019743680953979493
+        },
+        "my_lift": {
+            "average_total_time": 12309.2,
+            "average_individual_journey_time": 192.00206896551725,
+            "average_longest_journey_time": 2148.0,
+            "average_real_time": 0.004926133155822754
         }
     },
     "300": {
@@ -410,13 +584,19 @@
             "average_total_time": 7009.8,
             "average_individual_journey_time": 75.748,
             "average_longest_journey_time": 209.0,
-            "average_real_time": 0.0020296335220336913
+            "average_real_time": 0.002025198936462402
         },
         "look": {
             "average_total_time": 6375.8,
             "average_individual_journey_time": 75.748,
             "average_longest_journey_time": 209.0,
-            "average_real_time": 0.002340102195739746
+            "average_real_time": 0.002200198173522949
+        },
+        "my_lift": {
+            "average_total_time": 13120.6,
+            "average_individual_journey_time": 197.656,
+            "average_longest_journey_time": 2471.2,
+            "average_real_time": 0.005512118339538574
         }
     },
     "310": {
@@ -424,13 +604,19 @@
             "average_total_time": 7458.2,
             "average_individual_journey_time": 77.76645161290324,
             "average_longest_journey_time": 209.8,
-            "average_real_time": 0.0022272348403930666
+            "average_real_time": 0.0021260261535644533
         },
         "look": {
             "average_total_time": 6767.0,
             "average_individual_journey_time": 77.76645161290324,
             "average_longest_journey_time": 209.8,
-            "average_real_time": 0.002563929557800293
+            "average_real_time": 0.0023102045059204103
+        },
+        "my_lift": {
+            "average_total_time": 13894.6,
+            "average_individual_journey_time": 204.66967741935485,
+            "average_longest_journey_time": 3155.2,
+            "average_real_time": 0.005776667594909668
         }
     },
     "320": {
@@ -438,13 +624,19 @@
             "average_total_time": 7898.8,
             "average_individual_journey_time": 76.641875,
             "average_longest_journey_time": 211.0,
-            "average_real_time": 0.0023204565048217775
+            "average_real_time": 0.0023240566253662108
         },
         "look": {
             "average_total_time": 7084.2,
             "average_individual_journey_time": 76.641875,
             "average_longest_journey_time": 211.0,
-            "average_real_time": 0.002594590187072754
+            "average_real_time": 0.0024608612060546876
+        },
+        "my_lift": {
+            "average_total_time": 14537.0,
+            "average_individual_journey_time": 206.726875,
+            "average_longest_journey_time": 2543.2,
+            "average_real_time": 0.006131815910339356
         }
     },
     "330": {
@@ -452,13 +644,19 @@
             "average_total_time": 7643.8,
             "average_individual_journey_time": 76.81454545454544,
             "average_longest_journey_time": 208.2,
-            "average_real_time": 0.002417731285095215
+            "average_real_time": 0.00228424072265625
         },
         "look": {
             "average_total_time": 7031.8,
             "average_individual_journey_time": 76.81454545454544,
             "average_longest_journey_time": 208.2,
-            "average_real_time": 0.0026637792587280275
+            "average_real_time": 0.0025673389434814455
+        },
+        "my_lift": {
+            "average_total_time": 13941.2,
+            "average_individual_journey_time": 193.2430303030303,
+            "average_longest_journey_time": 2349.6,
+            "average_real_time": 0.005677556991577149
         }
     },
     "340": {
@@ -466,13 +664,19 @@
             "average_total_time": 8008.6,
             "average_individual_journey_time": 76.79470588235294,
             "average_longest_journey_time": 208.4,
-            "average_real_time": 0.0024240970611572265
+            "average_real_time": 0.002443838119506836
         },
         "look": {
             "average_total_time": 7384.4,
             "average_individual_journey_time": 76.79470588235294,
             "average_longest_journey_time": 208.4,
-            "average_real_time": 0.002814030647277832
+            "average_real_time": 0.0027254343032836912
+        },
+        "my_lift": {
+            "average_total_time": 13904.2,
+            "average_individual_journey_time": 188.2664705882353,
+            "average_longest_journey_time": 2275.4,
+            "average_real_time": 0.006321048736572266
         }
     },
     "350": {
@@ -480,13 +684,19 @@
             "average_total_time": 8059.2,
             "average_individual_journey_time": 75.03485714285713,
             "average_longest_journey_time": 208.0,
-            "average_real_time": 0.002504873275756836
+            "average_real_time": 0.002550220489501953
         },
         "look": {
             "average_total_time": 7344.0,
             "average_individual_journey_time": 75.03485714285713,
             "average_longest_journey_time": 208.0,
-            "average_real_time": 0.002906060218811035
+            "average_real_time": 0.002846837043762207
+        },
+        "my_lift": {
+            "average_total_time": 14881.6,
+            "average_individual_journey_time": 192.79314285714284,
+            "average_longest_journey_time": 2342.4,
+            "average_real_time": 0.006716322898864746
         }
     },
     "360": {
@@ -494,13 +704,19 @@
             "average_total_time": 8214.6,
             "average_individual_journey_time": 75.18722222222223,
             "average_longest_journey_time": 208.0,
-            "average_real_time": 0.002720141410827637
+            "average_real_time": 0.002699613571166992
         },
         "look": {
             "average_total_time": 7537.0,
             "average_individual_journey_time": 75.18722222222223,
             "average_longest_journey_time": 208.0,
-            "average_real_time": 0.0031213998794555665
+            "average_real_time": 0.0030552148818969727
+        },
+        "my_lift": {
+            "average_total_time": 15185.2,
+            "average_individual_journey_time": 192.5027777777778,
+            "average_longest_journey_time": 2307.2,
+            "average_real_time": 0.007514691352844239
         }
     },
     "370": {
@@ -508,13 +724,19 @@
             "average_total_time": 8802.8,
             "average_individual_journey_time": 75.82486486486488,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.002969789505004883
+            "average_real_time": 0.002952265739440918
         },
         "look": {
             "average_total_time": 8035.6,
             "average_individual_journey_time": 75.82486486486488,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.0032845258712768553
+            "average_real_time": 0.0031651020050048827
+        },
+        "my_lift": {
+            "average_total_time": 16034.4,
+            "average_individual_journey_time": 196.67459459459462,
+            "average_longest_journey_time": 2558.6,
+            "average_real_time": 0.0077040672302246095
         }
     },
     "380": {
@@ -522,13 +744,19 @@
             "average_total_time": 8836.8,
             "average_individual_journey_time": 75.5878947368421,
             "average_longest_journey_time": 203.0,
-            "average_real_time": 0.0034070730209350584
+            "average_real_time": 0.0030469417572021483
         },
         "look": {
             "average_total_time": 8076.0,
             "average_individual_journey_time": 75.5878947368421,
             "average_longest_journey_time": 203.0,
-            "average_real_time": 0.003361368179321289
+            "average_real_time": 0.0033495426177978516
+        },
+        "my_lift": {
+            "average_total_time": 15363.0,
+            "average_individual_journey_time": 184.84526315789475,
+            "average_longest_journey_time": 2314.8,
+            "average_real_time": 0.007037520408630371
         }
     },
     "390": {
@@ -536,13 +764,19 @@
             "average_total_time": 9137.8,
             "average_individual_journey_time": 76.41948717948719,
             "average_longest_journey_time": 208.2,
-            "average_real_time": 0.0031660795211791992
+            "average_real_time": 0.003191208839416504
         },
         "look": {
             "average_total_time": 8306.2,
             "average_individual_journey_time": 76.41948717948719,
             "average_longest_journey_time": 208.2,
-            "average_real_time": 0.0035110235214233397
+            "average_real_time": 0.003470897674560547
+        },
+        "my_lift": {
+            "average_total_time": 16167.8,
+            "average_individual_journey_time": 191.13589743589745,
+            "average_longest_journey_time": 2610.4,
+            "average_real_time": 0.006743526458740235
         }
     },
     "400": {
@@ -550,13 +784,19 @@
             "average_total_time": 9341.2,
             "average_individual_journey_time": 75.87300000000002,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.0032579660415649413
+            "average_real_time": 0.0032471179962158202
         },
         "look": {
             "average_total_time": 8502.4,
             "average_individual_journey_time": 75.87300000000002,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.004858541488647461
+            "average_real_time": 0.003525233268737793
+        },
+        "my_lift": {
+            "average_total_time": 15997.6,
+            "average_individual_journey_time": 183.521,
+            "average_longest_journey_time": 2159.8,
+            "average_real_time": 0.007645201683044433
         }
     },
     "410": {
@@ -564,13 +804,19 @@
             "average_total_time": 9769.8,
             "average_individual_journey_time": 76.70292682926829,
             "average_longest_journey_time": 206.4,
-            "average_real_time": 0.003522443771362305
+            "average_real_time": 0.0035938024520874023
         },
         "look": {
             "average_total_time": 8862.6,
             "average_individual_journey_time": 76.70292682926829,
             "average_longest_journey_time": 206.4,
-            "average_real_time": 0.004404377937316894
+            "average_real_time": 0.0037786006927490235
+        },
+        "my_lift": {
+            "average_total_time": 17456.0,
+            "average_individual_journey_time": 194.58536585365852,
+            "average_longest_journey_time": 2524.6,
+            "average_real_time": 0.009587407112121582
         }
     },
     "420": {
@@ -578,13 +824,19 @@
             "average_total_time": 9961.4,
             "average_individual_journey_time": 77.21142857142857,
             "average_longest_journey_time": 205.6,
-            "average_real_time": 0.0035675048828125
+            "average_real_time": 0.0035567283630371094
         },
         "look": {
             "average_total_time": 9086.8,
             "average_individual_journey_time": 77.21142857142857,
             "average_longest_journey_time": 205.6,
-            "average_real_time": 0.004503178596496582
+            "average_real_time": 0.003934717178344727
+        },
+        "my_lift": {
+            "average_total_time": 17989.4,
+            "average_individual_journey_time": 195.98,
+            "average_longest_journey_time": 2656.4,
+            "average_real_time": 0.008453154563903808
         }
     },
     "430": {
@@ -592,13 +844,19 @@
             "average_total_time": 9991.4,
             "average_individual_journey_time": 76.19953488372093,
             "average_longest_journey_time": 208.2,
-            "average_real_time": 0.0037366151809692383
+            "average_real_time": 0.003731822967529297
         },
         "look": {
             "average_total_time": 9130.6,
             "average_individual_journey_time": 76.19953488372093,
             "average_longest_journey_time": 208.2,
-            "average_real_time": 0.004219555854797363
+            "average_real_time": 0.0041130781173706055
+        },
+        "my_lift": {
+            "average_total_time": 17310.4,
+            "average_individual_journey_time": 185.78558139534886,
+            "average_longest_journey_time": 2293.2,
+            "average_real_time": 0.008397269248962402
         }
     },
     "440": {
@@ -606,13 +864,19 @@
             "average_total_time": 10399.4,
             "average_individual_journey_time": 78.01363636363637,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.004036808013916015
+            "average_real_time": 0.003964066505432129
         },
         "look": {
             "average_total_time": 9582.4,
             "average_individual_journey_time": 78.01363636363637,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.004894232749938965
+            "average_real_time": 0.004427981376647949
+        },
+        "my_lift": {
+            "average_total_time": 17722.2,
+            "average_individual_journey_time": 185.78636363636363,
+            "average_longest_journey_time": 1907.8,
+            "average_real_time": 0.009235024452209473
         }
     },
     "450": {
@@ -620,13 +884,19 @@
             "average_total_time": 10598.6,
             "average_individual_journey_time": 75.56711111111113,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.004124999046325684
+            "average_real_time": 0.00418541431427002
         },
         "look": {
             "average_total_time": 9590.2,
             "average_individual_journey_time": 75.56711111111113,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.004753756523132324
+            "average_real_time": 0.004409265518188476
+        },
+        "my_lift": {
+            "average_total_time": 17708.2,
+            "average_individual_journey_time": 181.42755555555556,
+            "average_longest_journey_time": 2194.4,
+            "average_real_time": 0.00873396396636963
         }
     },
     "460": {
@@ -634,13 +904,19 @@
             "average_total_time": 10819.6,
             "average_individual_journey_time": 75.52347826086957,
             "average_longest_journey_time": 206.0,
-            "average_real_time": 0.004157400131225586
+            "average_real_time": 0.004177165031433105
         },
         "look": {
             "average_total_time": 9679.0,
             "average_individual_journey_time": 75.52347826086957,
             "average_longest_journey_time": 206.0,
-            "average_real_time": 0.004994606971740723
+            "average_real_time": 0.004697608947753906
+        },
+        "my_lift": {
+            "average_total_time": 19472.6,
+            "average_individual_journey_time": 194.39043478260868,
+            "average_longest_journey_time": 2950.0,
+            "average_real_time": 0.010100388526916504
         }
     },
     "470": {
@@ -648,13 +924,19 @@
             "average_total_time": 10886.2,
             "average_individual_journey_time": 75.55787234042552,
             "average_longest_journey_time": 210.0,
-            "average_real_time": 0.004377436637878418
+            "average_real_time": 0.00431513786315918
         },
         "look": {
             "average_total_time": 9946.0,
             "average_individual_journey_time": 75.55787234042552,
             "average_longest_journey_time": 210.0,
-            "average_real_time": 0.005108785629272461
+            "average_real_time": 0.004792714118957519
+        },
+        "my_lift": {
+            "average_total_time": 19066.6,
+            "average_individual_journey_time": 188.01106382978725,
+            "average_longest_journey_time": 2112.8,
+            "average_real_time": 0.00974898338317871
         }
     },
     "480": {
@@ -662,13 +944,19 @@
             "average_total_time": 11266.2,
             "average_individual_journey_time": 76.28416666666666,
             "average_longest_journey_time": 207.8,
-            "average_real_time": 0.0045519590377807615
+            "average_real_time": 0.00466761589050293
         },
         "look": {
             "average_total_time": 10254.8,
             "average_individual_journey_time": 76.28416666666666,
             "average_longest_journey_time": 207.8,
-            "average_real_time": 0.005201649665832519
+            "average_real_time": 0.005016446113586426
+        },
+        "my_lift": {
+            "average_total_time": 19188.0,
+            "average_individual_journey_time": 183.42708333333334,
+            "average_longest_journey_time": 2400.8,
+            "average_real_time": 0.01090860366821289
         }
     },
     "490": {
@@ -676,13 +964,19 @@
             "average_total_time": 11270.8,
             "average_individual_journey_time": 76.08775510204082,
             "average_longest_journey_time": 207.4,
-            "average_real_time": 0.004599881172180176
+            "average_real_time": 0.004625535011291504
         },
         "look": {
             "average_total_time": 10305.2,
             "average_individual_journey_time": 76.08775510204082,
             "average_longest_journey_time": 207.4,
-            "average_real_time": 0.005257034301757812
+            "average_real_time": 0.005372476577758789
+        },
+        "my_lift": {
+            "average_total_time": 19396.6,
+            "average_individual_journey_time": 183.22693877551018,
+            "average_longest_journey_time": 2119.2,
+            "average_real_time": 0.010761785507202148
         }
     },
     "500": {
@@ -690,13 +984,19 @@
             "average_total_time": 12050.0,
             "average_individual_journey_time": 77.098,
             "average_longest_journey_time": 208.4,
-            "average_real_time": 0.005184817314147949
+            "average_real_time": 0.005140161514282227
         },
         "look": {
             "average_total_time": 10808.8,
             "average_individual_journey_time": 77.098,
             "average_longest_journey_time": 208.4,
-            "average_real_time": 0.006087470054626465
+            "average_real_time": 0.00548086166381836
+        },
+        "my_lift": {
+            "average_total_time": 20581.8,
+            "average_individual_journey_time": 189.8272,
+            "average_longest_journey_time": 3279.6,
+            "average_real_time": 0.010623431205749512
         }
     },
     "510": {
@@ -704,13 +1004,19 @@
             "average_total_time": 11682.0,
             "average_individual_journey_time": 76.18039215686274,
             "average_longest_journey_time": 207.8,
-            "average_real_time": 0.005055379867553711
+            "average_real_time": 0.005107903480529785
         },
         "look": {
             "average_total_time": 10737.8,
             "average_individual_journey_time": 76.18039215686274,
             "average_longest_journey_time": 207.8,
-            "average_real_time": 0.005857777595520019
+            "average_real_time": 0.005838704109191894
+        },
+        "my_lift": {
+            "average_total_time": 20351.8,
+            "average_individual_journey_time": 185.0329411764706,
+            "average_longest_journey_time": 2433.2,
+            "average_real_time": 0.011173582077026368
         }
     },
     "520": {
@@ -718,13 +1024,19 @@
             "average_total_time": 12153.6,
             "average_individual_journey_time": 76.6776923076923,
             "average_longest_journey_time": 210.6,
-            "average_real_time": 0.005545902252197266
+            "average_real_time": 0.0055104255676269535
         },
         "look": {
             "average_total_time": 11161.6,
             "average_individual_journey_time": 76.6776923076923,
             "average_longest_journey_time": 210.6,
-            "average_real_time": 0.0060709953308105465
+            "average_real_time": 0.006397747993469238
+        },
+        "my_lift": {
+            "average_total_time": 20560.6,
+            "average_individual_journey_time": 184.16615384615386,
+            "average_longest_journey_time": 2619.8,
+            "average_real_time": 0.011105751991271973
         }
     },
     "530": {
@@ -732,13 +1044,19 @@
             "average_total_time": 12120.4,
             "average_individual_journey_time": 75.26075471698113,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.005271649360656739
+            "average_real_time": 0.005436325073242187
         },
         "look": {
             "average_total_time": 11058.2,
             "average_individual_journey_time": 75.26075471698113,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.006201887130737304
+            "average_real_time": 0.006376433372497559
+        },
+        "my_lift": {
+            "average_total_time": 20786.8,
+            "average_individual_journey_time": 182.14452830188682,
+            "average_longest_journey_time": 2421.4,
+            "average_real_time": 0.011587429046630859
         }
     },
     "540": {
@@ -746,13 +1064,19 @@
             "average_total_time": 12333.4,
             "average_individual_journey_time": 75.72703703703704,
             "average_longest_journey_time": 208.4,
-            "average_real_time": 0.005518436431884766
+            "average_real_time": 0.00557866096496582
         },
         "look": {
             "average_total_time": 11293.0,
             "average_individual_journey_time": 75.72703703703704,
             "average_longest_journey_time": 208.4,
-            "average_real_time": 0.006462240219116211
+            "average_real_time": 0.006622433662414551
+        },
+        "my_lift": {
+            "average_total_time": 21081.6,
+            "average_individual_journey_time": 180.95037037037036,
+            "average_longest_journey_time": 2397.2,
+            "average_real_time": 0.012317395210266114
         }
     },
     "550": {
@@ -760,13 +1084,19 @@
             "average_total_time": 12790.6,
             "average_individual_journey_time": 76.79527272727273,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.005857276916503906
+            "average_real_time": 0.005928802490234375
         },
         "look": {
             "average_total_time": 11722.0,
             "average_individual_journey_time": 76.79527272727273,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.006716609001159668
+            "average_real_time": 0.0066633462905883786
+        },
+        "my_lift": {
+            "average_total_time": 21859.2,
+            "average_individual_journey_time": 184.62399999999997,
+            "average_longest_journey_time": 2319.0,
+            "average_real_time": 0.012548136711120605
         }
     },
     "560": {
@@ -774,13 +1104,19 @@
             "average_total_time": 12808.8,
             "average_individual_journey_time": 76.99714285714285,
             "average_longest_journey_time": 211.2,
-            "average_real_time": 0.006030225753784179
+            "average_real_time": 0.006062197685241699
         },
         "look": {
             "average_total_time": 11868.6,
             "average_individual_journey_time": 76.99714285714285,
             "average_longest_journey_time": 211.2,
-            "average_real_time": 0.006826543807983398
+            "average_real_time": 0.0069943428039550785
+        },
+        "my_lift": {
+            "average_total_time": 21866.8,
+            "average_individual_journey_time": 181.82642857142858,
+            "average_longest_journey_time": 2691.2,
+            "average_real_time": 0.011917877197265624
         }
     },
     "570": {
@@ -788,13 +1124,19 @@
             "average_total_time": 13329.8,
             "average_individual_journey_time": 76.54140350877192,
             "average_longest_journey_time": 208.0,
-            "average_real_time": 0.00653076171875
+            "average_real_time": 0.006411552429199219
         },
         "look": {
             "average_total_time": 12133.4,
             "average_individual_journey_time": 76.54140350877192,
             "average_longest_journey_time": 208.0,
-            "average_real_time": 0.007145524024963379
+            "average_real_time": 0.0069274425506591795
+        },
+        "my_lift": {
+            "average_total_time": 22275.6,
+            "average_individual_journey_time": 181.9743859649123,
+            "average_longest_journey_time": 2259.6,
+            "average_real_time": 0.012515807151794433
         }
     },
     "580": {
@@ -802,13 +1144,19 @@
             "average_total_time": 13565.0,
             "average_individual_journey_time": 76.39689655172414,
             "average_longest_journey_time": 211.6,
-            "average_real_time": 0.0064771175384521484
+            "average_real_time": 0.00633232593536377
         },
         "look": {
             "average_total_time": 12314.2,
             "average_individual_journey_time": 76.39689655172414,
             "average_longest_journey_time": 211.6,
-            "average_real_time": 0.007124400138854981
+            "average_real_time": 0.007366681098937988
+        },
+        "my_lift": {
+            "average_total_time": 22598.0,
+            "average_individual_journey_time": 181.5548275862069,
+            "average_longest_journey_time": 2378.4,
+            "average_real_time": 0.013529133796691895
         }
     },
     "590": {
@@ -816,13 +1164,19 @@
             "average_total_time": 13796.2,
             "average_individual_journey_time": 76.20440677966101,
             "average_longest_journey_time": 207.6,
-            "average_real_time": 0.006621122360229492
+            "average_real_time": 0.006736445426940918
         },
         "look": {
             "average_total_time": 12513.0,
             "average_individual_journey_time": 76.20440677966101,
             "average_longest_journey_time": 207.6,
-            "average_real_time": 0.007668447494506836
+            "average_real_time": 0.007677245140075684
+        },
+        "my_lift": {
+            "average_total_time": 22595.6,
+            "average_individual_journey_time": 178.43355932203391,
+            "average_longest_journey_time": 2427.0,
+            "average_real_time": 0.013037872314453126
         }
     },
     "600": {
@@ -830,13 +1184,19 @@
             "average_total_time": 14067.4,
             "average_individual_journey_time": 76.44200000000001,
             "average_longest_journey_time": 209.0,
-            "average_real_time": 0.006894302368164062
+            "average_real_time": 0.006959223747253418
         },
         "look": {
             "average_total_time": 12763.8,
             "average_individual_journey_time": 76.44200000000001,
             "average_longest_journey_time": 209.0,
-            "average_real_time": 0.007893228530883789
+            "average_real_time": 0.007799339294433594
+        },
+        "my_lift": {
+            "average_total_time": 23312.6,
+            "average_individual_journey_time": 181.27866666666668,
+            "average_longest_journey_time": 2529.2,
+            "average_real_time": 0.01400299072265625
         }
     },
     "610": {
@@ -844,13 +1204,19 @@
             "average_total_time": 13774.4,
             "average_individual_journey_time": 75.58196721311477,
             "average_longest_journey_time": 207.6,
-            "average_real_time": 0.0070873737335205075
+            "average_real_time": 0.006931042671203614
         },
         "look": {
             "average_total_time": 12742.4,
             "average_individual_journey_time": 75.58196721311477,
             "average_longest_journey_time": 207.6,
-            "average_real_time": 0.008217930793762207
+            "average_real_time": 0.008166861534118653
+        },
+        "my_lift": {
+            "average_total_time": 23335.0,
+            "average_individual_journey_time": 179.36786885245903,
+            "average_longest_journey_time": 2390.6,
+            "average_real_time": 0.013492512702941894
         }
     },
     "620": {
@@ -858,13 +1224,19 @@
             "average_total_time": 14039.0,
             "average_individual_journey_time": 75.81225806451613,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.007217979431152344
+            "average_real_time": 0.00718076229095459
         },
         "look": {
             "average_total_time": 12980.8,
             "average_individual_journey_time": 75.81225806451613,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.00815277099609375
+            "average_real_time": 0.008121562004089356
+        },
+        "my_lift": {
+            "average_total_time": 23171.4,
+            "average_individual_journey_time": 174.7758064516129,
+            "average_longest_journey_time": 2331.8,
+            "average_real_time": 0.01312706470489502
         }
     },
     "630": {
@@ -872,13 +1244,19 @@
             "average_total_time": 14180.6,
             "average_individual_journey_time": 74.70126984126983,
             "average_longest_journey_time": 207.2,
-            "average_real_time": 0.007530045509338379
+            "average_real_time": 0.0073626995086669925
         },
         "look": {
             "average_total_time": 13063.8,
             "average_individual_journey_time": 74.70126984126983,
             "average_longest_journey_time": 207.2,
-            "average_real_time": 0.008479666709899903
+            "average_real_time": 0.008606171607971192
+        },
+        "my_lift": {
+            "average_total_time": 24277.8,
+            "average_individual_journey_time": 179.10825396825396,
+            "average_longest_journey_time": 2375.0,
+            "average_real_time": 0.015791773796081543
         }
     },
     "640": {
@@ -886,13 +1264,19 @@
             "average_total_time": 14538.8,
             "average_individual_journey_time": 76.21625,
             "average_longest_journey_time": 209.6,
-            "average_real_time": 0.007999205589294433
+            "average_real_time": 0.007665276527404785
         },
         "look": {
             "average_total_time": 13407.6,
             "average_individual_journey_time": 76.21625,
             "average_longest_journey_time": 209.6,
-            "average_real_time": 0.008789300918579102
+            "average_real_time": 0.00876462459564209
+        },
+        "my_lift": {
+            "average_total_time": 24274.2,
+            "average_individual_journey_time": 178.13500000000002,
+            "average_longest_journey_time": 2476.6,
+            "average_real_time": 0.016143178939819335
         }
     },
     "650": {
@@ -900,13 +1284,19 @@
             "average_total_time": 15141.8,
             "average_individual_journey_time": 76.29476923076922,
             "average_longest_journey_time": 207.6,
-            "average_real_time": 0.008341288566589356
+            "average_real_time": 0.007916831970214843
         },
         "look": {
             "average_total_time": 13729.0,
             "average_individual_journey_time": 76.29476923076922,
             "average_longest_journey_time": 207.6,
-            "average_real_time": 0.00910170078277588
+            "average_real_time": 0.009510660171508789
+        },
+        "my_lift": {
+            "average_total_time": 24857.8,
+            "average_individual_journey_time": 178.68646153846151,
+            "average_longest_journey_time": 2489.0,
+            "average_real_time": 0.015011787414550781
         }
     },
     "660": {
@@ -914,13 +1304,19 @@
             "average_total_time": 15323.6,
             "average_individual_journey_time": 76.48848484848486,
             "average_longest_journey_time": 207.8,
-            "average_real_time": 0.008656191825866699
+            "average_real_time": 0.008258318901062012
         },
         "look": {
             "average_total_time": 13955.0,
             "average_individual_journey_time": 76.48848484848486,
             "average_longest_journey_time": 207.8,
-            "average_real_time": 0.009230399131774902
+            "average_real_time": 0.009830570220947266
+        },
+        "my_lift": {
+            "average_total_time": 24700.4,
+            "average_individual_journey_time": 175.3854545454546,
+            "average_longest_journey_time": 2332.4,
+            "average_real_time": 0.01491842269897461
         }
     },
     "670": {
@@ -928,13 +1324,19 @@
             "average_total_time": 15152.4,
             "average_individual_journey_time": 75.39970149253733,
             "average_longest_journey_time": 210.8,
-            "average_real_time": 0.008849143981933594
+            "average_real_time": 0.008232378959655761
         },
         "look": {
             "average_total_time": 13941.6,
             "average_individual_journey_time": 75.39970149253733,
             "average_longest_journey_time": 210.8,
-            "average_real_time": 0.009081339836120606
+            "average_real_time": 0.009153223037719727
+        },
+        "my_lift": {
+            "average_total_time": 24450.8,
+            "average_individual_journey_time": 171.30537313432836,
+            "average_longest_journey_time": 2174.8,
+            "average_real_time": 0.01498708724975586
         }
     },
     "680": {
@@ -942,13 +1344,19 @@
             "average_total_time": 15318.2,
             "average_individual_journey_time": 75.5144117647059,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.008815407752990723
+            "average_real_time": 0.008436870574951173
         },
         "look": {
             "average_total_time": 14071.6,
             "average_individual_journey_time": 75.5144117647059,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.009482002258300782
+            "average_real_time": 0.009630036354064942
+        },
+        "my_lift": {
+            "average_total_time": 26293.8,
+            "average_individual_journey_time": 180.39000000000001,
+            "average_longest_journey_time": 2672.0,
+            "average_real_time": 0.017682719230651855
         }
     },
     "690": {
@@ -956,13 +1364,19 @@
             "average_total_time": 15673.2,
             "average_individual_journey_time": 76.69884057971015,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.00912315845489502
+            "average_real_time": 0.00870969295501709
         },
         "look": {
             "average_total_time": 14539.2,
             "average_individual_journey_time": 76.69884057971015,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.009752821922302247
+            "average_real_time": 0.010302424430847168
+        },
+        "my_lift": {
+            "average_total_time": 26266.4,
+            "average_individual_journey_time": 178.69797101449274,
+            "average_longest_journey_time": 2946.2,
+            "average_real_time": 0.015651226043701172
         }
     },
     "700": {
@@ -970,13 +1384,19 @@
             "average_total_time": 16275.4,
             "average_individual_journey_time": 75.61714285714287,
             "average_longest_journey_time": 209.2,
-            "average_real_time": 0.009993171691894532
+            "average_real_time": 0.009262657165527344
         },
         "look": {
             "average_total_time": 14744.6,
             "average_individual_journey_time": 75.61714285714287,
             "average_longest_journey_time": 209.2,
-            "average_real_time": 0.010234546661376954
+            "average_real_time": 0.010780835151672363
+        },
+        "my_lift": {
+            "average_total_time": 26492.8,
+            "average_individual_journey_time": 177.16,
+            "average_longest_journey_time": 2984.0,
+            "average_real_time": 0.016317582130432128
         }
     },
     "710": {
@@ -984,13 +1404,19 @@
             "average_total_time": 16357.2,
             "average_individual_journey_time": 76.44985915492956,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.00936577320098877
+            "average_real_time": 0.009169244766235351
         },
         "look": {
             "average_total_time": 14971.2,
             "average_individual_journey_time": 76.44985915492956,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.010712862014770508
+            "average_real_time": 0.010640597343444825
+        },
+        "my_lift": {
+            "average_total_time": 26296.8,
+            "average_individual_journey_time": 174.55577464788732,
+            "average_longest_journey_time": 2691.4,
+            "average_real_time": 0.016623377799987793
         }
     },
     "720": {
@@ -998,13 +1424,19 @@
             "average_total_time": 17008.2,
             "average_individual_journey_time": 76.52944444444444,
             "average_longest_journey_time": 209.8,
-            "average_real_time": 0.00998830795288086
+            "average_real_time": 0.009756898880004883
         },
         "look": {
             "average_total_time": 15338.6,
             "average_individual_journey_time": 76.52944444444444,
             "average_longest_journey_time": 209.8,
-            "average_real_time": 0.010899925231933593
+            "average_real_time": 0.011078214645385743
+        },
+        "my_lift": {
+            "average_total_time": 27845.2,
+            "average_individual_journey_time": 181.17083333333335,
+            "average_longest_journey_time": 2994.8,
+            "average_real_time": 0.017843151092529298
         }
     },
     "730": {
@@ -1012,13 +1444,19 @@
             "average_total_time": 16620.4,
             "average_individual_journey_time": 75.90657534246576,
             "average_longest_journey_time": 209.6,
-            "average_real_time": 0.00985281467437744
+            "average_real_time": 0.0096358060836792
         },
         "look": {
             "average_total_time": 15272.0,
             "average_individual_journey_time": 75.90657534246576,
             "average_longest_journey_time": 209.6,
-            "average_real_time": 0.010857152938842773
+            "average_real_time": 0.010953617095947266
+        },
+        "my_lift": {
+            "average_total_time": 27319.4,
+            "average_individual_journey_time": 175.99972602739726,
+            "average_longest_journey_time": 2477.8,
+            "average_real_time": 0.01804196834564209
         }
     },
     "740": {
@@ -1026,13 +1464,19 @@
             "average_total_time": 16773.0,
             "average_individual_journey_time": 75.63162162162163,
             "average_longest_journey_time": 208.2,
-            "average_real_time": 0.010329866409301757
+            "average_real_time": 0.010113072395324708
         },
         "look": {
             "average_total_time": 15517.6,
             "average_individual_journey_time": 75.63162162162163,
             "average_longest_journey_time": 208.2,
-            "average_real_time": 0.011153554916381836
+            "average_real_time": 0.011404919624328613
+        },
+        "my_lift": {
+            "average_total_time": 28009.4,
+            "average_individual_journey_time": 177.89405405405404,
+            "average_longest_journey_time": 2177.4,
+            "average_real_time": 0.01883995532989502
         }
     },
     "750": {
@@ -1040,13 +1484,19 @@
             "average_total_time": 17749.6,
             "average_individual_journey_time": 76.72560000000001,
             "average_longest_journey_time": 210.2,
-            "average_real_time": 0.010578441619873046
+            "average_real_time": 0.010300421714782714
         },
         "look": {
             "average_total_time": 16003.0,
             "average_individual_journey_time": 76.72560000000001,
             "average_longest_journey_time": 210.2,
-            "average_real_time": 0.011523151397705078
+            "average_real_time": 0.012093067169189453
+        },
+        "my_lift": {
+            "average_total_time": 28726.2,
+            "average_individual_journey_time": 179.75973333333334,
+            "average_longest_journey_time": 2777.2,
+            "average_real_time": 0.020030736923217773
         }
     },
     "760": {
@@ -1054,13 +1504,19 @@
             "average_total_time": 17531.6,
             "average_individual_journey_time": 76.04947368421054,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.010824275016784669
+            "average_real_time": 0.010701680183410644
         },
         "look": {
             "average_total_time": 15922.4,
             "average_individual_journey_time": 76.04947368421054,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.011870694160461426
+            "average_real_time": 0.012326812744140625
+        },
+        "my_lift": {
+            "average_total_time": 28266.0,
+            "average_individual_journey_time": 174.75500000000002,
+            "average_longest_journey_time": 2384.2,
+            "average_real_time": 0.018752002716064455
         }
     },
     "770": {
@@ -1068,13 +1524,19 @@
             "average_total_time": 17447.2,
             "average_individual_journey_time": 75.61558441558441,
             "average_longest_journey_time": 210.4,
-            "average_real_time": 0.010874390602111816
+            "average_real_time": 0.010586690902709962
         },
         "look": {
             "average_total_time": 15987.0,
             "average_individual_journey_time": 75.61558441558441,
             "average_longest_journey_time": 210.4,
-            "average_real_time": 0.011868977546691894
+            "average_real_time": 0.012234973907470702
+        },
+        "my_lift": {
+            "average_total_time": 28540.6,
+            "average_individual_journey_time": 174.39974025974027,
+            "average_longest_journey_time": 3014.6,
+            "average_real_time": 0.018804454803466798
         }
     },
     "780": {
@@ -1082,13 +1544,19 @@
             "average_total_time": 17962.8,
             "average_individual_journey_time": 76.28948717948717,
             "average_longest_journey_time": 209.8,
-            "average_real_time": 0.011240434646606446
+            "average_real_time": 0.011023449897766113
         },
         "look": {
             "average_total_time": 16367.0,
             "average_individual_journey_time": 76.28948717948717,
             "average_longest_journey_time": 209.8,
-            "average_real_time": 0.012345504760742188
+            "average_real_time": 0.012951135635375977
+        },
+        "my_lift": {
+            "average_total_time": 28955.8,
+            "average_individual_journey_time": 174.87897435897435,
+            "average_longest_journey_time": 2590.8,
+            "average_real_time": 0.018529820442199706
         }
     },
     "790": {
@@ -1096,13 +1564,19 @@
             "average_total_time": 17722.8,
             "average_individual_journey_time": 75.79189873417721,
             "average_longest_journey_time": 210.0,
-            "average_real_time": 0.011333894729614259
+            "average_real_time": 0.01133103370666504
         },
         "look": {
             "average_total_time": 16386.4,
             "average_individual_journey_time": 75.79189873417721,
             "average_longest_journey_time": 210.0,
-            "average_real_time": 0.012560343742370606
+            "average_real_time": 0.013223814964294433
+        },
+        "my_lift": {
+            "average_total_time": 28718.8,
+            "average_individual_journey_time": 172.1670886075949,
+            "average_longest_journey_time": 2779.2,
+            "average_real_time": 0.019987845420837404
         }
     },
     "800": {
@@ -1110,13 +1584,19 @@
             "average_total_time": 18321.6,
             "average_individual_journey_time": 75.98299999999999,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.011466336250305176
+            "average_real_time": 0.0115342378616333
         },
         "look": {
             "average_total_time": 16741.6,
             "average_individual_journey_time": 75.98299999999999,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.012701916694641113
+            "average_real_time": 0.013071346282958984
+        },
+        "my_lift": {
+            "average_total_time": 29502.0,
+            "average_individual_journey_time": 173.79924999999997,
+            "average_longest_journey_time": 2497.8,
+            "average_real_time": 0.019765686988830567
         }
     },
     "810": {
@@ -1124,13 +1604,19 @@
             "average_total_time": 18818.0,
             "average_individual_journey_time": 76.62296296296297,
             "average_longest_journey_time": 207.8,
-            "average_real_time": 0.012549448013305663
+            "average_real_time": 0.011992621421813964
         },
         "look": {
             "average_total_time": 17188.6,
             "average_individual_journey_time": 76.62296296296297,
             "average_longest_journey_time": 207.8,
-            "average_real_time": 0.01361708641052246
+            "average_real_time": 0.013644599914550781
+        },
+        "my_lift": {
+            "average_total_time": 30067.8,
+            "average_individual_journey_time": 175.07555555555552,
+            "average_longest_journey_time": 2797.4,
+            "average_real_time": 0.019904541969299316
         }
     },
     "820": {
@@ -1138,13 +1624,19 @@
             "average_total_time": 18876.0,
             "average_individual_journey_time": 76.57878048780488,
             "average_longest_journey_time": 210.2,
-            "average_real_time": 0.01252284049987793
+            "average_real_time": 0.012215805053710938
         },
         "look": {
             "average_total_time": 17274.0,
             "average_individual_journey_time": 76.57878048780488,
             "average_longest_journey_time": 210.2,
-            "average_real_time": 0.013858509063720704
+            "average_real_time": 0.014417695999145507
+        },
+        "my_lift": {
+            "average_total_time": 29905.8,
+            "average_individual_journey_time": 172.33756097560973,
+            "average_longest_journey_time": 2609.8,
+            "average_real_time": 0.01950366497039795
         }
     },
     "830": {
@@ -1152,13 +1644,19 @@
             "average_total_time": 19000.6,
             "average_individual_journey_time": 76.6187951807229,
             "average_longest_journey_time": 211.0,
-            "average_real_time": 0.012335634231567383
+            "average_real_time": 0.01229853630065918
         },
         "look": {
             "average_total_time": 17360.4,
             "average_individual_journey_time": 76.6187951807229,
             "average_longest_journey_time": 211.0,
-            "average_real_time": 0.013771462440490722
+            "average_real_time": 0.013534736633300782
+        },
+        "my_lift": {
+            "average_total_time": 30003.6,
+            "average_individual_journey_time": 170.5402409638554,
+            "average_longest_journey_time": 2779.4,
+            "average_real_time": 0.0203751802444458
         }
     },
     "840": {
@@ -1166,13 +1664,19 @@
             "average_total_time": 19440.6,
             "average_individual_journey_time": 76.71857142857144,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.01303269863128662
+            "average_real_time": 0.012874102592468262
         },
         "look": {
             "average_total_time": 17824.4,
             "average_individual_journey_time": 76.71857142857144,
             "average_longest_journey_time": 208.8,
-            "average_real_time": 0.014153695106506348
+            "average_real_time": 0.014194679260253907
+        },
+        "my_lift": {
+            "average_total_time": 31231.8,
+            "average_individual_journey_time": 175.23547619047616,
+            "average_longest_journey_time": 2983.0,
+            "average_real_time": 0.020871853828430174
         }
     },
     "850": {
@@ -1180,13 +1684,19 @@
             "average_total_time": 19494.4,
             "average_individual_journey_time": 75.85835294117646,
             "average_longest_journey_time": 208.2,
-            "average_real_time": 0.013533997535705566
+            "average_real_time": 0.013225603103637695
         },
         "look": {
             "average_total_time": 17791.6,
             "average_individual_journey_time": 75.85835294117646,
             "average_longest_journey_time": 208.2,
-            "average_real_time": 0.014389133453369141
+            "average_real_time": 0.014368391036987305
+        },
+        "my_lift": {
+            "average_total_time": 31350.8,
+            "average_individual_journey_time": 174.488,
+            "average_longest_journey_time": 2371.6,
+            "average_real_time": 0.022641873359680174
         }
     },
     "860": {
@@ -1194,13 +1704,19 @@
             "average_total_time": 19545.2,
             "average_individual_journey_time": 76.27744186046512,
             "average_longest_journey_time": 209.2,
-            "average_real_time": 0.013482022285461425
+            "average_real_time": 0.013371634483337402
         },
         "look": {
             "average_total_time": 17996.0,
             "average_individual_journey_time": 76.27744186046512,
             "average_longest_journey_time": 209.2,
-            "average_real_time": 0.014830803871154786
+            "average_real_time": 0.014855241775512696
+        },
+        "my_lift": {
+            "average_total_time": 31197.8,
+            "average_individual_journey_time": 171.0158139534884,
+            "average_longest_journey_time": 2571.4,
+            "average_real_time": 0.021581268310546874
         }
     },
     "870": {
@@ -1208,13 +1724,19 @@
             "average_total_time": 20034.0,
             "average_individual_journey_time": 76.35448275862068,
             "average_longest_journey_time": 212.0,
-            "average_real_time": 0.014083623886108398
+            "average_real_time": 0.013796663284301758
         },
         "look": {
             "average_total_time": 18251.6,
             "average_individual_journey_time": 76.35448275862068,
             "average_longest_journey_time": 212.0,
-            "average_real_time": 0.015440607070922851
+            "average_real_time": 0.015136122703552246
+        },
+        "my_lift": {
+            "average_total_time": 33270.6,
+            "average_individual_journey_time": 181.0103448275862,
+            "average_longest_journey_time": 3040.8,
+            "average_real_time": 0.024007248878479003
         }
     },
     "880": {
@@ -1222,13 +1744,19 @@
             "average_total_time": 20024.8,
             "average_individual_journey_time": 76.4765909090909,
             "average_longest_journey_time": 207.0,
-            "average_real_time": 0.014192461967468262
+            "average_real_time": 0.014088773727416992
         },
         "look": {
             "average_total_time": 18316.2,
             "average_individual_journey_time": 76.4765909090909,
             "average_longest_journey_time": 207.0,
-            "average_real_time": 0.015439152717590332
+            "average_real_time": 0.015328598022460938
+        },
+        "my_lift": {
+            "average_total_time": 32011.0,
+            "average_individual_journey_time": 172.05659090909091,
+            "average_longest_journey_time": 2470.8,
+            "average_real_time": 0.022911882400512694
         }
     },
     "890": {
@@ -1236,13 +1764,19 @@
             "average_total_time": 20149.2,
             "average_individual_journey_time": 75.88629213483145,
             "average_longest_journey_time": 211.2,
-            "average_real_time": 0.014029526710510254
+            "average_real_time": 0.014008760452270508
         },
         "look": {
             "average_total_time": 18479.2,
             "average_individual_journey_time": 75.88629213483145,
             "average_longest_journey_time": 211.2,
-            "average_real_time": 0.015819835662841796
+            "average_real_time": 0.015516185760498047
+        },
+        "my_lift": {
+            "average_total_time": 32553.0,
+            "average_individual_journey_time": 172.43348314606743,
+            "average_longest_journey_time": 2062.8,
+            "average_real_time": 0.02423257827758789
         }
     },
     "900": {
@@ -1250,13 +1784,19 @@
             "average_total_time": 20459.4,
             "average_individual_journey_time": 76.40955555555556,
             "average_longest_journey_time": 209.0,
-            "average_real_time": 0.014765572547912598
+            "average_real_time": 0.014398288726806641
         },
         "look": {
             "average_total_time": 18816.0,
             "average_individual_journey_time": 76.40955555555556,
             "average_longest_journey_time": 209.0,
-            "average_real_time": 0.016606998443603516
+            "average_real_time": 0.01590251922607422
+        },
+        "my_lift": {
+            "average_total_time": 32351.0,
+            "average_individual_journey_time": 170.06,
+            "average_longest_journey_time": 2735.4,
+            "average_real_time": 0.02247302532196045
         }
     },
     "910": {
@@ -1264,13 +1804,19 @@
             "average_total_time": 20710.6,
             "average_individual_journey_time": 76.21098901098902,
             "average_longest_journey_time": 210.2,
-            "average_real_time": 0.015070056915283203
+            "average_real_time": 0.01475217342376709
         },
         "look": {
             "average_total_time": 18916.2,
             "average_individual_journey_time": 76.21098901098902,
             "average_longest_journey_time": 210.2,
-            "average_real_time": 0.01652543544769287
+            "average_real_time": 0.016377711296081544
+        },
+        "my_lift": {
+            "average_total_time": 33445.0,
+            "average_individual_journey_time": 174.44571428571427,
+            "average_longest_journey_time": 3776.2,
+            "average_real_time": 0.02331833839416504
         }
     },
     "920": {
@@ -1278,13 +1824,19 @@
             "average_total_time": 20809.4,
             "average_individual_journey_time": 76.59913043478261,
             "average_longest_journey_time": 210.0,
-            "average_real_time": 0.015242862701416015
+            "average_real_time": 0.01520087718963623
         },
         "look": {
             "average_total_time": 19303.8,
             "average_individual_journey_time": 76.59913043478261,
             "average_longest_journey_time": 210.0,
-            "average_real_time": 0.01681380271911621
+            "average_real_time": 0.016993021965026854
+        },
+        "my_lift": {
+            "average_total_time": 33693.2,
+            "average_individual_journey_time": 173.6658695652174,
+            "average_longest_journey_time": 3233.0,
+            "average_real_time": 0.024307751655578615
         }
     },
     "930": {
@@ -1292,13 +1844,19 @@
             "average_total_time": 21192.4,
             "average_individual_journey_time": 76.28,
             "average_longest_journey_time": 210.4,
-            "average_real_time": 0.015513086318969726
+            "average_real_time": 0.015428519248962403
         },
         "look": {
             "average_total_time": 19362.4,
             "average_individual_journey_time": 76.28,
             "average_longest_journey_time": 210.4,
-            "average_real_time": 0.0171994686126709
+            "average_real_time": 0.017185688018798828
+        },
+        "my_lift": {
+            "average_total_time": 34548.4,
+            "average_individual_journey_time": 175.21182795698928,
+            "average_longest_journey_time": 2741.0,
+            "average_real_time": 0.026201868057250978
         }
     },
     "940": {
@@ -1306,13 +1864,19 @@
             "average_total_time": 21574.6,
             "average_individual_journey_time": 76.37021276595745,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.015873646736145018
+            "average_real_time": 0.015776515007019043
         },
         "look": {
             "average_total_time": 19688.8,
             "average_individual_journey_time": 76.37021276595745,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.01754751205444336
+            "average_real_time": 0.017475652694702148
+        },
+        "my_lift": {
+            "average_total_time": 34384.4,
+            "average_individual_journey_time": 172.80702127659575,
+            "average_longest_journey_time": 2731.2,
+            "average_real_time": 0.025705838203430177
         }
     },
     "950": {
@@ -1320,13 +1884,19 @@
             "average_total_time": 21532.4,
             "average_individual_journey_time": 76.01073684210526,
             "average_longest_journey_time": 210.6,
-            "average_real_time": 0.01618475914001465
+            "average_real_time": 0.015791654586791992
         },
         "look": {
             "average_total_time": 19859.8,
             "average_individual_journey_time": 76.01073684210526,
             "average_longest_journey_time": 210.6,
-            "average_real_time": 0.018040776252746582
+            "average_real_time": 0.01786229610443115
+        },
+        "my_lift": {
+            "average_total_time": 35461.4,
+            "average_individual_journey_time": 176.17431578947367,
+            "average_longest_journey_time": 2991.0,
+            "average_real_time": 0.02845466136932373
         }
     },
     "960": {
@@ -1334,13 +1904,19 @@
             "average_total_time": 21568.8,
             "average_individual_journey_time": 75.85020833333333,
             "average_longest_journey_time": 209.8,
-            "average_real_time": 0.016479063034057616
+            "average_real_time": 0.0161635160446167
         },
         "look": {
             "average_total_time": 19863.2,
             "average_individual_journey_time": 75.85020833333333,
             "average_longest_journey_time": 209.8,
-            "average_real_time": 0.0181657075881958
+            "average_real_time": 0.017811083793640138
+        },
+        "my_lift": {
+            "average_total_time": 34218.2,
+            "average_individual_journey_time": 168.98520833333333,
+            "average_longest_journey_time": 2687.0,
+            "average_real_time": 0.02592322826385498
         }
     },
     "970": {
@@ -1348,13 +1924,19 @@
             "average_total_time": 21915.2,
             "average_individual_journey_time": 76.04865979381444,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.017072296142578124
+            "average_real_time": 0.0168057918548584
         },
         "look": {
             "average_total_time": 20284.0,
             "average_individual_journey_time": 76.04865979381444,
             "average_longest_journey_time": 209.4,
-            "average_real_time": 0.01894071102142334
+            "average_real_time": 0.018604564666748046
+        },
+        "my_lift": {
+            "average_total_time": 34374.8,
+            "average_individual_journey_time": 168.7663917525773,
+            "average_longest_journey_time": 2541.8,
+            "average_real_time": 0.026475405693054198
         }
     },
     "980": {
@@ -1362,13 +1944,19 @@
             "average_total_time": 22279.8,
             "average_individual_journey_time": 76.2234693877551,
             "average_longest_journey_time": 208.4,
-            "average_real_time": 0.018044447898864745
+            "average_real_time": 0.017322659492492676
         },
         "look": {
             "average_total_time": 20533.6,
             "average_individual_journey_time": 76.2234693877551,
             "average_longest_journey_time": 208.4,
-            "average_real_time": 0.019334077835083008
+            "average_real_time": 0.019179916381835936
+        },
+        "my_lift": {
+            "average_total_time": 35032.4,
+            "average_individual_journey_time": 169.35204081632654,
+            "average_longest_journey_time": 2192.0,
+            "average_real_time": 0.028034234046936037
         }
     },
     "990": {
@@ -1376,13 +1964,19 @@
             "average_total_time": 22842.0,
             "average_individual_journey_time": 77.1137373737374,
             "average_longest_journey_time": 210.4,
-            "average_real_time": 0.01794307231903076
+            "average_real_time": 0.017670822143554688
         },
         "look": {
             "average_total_time": 21017.6,
             "average_individual_journey_time": 77.1137373737374,
             "average_longest_journey_time": 210.4,
-            "average_real_time": 0.019673848152160646
+            "average_real_time": 0.01943073272705078
+        },
+        "my_lift": {
+            "average_total_time": 36303.2,
+            "average_individual_journey_time": 173.98666666666665,
+            "average_longest_journey_time": 2696.2,
+            "average_real_time": 0.029679131507873536
         }
     },
     "1000": {
@@ -1390,13 +1984,19 @@
             "average_total_time": 22557.6,
             "average_individual_journey_time": 75.83579999999999,
             "average_longest_journey_time": 209.0,
-            "average_real_time": 0.01780071258544922
+            "average_real_time": 0.01746799945831299
         },
         "look": {
             "average_total_time": 20665.2,
             "average_individual_journey_time": 75.83579999999999,
             "average_longest_journey_time": 209.0,
-            "average_real_time": 0.019498014450073244
+            "average_real_time": 0.0191556453704834
+        },
+        "my_lift": {
+            "average_total_time": 35609.4,
+            "average_individual_journey_time": 168.76459999999997,
+            "average_longest_journey_time": 2648.8,
+            "average_real_time": 0.026949691772460937
         }
     }
 }

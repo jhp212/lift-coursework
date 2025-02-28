@@ -274,7 +274,9 @@ class Lift:
 
         for passenger in all_passengers:
             cost = abs(passenger.start_floor - self.floor)   # Base cost = Distance to pick-up
-                 
+            
+            cost += abs(passenger.end_floor - passenger.start_floor)   # Distance to drop-off
+
             cost += (iteration_count - start) * waiting_penalty  # Increase priority for people waiting longer
                 
             cost += floor_wait_counts[passenger.start_floor] * group_bonus  # Reduce cost if multiple people are at the same floor
@@ -311,24 +313,6 @@ class Lift:
             arr[i], arr[largest] = arr[largest], arr[i]  # Swap
             self.heapify(arr, n, largest)  # Heapify the affected subtree
 
-    def heapify2(self, arr: list, n: int, i: int) -> None:
-        while True:
-            largest = i
-            left = 2 * i + 1
-            right = 2 * i + 2
-
-            if left < n and arr[left][1] > arr[largest][1]:
-                largest = left
-
-            if right < n and arr[right][1] > arr[largest][1]:
-                largest = right
-
-            if largest == i:
-                break
-
-            arr[i], arr[largest] = arr[largest], arr[i]
-            i = largest  # Continue heapifying down
-
     def heap_sort(self,arr:list) -> list:
         """Sorts the list using heap-sort, which is an O(nlog|n|) sorting algorithm, 
         which is the most efficient time-complexity of a comparison based 
@@ -346,12 +330,12 @@ class Lift:
         
         # Build a max heap (rearrange the array)
         for i in range(n // 2 - 1, -1, -1):
-            self.heapify2(arr, n, i)
+            self.heapify(arr, n, i)
 
         # Extract elements one by one
         for i in range(n - 1, 0, -1):
             arr[i], arr[0] = arr[0], arr[i]  # Swap the root with the last element
-            self.heapify2(arr, i, 0)  # Heapify the reduced heap    
+            self.heapify(arr, i, 0)  # Heapify the reduced heap    
 
         return arr
 
