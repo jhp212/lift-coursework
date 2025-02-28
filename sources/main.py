@@ -47,12 +47,14 @@ class Lift:
         for passenger in passenger_list:
             if passenger.end_floor == self.floor:
                 # print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
-                passenger.boarded = False
-                self.current_capacity -= 1
-                terminated_passengers.append(passenger)
-                self.occupants.remove(passenger)
-                passenger_moved = True
-                passenger.end_time = iteration_count
+                if passenger in self.occupants: # occupant has to be in passengers before it is removed
+                    passenger.boarded = False
+                    self.current_capacity -= 1
+                    terminated_passengers.append(passenger)
+                    
+                    self.occupants.remove(passenger)
+                    passenger_moved = True
+                    passenger.end_time = iteration_count
         for passenger in terminated_passengers:
             if passenger in passenger_list:
                 passenger_list.remove(passenger)
@@ -242,16 +244,27 @@ class Lift:
             list[Passenger]: This is the "sorted" list of all passengers, with the "cheapest" passenger first.
         """
         queue = [[] for passenger in passenger_list] # 2D array [[passenger, cost],...]
-        for i in range(len(passenger_list)):
-            if self.floor > passenger_list[i].start_floor:
-                cost = (passenger_list[i].start_floor - self.floor) + (passenger_list[i].end_floor - passenger_list[i].start_floor) #as we are going down then up, we need to consider the extra distance
-            else:
-                cost = passenger_list[i].end_floor - self.floor # target - current
-            if passenger_list[i] in self.occupants:
-                cost -= self.max_floor
-            
-            queue[i] = [passenger_list[i],cost]
         
+        i=0
+        waiting_penalty = 0.1  # Adjust to prioritize older requests
+        group_bonus = -2  # Bonus for multiple people at the same pickup floor
+            
+        floor_wait_counts = {}  # Count how many people are waiting at each floo
+        for passenger in passenger_list:
+            if passenger.start_floor in floor_wait_counts:
+                floor_wait_counts[passenger.start_floor] += 1
+            else:
+                floor_wait_counts[passenger.start_floor] = 1
+
+        for passenger in passenger_list:
+            cost = abs(passenger.start_floor - self.floor)   # Base cost = Distance to pick-up
+                 
+            cost += (iteration_count - iteration_count) * waiting_penalty  # Increase priority for people waiting longer
+                
+            cost += floor_wait_counts[passenger.start_floor] * group_bonus  # Reduce cost if multiple people are at the same floor
+            queue[i] = [passenger_list[i],cost]
+            i +=1
+
         prioritisedQueue = self.heap_sort(queue)
         
         return prioritisedQueue
