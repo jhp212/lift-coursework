@@ -44,33 +44,33 @@ class Lift:
         passenger_moved = False
 
         # let off passengers
-        for passenger in passenger_list:
+        for passenger in self.occupants[:]:
             if passenger.end_floor == self.floor:
                 # print(f'Passenger {passenger.passenger_id} has left on floor {self.floor}!')
-                if passenger in self.occupants: # occupant has to be in passengers before it is removed
-                    passenger.boarded = False
-                    self.current_capacity -= 1
-                    terminated_passengers.append(passenger)
-                    
-                    self.occupants.remove(passenger)
-                    passenger_moved = True
-                    passenger.end_time = iteration_count
-        for passenger in terminated_passengers:
-            if passenger in passenger_list:
-                passenger_list.remove(passenger)
-        sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=lambda x: x.passenger_id)
+                self.current_capacity -= 1
+                terminated_passengers.append(passenger)
+                self.occupants.remove(passenger)
+                passenger.boarded = False
+                passenger_moved = True
+                passenger.end_time = iteration_count
+
+        # for passenger in terminated_passengers:
+        #     if passenger in passenger_list:
+        #         passenger_list.remove(passenger)
+        # sorted_passenger_list: list[Passenger] = sorted(passenger_list, key=lambda x: x.passenger_id)
 
         # let on passengers
-        for passenger in sorted_passenger_list:
+        for passenger in passenger_list[:]:
             if self.current_capacity == self.capacity:
                 break
             if passenger.start_floor == self.floor and passenger.boarded == False:
-                # print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}!')
+                # print(f'Passenger {passenger.passenger_id} has boarded on floor {self.floor}, goint to floor {passenger.end_floor}!')
                 passenger.boarded = True
+                passenger.pickup_time = iteration_count - start
                 self.current_capacity += 1
                 self.occupants.append(passenger)
+                passenger_list.remove(passenger)
                 passenger_moved = True
-                passenger.pickup_time = iteration_count- start
 
         # add time if a passenger has moved on or off of the lift
         if passenger_moved == True:
@@ -202,19 +202,32 @@ class Lift:
         """
         global passenger_list, iteration_count, floor_time # This is *all* the passengers, not just the one in the lift.
             
-        while passenger_list:
-            queue = self.calculate_priority(passenger_list)  
-            currentPassenger = queue[0][0]
-            while self.floor != currentPassenger.start_floor:
-                direction = self.findDirection(currentPassenger.start_floor)
+        while passenger_list or self.occupants:
+            queue = self.calculate_priority(passenger_list)
+            if not queue or self.current_capacity == self.capacity:
+                # print("Floor: " + str(self.floor))
+                self.open_doors()
+                if self.floor == self.min_floor:
+                    direction = 1 # changes direction to up if on bottom floor
+                elif self.floor == self.max_floor:
+                    direction = -1 # changes direction to down if on top floor
                 self.floor += direction
                 iteration_count += floor_time
-            self.open_doors()
-            while self.floor != currentPassenger.end_floor:
-                direction = self.findDirection(currentPassenger.end_floor)
-                self.floor += direction
-                iteration_count += floor_time
-            self.open_doors()
+            else:
+                currentPassenger = queue[0][0]
+                while self.floor != currentPassenger.start_floor:
+                    direction = self.findDirection(currentPassenger.start_floor)
+                    self.floor += direction
+                    # print("Floor: " + str(self.floor))
+                    iteration_count += floor_time
+                self.open_doors()
+                while self.floor != currentPassenger.end_floor:
+                    direction = self.findDirection(currentPassenger.end_floor)
+                    self.floor += direction
+                    # print("Floor: " + str(self.floor))
+                    iteration_count += floor_time
+                self.open_doors()
+            
             
     def findDirection(self, target_floor: int):
         """Finds the direction the lift needs to travel to reach a target floor.
@@ -243,28 +256,30 @@ class Lift:
         Returns:
             list[Passenger]: This is the "sorted" list of all passengers, with the "cheapest" passenger first.
         """
-        queue = [[] for passenger in passenger_list] # 2D array [[passenger, cost],...]
+        
+        all_passengers = passenger_list + self.occupants
+        queue = [[] for passenger in all_passengers] # 2D array [[passenger, cost],...]
         
         i=0
         waiting_penalty = 0.1  # Adjust to prioritize older requests
         group_bonus = -2  # Bonus for multiple people at the same pickup floor
             
-        floor_wait_counts = {}  # Count how many people are waiting at each floo
-        for passenger in passenger_list:
+        floor_wait_counts = {}  # Count how many people are waiting at each floor
+        for passenger in all_passengers:
             if passenger.start_floor in floor_wait_counts:
                 floor_wait_counts[passenger.start_floor] += 1
             else:
                 floor_wait_counts[passenger.start_floor] = 1
 
-        for passenger in passenger_list:
+        for passenger in all_passengers:
             cost = abs(passenger.start_floor - self.floor)   # Base cost = Distance to pick-up
                  
-            cost += (iteration_count - iteration_count) * waiting_penalty  # Increase priority for people waiting longer
+            cost += (iteration_count - start) * waiting_penalty  # Increase priority for people waiting longer
                 
             cost += floor_wait_counts[passenger.start_floor] * group_bonus  # Reduce cost if multiple people are at the same floor
-            queue[i] = [passenger_list[i],cost]
+            queue[i] = [all_passengers[i],cost]
             i +=1
-
+        
         prioritisedQueue = self.heap_sort(queue)
         
         return prioritisedQueue
@@ -369,7 +384,7 @@ def run_range_of_tests(param_values, file_pattern, param_name):
         param_name (str): The name of the parameter that is changing
     """
     
-    algorithms = ["scan", "look"]
+    algorithms = ["scan", "look", "my_lift"]
     results = {algo: [[], [], [], []] for algo in algorithms}
 
     # Check if data.json exists, and load existing data
