@@ -9,7 +9,7 @@ while True:
     capacity = int(input("How many people will the lift carry?\n>>> "))
     match test_type:
         case "random":
-            if input("Do you want specific waiting (y/n)\n>>> ").lower() == "y":
+            if input("Do you want specific weighting (y/n)\n>>> ").lower() == "y":
                 start_floor_strength: list[int] = []
                 end_floor_strength: list[int] = []
                 for floor in range(floor_count):
