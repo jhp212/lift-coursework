@@ -201,9 +201,9 @@ class Lift:
         """Runs the "My lift" algorithm, which is a custom-made algorithm which utilises a sorting algorithm to attempt to do minimum moves in a greedy approach.
         """
         global passenger_list, iteration_count, floor_time # This is *all* the passengers, not just the one in the lift.
-            
+        
+        queue = self.calculate_priority(passenger_list)
         while passenger_list or self.occupants:
-            queue = self.calculate_priority(passenger_list)
             if not queue or self.current_capacity == self.capacity:
                 # print("Floor: " + str(self.floor))
                 self.open_doors()
@@ -227,6 +227,7 @@ class Lift:
                     # print("Floor: " + str(self.floor))
                     iteration_count += floor_time
                 self.open_doors()
+                queue = self.calculate_priority(passenger_list)
             
             
     def findDirection(self, target_floor: int):
@@ -310,6 +311,23 @@ class Lift:
             arr[i], arr[largest] = arr[largest], arr[i]  # Swap
             self.heapify(arr, n, largest)  # Heapify the affected subtree
 
+    def heapify2(self, arr: list, n: int, i: int) -> None:
+        while True:
+            largest = i
+            left = 2 * i + 1
+            right = 2 * i + 2
+
+            if left < n and arr[left][1] > arr[largest][1]:
+                largest = left
+
+            if right < n and arr[right][1] > arr[largest][1]:
+                largest = right
+
+            if largest == i:
+                break
+
+            arr[i], arr[largest] = arr[largest], arr[i]
+            i = largest  # Continue heapifying down
 
     def heap_sort(self,arr:list) -> list:
         """Sorts the list using heap-sort, which is an O(nlog|n|) sorting algorithm, 
@@ -323,15 +341,17 @@ class Lift:
             list: The sorted array 
         """
         n = len(arr)
-
+        if n <= 1:
+            return arr
+        
         # Build a max heap (rearrange the array)
         for i in range(n // 2 - 1, -1, -1):
-            self.heapify(arr, n, i)
+            self.heapify2(arr, n, i)
 
         # Extract elements one by one
         for i in range(n - 1, 0, -1):
             arr[i], arr[0] = arr[0], arr[i]  # Swap the root with the last element
-            self.heapify(arr, i, 0)  # Heapify the reduced heap    
+            self.heapify2(arr, i, 0)  # Heapify the reduced heap    
 
         return arr
 
