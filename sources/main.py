@@ -220,13 +220,13 @@ class Lift:
                     self.floor += direction
                     # print("Floor: " + str(self.floor))
                     iteration_count += floor_time
-                self.open_doors()
+                    self.open_doors()
                 while self.floor != currentPassenger.end_floor:
                     direction = self.findDirection(currentPassenger.end_floor)
                     self.floor += direction
                     # print("Floor: " + str(self.floor))
                     iteration_count += floor_time
-                self.open_doors()
+                    self.open_doors()
                 queue = self.calculate_priority(passenger_list)
             
             
